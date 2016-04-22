@@ -1,0 +1,354 @@
+/*
+* Theme Name: HackerYou Starter Theme
+* Theme URI: http://hackeryou.com;
+* Description: Starter theme for building any website. Created by HackerYou. * Rename this to your own theme page.
+* Version: 1.0
+* Author: HackerYou
+* Author URI: http://hackeryou.com
+*/
+
+@import 'normalize';
+@import 'typography';
+@import 'navigation';
+@import 'sidebar';
+@import 'comments';
+@import 'footer';
+@import 'animations';
+/*
+====================================
+Default Styling
+====================================
+*/
+$font: helvetica, arial, sans-serif;
+$black: rgba(30,30,30,1);
+
+html{
+	font-family: $font;
+	font-size: 62.5%;
+}
+
+img {
+	max-width: 100%;
+}
+
+body {
+	color: #333;	
+}
+
+.container {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.content {
+	float: left;
+	width: 65%;
+	margin-right: 5%;
+}
+
+.full {
+	width: 100%;
+}
+////////////////////////////
+////CUSTOM STYLES
+///////////////////////////
+header{
+	background: $black;
+	margin: 0;
+	padding: 10px 0;
+	text-align: left;
+	position: fixed;
+	top:-80px;
+	z-index: 1000;
+	width: 100%;
+	transition: top .5s ease;
+	.navContainer{
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		.navName{
+			float: left;
+			width: 70%;
+			h1{
+				font-size: 1.8rem;
+				font-weight: 400;
+				color: white;
+				// width: 1200px;
+				.navIcons{
+					width: 100%;
+					height: 40px;
+					.nameIcon{
+						float: left;
+						width: 125px;
+						height: 40px;
+					}
+					.designIcon{
+						float: left;
+						width: 49px;
+						height: 40px;
+					    margin-left: 20px;
+					}
+					.animationIcon{
+						float: left;
+						width: 86px;
+						height: 40px;
+					    margin-left: 20px;
+					}
+					.developerIcon{
+						float: left;
+						width: 60px;
+						height: 40px;
+					    margin-left: 20px;
+					}
+				}
+			}
+		}
+		.social{
+			float: left;
+			width: 30%;
+			padding-top: 10px;
+			.social_btns{
+				float: right;
+			    text-align: right;
+			    max-width: 220px;
+			    font-size: 4rem;
+			    margin-left: 15px;
+
+			    transition: color .5s ease;
+			    a{
+				    color: white
+			    	
+			    }
+			}
+			.linkedIn{
+				transition: color .5s ease;
+				 a:hover{
+					color: darkgrey;
+					transition: color .5s ease;
+				}
+			}
+			.twitter{
+				transition: color .5s ease;
+				 a:hover{
+					color: #0084b4;
+					transition: color .5s ease;
+				}
+			}
+			.gitHub{
+				transition: color .5s ease;
+				 a:hover{
+					color: #6ec249;
+					transition: color .5s ease;
+				}
+			}
+		}
+	}
+	
+}
+.masthead{
+	// background: lightgray;
+	height: 100vh;
+	padding-top: 20vh;
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	// transition: all 1s ease;
+	.masthead-title{
+		padding: 10px 0;
+		font-size: 9rem;
+		font-weight: bold;
+		line-height: 0.85;
+		color: $black;
+		.heyrossContainer{
+			position: relative;
+			// text-transform: uppercase;
+			.heyross1{
+				position: absolute;
+				top:0;
+				left:0;
+				z-index: 11;
+				// display: none;
+				.char{
+					width: 45px;
+				}
+			}
+			.heyross2{
+				position: absolute;
+				top:0;
+				left:0;
+				z-index: 10;
+				color: $black;
+				display: none;
+				.char{
+					width: 45px;
+				}
+			}
+		}
+	}
+	.designer{
+		// text-transform: uppercase;
+		.char{
+			width: 37px;
+		}
+	}
+	.animator{
+
+	}
+	.developer{
+
+	}
+}
+.char{
+	float: left;
+	text-align: center;
+	// border: 1px solid rgba(0,0,0,0.1);
+}
+.space{
+	float: left;
+	text-align: center;
+	width: 20px;
+}
+// .kerning-i{
+// 	width: 18px!important;
+// }
+// .kerning-r{
+// 	width: 25px!important;
+// }
+// .kerning-s{
+// 	width: 38px!important;
+// }
+// .kerning-o{
+// 	width: 38px!important;
+// }
+// .kerning-t{
+// 	width: 27px!important;
+// }
+// .kerning-y{
+// 	width: 38px!important;
+// }
+////////////////////
+.about{
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 150px;
+	.infographics{
+		width: 100%;
+		.info01{
+			float: left;
+			width: 32%;
+			margin-right: 2%;
+			// background: red;
+			.icon{
+				float: left;
+				width: 35%;
+				height: auto;
+
+			}
+			.info{
+				float: left;
+				width: 60%;
+				margin-left: 5%;
+				// padding-top: 10px;
+				p{
+					font-size: 2.75rem;
+					font-weight: bold;
+					line-height: 1.2!important;
+					margin: 0;
+				}
+				
+			}
+		}
+		.info02{
+			float: left;
+			width: 32%;
+			margin-right: 2%;
+			// background: lightblue;
+			.icon{
+				float: left;
+				width: 35%;
+				height: auto;
+
+			}
+			.info{
+				float: left;
+				width: 60%;
+				margin-left: 5%;
+				// padding-top: 10px;
+				p{
+					font-size: 2.75rem;
+					font-weight: bold;
+					line-height: 1.2!important;
+					margin: 0;
+				}
+				
+			}
+		}
+		.info03{
+			float: left;
+			width: 32%;
+			// background: yellow;
+			.icon{
+				float: left;
+				width: 40%;
+				height: auto;
+			}
+			.info{
+				float: left;
+				width: 55%;
+				margin-left: 5%;
+				p{
+					font-size: 2.25rem;
+					font-weight: bold;
+					line-height: 1.2!important;
+					margin: 0;
+				}
+				
+			}
+		}
+	}
+}
+////////////////////
+.projects{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 80px;
+	//
+	color: white;
+	// background: pink;
+	//
+	.project{
+		// opacity: 0;
+		//
+		width: 33.333%;
+		// height: 200px;
+		float: left;
+		margin: 0;
+		padding: 0;
+		background-size: cover;
+		transition: all 1s ease;
+		h2{
+			font-size: 3rem;
+			background: $black;
+			display: inline-block;
+			padding: 10px;
+			padding-left: 50px;
+			padding-right: 30px;
+			margin-top: 35px;
+			margin-bottom: 0;
+		}
+		p{
+			font-size: 2.2rem;
+			margin-top: 40px;
+			margin-bottom: 200px;
+			padding: 0 50px;
+		}
+	}
+}
+
+
+
+
+
+
