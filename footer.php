@@ -10,13 +10,36 @@
   		    <div class="contactName"><?php the_title(); ?></div>
           <div class="plusClose">+</div>
         </div>
-        <div class="theForm"><?php the_content(); ?></div>
+        <div class="theInfo">
+          <div class="theAnimation">
+            <div class="thePlane move-plane">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/paperPlane.svg" alt="">
+            </div>
+            <div class="speedLines01 move-lines01">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/speedLines01.svg" alt="">
+            </div>
+            <div class="speedLines02 move-lines02">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/speedLines02.svg" alt="">
+            </div>
+          </div>
+          <div class="theContacts">
+            <p>Hey Ross is</p>
+            <p>Ross Butcher</p>
+            <p>you can give</p>
+            <p>him a call at</p>
+            <p>+1 (647) 668-6850</p>
+            <p>or email <span class="arrow">&#8594;</span></p>
+            <!-- <p>647.668.6850</p> -->
+          </div>
+          <div class="theForm">
+            <?php the_content(); ?>
+          </div>
+        </div>
 
   		  <?php endwhile; // end of the loop. ?>
   		  <?php wp_reset_postdata(); ?>
   		<?php //End of grabbing Contact pieces ?>
   	</div>
-    <p>&copy; Hey Ross Inc. <?php echo date('Y'); ?></p>
   </div>
 </footer>
 

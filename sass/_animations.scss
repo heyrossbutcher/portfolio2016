@@ -1,3 +1,7 @@
+
+$font: helvetica, arial, sans-serif;
+$black: rgba(30,30,30,1);
+//
 .contactName-move{
 	left: 0!important;
 }
@@ -8,4 +12,28 @@
 .plusClose-move{
 	font-size: 5rem!important;
 	transform: rotate(45deg);
+}
+//
+@keyframes planeFloat {
+	0% { transform: translate(-50%, -50%) rotate3d(1, 0, 0, 0deg); }
+	50% { transform: translate(-60%, -20%) rotate3d(1, 0, 0, -8deg) scale(0.96);  }
+	100% { transform: translate(-50%, -50%) rotate3d(1, 0, 0, 0deg); }
+}
+.move-plane{
+	animation: planeFloat 10s both infinite ease;
+}
+//
+@keyframes linePan01 {
+	0% { transform: translate(50%, 0%); }
+	100% { transform: translate(-100%, 0%); }
+}
+@keyframes linePan02 {
+	0% { transform: translate(50%, 20%); }
+	100% { transform: translate(-100%, 20%); }
+}
+.move-lines01{
+	animation: linePan01 5s infinite linear;
+}
+.move-lines02{
+	animation: linePan02 5s 2.5s infinite linear;
 }

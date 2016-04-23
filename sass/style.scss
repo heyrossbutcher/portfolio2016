@@ -7,20 +7,18 @@
 * Author URI: http://hackeryou.com
 */
 
+@import 'animations';
 @import 'normalize';
 @import 'typography';
 @import 'navigation';
 @import 'sidebar';
 @import 'comments';
 @import 'footer';
-@import 'animations';
 /*
 ====================================
 Default Styling
 ====================================
 */
-$font: helvetica, arial, sans-serif;
-$black: rgba(30,30,30,1);
 
 html{
 	font-family: $font;
@@ -130,7 +128,7 @@ header{
 			.twitter{
 				transition: color .5s ease;
 				 a:hover{
-					color: #0084b4;
+					color: darkgrey;
 					transition: color .5s ease;
 				}
 			}
