@@ -16,11 +16,11 @@ $black: rgba(30,30,30,1);
 //
 @keyframes planeFloat {
 	0% { transform: translate(-50%, -50%) rotate3d(1, 0, 0, 0deg); }
-	50% { transform: translate(-60%, -20%) rotate3d(1, 0, 0, -8deg) scale(0.96);  }
+	50% { transform: translate(-60%, 20%) rotate3d(1, 1, 0, -12deg) scale(0.96);  }
 	100% { transform: translate(-50%, -50%) rotate3d(1, 0, 0, 0deg); }
 }
 .move-plane{
-	animation: planeFloat 10s both infinite ease;
+	animation: planeFloat 7.5s both infinite ease;
 }
 //
 @keyframes linePan01 {
@@ -36,4 +36,10 @@ $black: rgba(30,30,30,1);
 }
 .move-lines02{
 	animation: linePan02 5s 2.5s infinite linear;
+}
+.move-clouds01{
+	animation: linePan01 15s 4.5s infinite linear;
+}
+.move-clouds02{
+	animation: linePan01 15s 8.5s infinite linear;
 }

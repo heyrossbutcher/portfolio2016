@@ -45,8 +45,15 @@
       <section class="about">
         <div class="infographics clearfix">
           <div class="info01">
-          <div class="icon">
-            <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/14years.svg" alt="">
+          <div class="iconHolder">  
+            <div class="flipper">&nbsp;
+              <div class="iconFirst">
+                <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/14years.svg" alt="">
+              </div>
+              <div class="iconSecond">
+                <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/thumbsup.svg" alt="">
+              </div>
+            </div>
           </div>
           <div class="info">
             <p>Art Direction</p>

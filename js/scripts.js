@@ -154,12 +154,26 @@ $('.contactTitle').click(function(){
 		$('footer').addClass('footer-move');
 		$('.contactName').addClass('contactName-move');
 		$('.plusClose').addClass('plusClose-move');
+		//
+		$('.thePlane').addClass('move-plane');
+		$('.clouds01').addClass('move-clouds01');
+		$('.clouds02').addClass('move-clouds02');
+		$('.speedLines01').addClass('move-lines01');
+		$('.speedLines02').addClass('move-lines02');
+		//
 		app.contactShow = true;
 		// console.log("Contact Show: " + app.contactShow);
 	} else {
 		$('footer').removeClass('footer-move');
 		$('.contactName').removeClass('contactName-move');
 		$('.plusClose').removeClass('plusClose-move');
+		//
+		$('.thePlane').removeClass('move-plane');
+		$('.clouds01').removeClass('move-clouds01');
+		$('.clouds02').removeClass('move-clouds02');
+		$('.speedLines01').removeClass('move-lines01');
+		$('.speedLines02').removeClass('move-lines02');
+		//
 		app.contactShow = false;
 		// console.log("Contact Show: " + app.contactShow);
 	}

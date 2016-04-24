@@ -62,12 +62,30 @@ footer {
 		width: 200px;
 		height: 53px;
 		position: absolute;
-		z-index: 1004;
+		z-index: 1005;
 		top: 35%;
 	    left: 40%;
 		transform: translate(-50%, -50%) rotate3d(1, 0, 0, 0deg);
 		//
 		transform-origin: center;
+	}
+	.clouds01{
+			position: absolute;
+			top: 10%;
+		    left: 0;
+			z-index: 1004;
+		    width: 778px;
+		    height: 250px;
+		    transform: translate(50%,0%);
+	}
+	.clouds02{
+			position: absolute;
+			top: 10%;
+		    left: 0;
+			z-index: 1006;
+		    width: 778px;
+		    height: 250px;
+		    transform: translate(50%,15%);
 	}
 	.speedLines01{
 			position: absolute;
@@ -103,7 +121,6 @@ footer {
 	.theContacts{
 		float: left;
 		width: 29%;
-		margin-left: 7%;
 		font-size: 3.25rem;
 		font-weight: bold;
 		p{
@@ -118,6 +135,7 @@ footer {
 		float: left;
 		width: 32%;
 		margin-left: 2%;
+		margin-right: 7%;
 		// background: blue;
 	}
 }
@@ -133,10 +151,10 @@ footer {
 }
 
 .wpcf7 textarea  {
-	height: 85px;
+	height: 75px;
 	width: 100%;
 	border: 1px solid $black;
-	padding: 8px;
+	padding: 7px;
 	color: $black;
 	background: white;
 	font-size: 1.25rem;
@@ -153,7 +171,8 @@ input.wpcf7-submit{
 	}
 }
 
-.wpcf7-validation-errors, .wpcf7-mail-sent-ok{
-	border: none;
+.wpcf7-response-output, .wpcf7-validation-errors{
+	border: 0;
 	text-align: center;
 }
+// div.wpcf7-validation-errors

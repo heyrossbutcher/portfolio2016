@@ -11,17 +11,7 @@
           <div class="plusClose">+</div>
         </div>
         <div class="theInfo">
-          <div class="theAnimation">
-            <div class="thePlane move-plane">
-              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/paperPlane.svg" alt="">
-            </div>
-            <div class="speedLines01 move-lines01">
-              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/speedLines01.svg" alt="">
-            </div>
-            <div class="speedLines02 move-lines02">
-              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/speedLines02.svg" alt="">
-            </div>
-          </div>
+          
           <div class="theContacts">
             <p>Hey Ross is</p>
             <p>Ross Butcher</p>
@@ -33,6 +23,23 @@
           </div>
           <div class="theForm">
             <?php the_content(); ?>
+          </div>
+          <div class="theAnimation">
+            <div class="thePlane">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/paperPlane.svg" alt="">
+            </div>
+            <div class="clouds01">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/clouds01.svg" alt="">
+            </div>
+            <div class="clouds02">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/clouds02.svg" alt="">
+            </div>
+            <div class="speedLines01">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/speedLines01.svg" alt="">
+            </div>
+            <div class="speedLines02">
+              <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/speedLines02.svg" alt="">
+            </div>
           </div>
         </div>
 
