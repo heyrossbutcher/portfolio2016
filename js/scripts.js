@@ -31,24 +31,90 @@ app.mastheadsChar = function(grabIt){
 app.mastheadCharEngine = function(grabItAgain){
 	for ( i = 0; i < app.strArray.length; i++ ) {
 		app.singleStrArray = app.strArray[i].split('');
-
 		for ( x = 0; x < app.singleStrArray.length; x++ ) {
 			app.counter = app.singleStrArray[x];
 			app.grabbedAgain = $('.'+ grabItAgain);
-			app.grabbedAgain.append('<div class="char letter-' + app.counter + '">' + app.counter + '</div>');
+			app.grabbedAgain.append('<div class="charWrapper" data-pos="' +  x + '"><div class="char letter-' + app.counter + '">' + app.counter + '</div></div>');
 			//
 			if ( x == app.singleStrArray.length - 1 ) {
-				app.grabbed.append('<div class="space">&nbsp;</div>');
+				app.grabbed.append('<div class="charWrapper"><div class="space">&nbsp;</div></div>');
 			}
 			//
-			if ( app.counter === 'i' || app.counter === 'y' || app.counter === 't' || app.counter === 'r' || app.counter === 's' || app.counter === 'o' ) {
+			if ( app.counter === 'i' || app.counter === 'y' || app.counter === 't' || app.counter === 'r' || app.counter === 's' || app.counter === 'o' || app.counter === 'e' ) {
 				// console.log(app.strArray + ': ' + app.counter + ' was added.')
 				$('.letter-' + app.counter).addClass('kerning-' + app.counter);
 			}
 		}
 	}
 }
+//////////////////////////
+//////////////////////////
+//MASTHEAD ANIMATIONS
+//////////////////////////
+//////////////////////////
+app.loadMastheadAnims = function(){
+	app.mastheadTitle01();
+}
+
 //
+//////////////////////////
+//MASTHEAD TITLE 01
+app.getMastheadTitle01Info = function(whatNum){
+	var getTheParent1= $('.heyross1').children()[whatNum];
+	var getTheParent2= $('.heyross2').children()[whatNum];
+	var childHolder1 = $(getTheParent1).find('div');
+	var childHolder2 = $(getTheParent2).find('div');
+	//
+	setTimeout( function() {
+		if( app.stateCheck === true ) {
+		    childHolder1.addClass('hide-mastheadTitle-01');
+			childHolder2.addClass('show-mastheadTitle-02');
+		}
+	}, app.timer);
+}
+app.removeMastheadTitle01Info = function(whatNum){
+	var getTheParent1= $('.heyross1').children()[whatNum];
+	var getTheParent2= $('.heyross2').children()[whatNum];
+	var childHolder1 = $(getTheParent1).find('div');
+	var childHolder2 = $(getTheParent2).find('div');
+	//
+	setTimeout( function() {
+		if( app.stateCheck === false ) {
+		    childHolder1.removeClass('hide-mastheadTitle-01');
+			childHolder2.removeClass('show-mastheadTitle-02');
+			//
+		}
+	}, app.timer);
+}
+app.mastheadTitle01 = function(){
+	app.stateCheck = false;
+	$('.heyrossContainer').mouseenter(function(){
+		app.stateCheck = true;
+		console.log(app.stateCheck);
+		var numOfChildren = $('.heyross2 > *').length;
+		for (var n = 0; n < numOfChildren; n++) {
+			
+				app.timer = n*50;
+				app.nHolder = n;
+				//
+		        app.getMastheadTitle01Info(app.nHolder);
+		}
+	});
+	//
+	$('.heyrossContainer').mouseleave(function(){
+		app.stateCheck = false;
+		console.log(app.stateCheck);
+		var numOfChildren = $('.heyross2 > *').length;
+		for (var q = 0; q < numOfChildren; q++) {
+			
+				app.timer = q*25;
+				app.nHolder = q;
+				//
+				app.removeMastheadTitle01Info(app.nHolder);
+		}
+	});
+}
+
 //////////////////////////
 //GET THE BEARD TIME
 app.setBeardTime = function(grabIt, countTo){
@@ -96,7 +162,49 @@ app.navScrollTop = function(){
 		$('header').css({ top : '0px' });
 	}
 }
+//////////////////////////
+//////////////////////////
+//PRODUCT LOGIC
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//GET PROJECTS JSON
+app.getProjectInfo = function(){
+
+	app.projName = projectData[app.dataCaller]['projectname'];
+	app.projDesc = projectData[app.dataCaller]['projectdescription'];
+	app.projImg = projectData[app.dataCaller]['bgimage']['url'];
+	$('.projectModal h2').html(app.projName);
+	$('.projectModal p').html(app.projDesc);
+	// $('.projectModal .right').html('<iframe width="100%" height="350" src="https://www.youtube.com/embed/Jer8XjMrUB4" frameborder="0" allowfullscreen></iframe>');
+	console.log(app.dataCaller);
+}
+$( '.project' ).click(function(){
+	app.dataNum = $(this).attr('data-number');
+	app.dataCaller = app.dataNum - 1;
+	app.getProjectInfo();
+});
 //
+$( '.next' ).click(function(){
+	if ( app.dataCaller === app.projectCount-1 ){
+		app.dataCaller = 0;
+	} else {
+		app.dataCaller++;
+	}
+	app.getProjectInfo();
+});
+//
+$( '.prev' ).click(function(){
+	if ( app.dataCaller === 0 ){
+		app.dataCaller = app.projectCount-1;
+	} else {
+		app.dataCaller--;
+	}
+	app.getProjectInfo();
+
+});
+//PRODUCTS SCROLLTOP PERCENTAGE
 app.startProductsScrolling = function(){
 
 		app.windowScrollTop = $(window).scrollTop();
@@ -104,12 +212,12 @@ app.startProductsScrolling = function(){
 		app.projectsScrollTop = app.getProjectsScrollTop - app.windowScrollTop;
 		// console.log(app.projectsScrollTop);
 		//
-		if ( app.projectsScrollTop < 700 && app.projectsScrollTop > 500 ) {
-			app.projectsBaseline = 500;
-			app.projectsPercent = ((( app.projectsScrollTop - app.projectsBaseline )/200));
+		if ( app.projectsScrollTop < 700 && app.projectsScrollTop > 550 ) {
+			app.projectsBaseline = 550;
+			app.projectsPercent = ((( app.projectsScrollTop - app.projectsBaseline )/150));
 			// console.log("Projects %: " + app.projectsPercent);
 		} 
-		else if ( app.projectsScrollTop < 500 ) {
+		else if ( app.projectsScrollTop < 550 ) {
 			app.projectsPercent = 0;
 			// console.log("Projects %: " + app.projectsPercent);
 		} else {
@@ -129,12 +237,12 @@ app.startProductsScrolling = function(){
 		// console.log(app.projectStyle);
 
 }
-//2
+//
 app.projectsScrollTop = function(){
 	app.projectCount = $('.project').length;
 	//
 	for (var i = 1; i <= app.projectCount; i++) {
-		app.translateCount = ( 500 * i );
+		app.translateCount = ( 350 * i );
 		// $( '.project' + i ).css( { opacity : app.opacityCount } )
 		$( '.project' + i ).css( { transform : 'matrix(1, 0, 0, 1, 0,'  + app.translateCount + ')' } );
 		$( '.project' + i ).attr( 'data-pos', app.translateCount );
@@ -146,6 +254,18 @@ app.projectsScrollTop = function(){
 		// console.log("I'm scolling!!!!!!!")
 	});
 }
+//
+//////////////////////////
+//OPEN MODUAL
+$( '.project' ).click(function(){
+	$('.projectModalContainer').addClass('show-desc-opacity');
+	$('.projectModal').addClass('show-description');
+});
+$( '.projectModalContainer .projectModal .close' ).click(function(){
+	$('.projectModalContainer').removeClass('show-desc-opacity');
+	$('.projectModal').removeClass('show-description');
+	$('.projectModal .right').html('');
+});
 //////////////////////////
 //FOOTER FUNCTIONALITY
 app.contactShow = false;
@@ -188,6 +308,7 @@ app.init = function(){
 	//
 	app.mastheadsChar('heyross1');
 	app.mastheadsChar('heyross2');
+	app.loadMastheadAnims();
 	//
 	app.setBeardTime('info03 .info', 'apr,18,2014,21:14:00');
 	app.counter = setInterval(function() { app.setBeardTime('info03 .info', 'apr,18,2014,21:14:00'); }, 60000);

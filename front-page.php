@@ -1,8 +1,67 @@
 <?php get_header();  ?>
 
 <div class="main">
+        <?php 
+            $args = array( 
+                'post_type' => 'projects', 
+                'post_status' => 'publish', 
+                'nopaging' => true 
+            );
+            $query = new WP_Query( $args ); // $query is the WP_Query Object
+            $posts = $query->get_posts();   // $posts contains the post objects
+
+            $projectOutput = array();
+            foreach( $posts as $post ) {    // Pluck the id and title attributes
+                $projectOutput[] = array( 'customField' => $post->acf = get_fields($post->id) );
+            }
+            json_encode( $projectOutput, JSON_PRETTY_PRINT );
+            // $json_string = json_encode($projectOutput, JSON_PRETTY_PRINT);
+            // pre_r($projectOutput[0]['customField']['projects']);
+           ?>
+           <script type="text/javascript">
+              var projectObj = '<?php echo json_encode( $projectOutput[0]['customField']['projects'] ); ?>';
+              var projectData = JSON.parse(projectObj);
+
+           </script>
+    <div class="projectModalContainer">
+      <div class="projectModal">
+        <div class="close">+</div>
+        <div class="arrows prev">
+          <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
+          <style type="text/css">
+            .st0{fill:#FFFFFF;}
+          </style>
+          <circle class="prevCircle" cx="24" cy="24.2" r="23"/>
+          <g>
+            <path class="st0" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
+          </g>
+          </svg>
+
+        </div>
+        <div class="arrows next">
+          <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
+          <style type="text/css">
+            .st0{fill:#FFFFFF;}
+          </style>
+          <circle class="nextCircle" cx="24" cy="24.2" r="23"/>
+          <g>
+            <path class="st0" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
+          </g>
+          </svg>
+
+        </div>
+        <h2></h2>
+        <div class="left"><p></p></div>
+        <div class="right">
+
+        </div>
+        
+      </div>
+    </div>
   <div class="container">
-      
+
       <section class="masthead">
 
       <?php $latestPosts = new wp_query(array(
@@ -59,7 +118,7 @@
             <p>Art Direction</p>
             <p>Design</p>
             <p>Animation</p>
-            <p>Development</p>
+            <p>Programming</p>
           </div>
 
           </div>
@@ -98,11 +157,12 @@
         <?php //pre_r($projects[0]); ?>
          <?php foreach ($projects as $project_data) {
               $product_index++;
+
              $project_img = $project_data['bgimage']['sizes']['medium_large'];
              // /pre_r($project_index);
              echo '<div class="project project'.$product_index.'" data-number="'.$product_index.'" style="background-image: url('.$project_img.')">';
              echo '<h2>'.$project_data['projectname'].'</h2>';
-             echo '<p>'.$project_data['projectdescription'].'</p>';
+             // echo '<p>'.$project_data['projectdescription'].'</p>';
              // echo '<a href="http://'.$project_data['projectlink'].'">'.$project_data['projectlink'].'</a>';
              echo '</div>';
            }

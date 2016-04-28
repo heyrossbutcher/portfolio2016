@@ -2,6 +2,9 @@
 $font: helvetica, arial, sans-serif;
 $black: rgba(30,30,30,1);
 //
+$douce: cubic-bezier(.5,.5,.5,1);
+$bounce-in: cubic-bezier(0,0,0,1.2);
+//
 .contactName-move{
 	left: 0!important;
 }
@@ -43,3 +46,46 @@ $black: rgba(30,30,30,1);
 .move-clouds02{
 	animation: linePan01 15s 8.5s infinite linear;
 }
+//MASTHEAD ANIMATIONS 
+.hide-mastheadTitle-01{
+	transform: rotate3d(1, 0, 0, 83deg)!important;
+	// opacity: 0!important;
+	color: #666;
+	transition: all 0.4s ease!important;
+}
+.show-mastheadTitle-02{
+	transform: rotate3d(1, 0, 0, 0deg)!important;
+	// opacity: 1!important;
+	color: $black;
+	transition: all 0.4s ease!important;
+}
+.show-opacity{
+	opacity: 1!important;
+}
+.hide-opacity{
+	opacity: 0!important;
+}
+.show-description{
+	transform: translate(-50%, -50%) rotateY(0deg) scale(1)!important;
+}
+.show-desc-opacity{
+	// display: block!important;
+	// transform: scale(1)!important;
+	z-index: 10000!important;
+	opacity: 1!important;
+}
+.move-desc-close{
+	right: -3%!important;
+}
+//
+.arrowCircle-transform{
+	fill: rgba(100,100,100,1);
+}
+@keyframes scaleCircle {
+	0% { transform: scale(1) }
+	// 25% { transform: scale(0.25) }
+	50% { transform: scale(0.9) }
+	// 75% { transform: scale(0.5) }
+	100% { transform: scale(1) }
+}
+
