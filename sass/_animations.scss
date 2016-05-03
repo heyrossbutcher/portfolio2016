@@ -65,6 +65,9 @@ $bounce-in: cubic-bezier(0,0,0,1.2);
 .hide-opacity{
 	opacity: 0!important;
 }
+.display-none{
+	display: none!important;
+}
 .show-description{
 	transform: translate(-50%, -50%) rotateY(0deg) scale(1)!important;
 }

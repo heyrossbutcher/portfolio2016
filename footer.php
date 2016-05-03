@@ -57,7 +57,8 @@
  g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
  s.parentNode.insertBefore(g,s)}(document,"script"));
 </script>
-
+<script src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/js/TweenMax.min.js"></script>
+<script src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/js/MorphSVGPlugin.min.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

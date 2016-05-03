@@ -81,7 +81,7 @@ header{
 					}
 					.designIcon{
 						float: left;
-						width: 49px;
+						width: 79px;
 						height: 40px;
 					    margin-left: 20px;
 					}
@@ -361,29 +361,27 @@ header{
 }
 ////////////////////
 .projectModalContainer{
-	// display: none;
-	// transform: scale(0);
 	opacity: 0;
 	width: 100%;
 	height: 100%;
 	background: rgba(255,255,255,0.9);
 	position: fixed;
 	z-index: -10000;
-	transition: all 1.25s $douce;
+	transition: all .75s $douce;
 	perspective: 1000px;
 	.projectModal{
 		width: 60%;
-		height: 80vh;
-		min-height: 550px;
+		// height: 80vh;
+		// min-height: 550px;
 		background: white;
 		box-shadow: 3px 3px 15px rgba(0,0,0,0.25);
 		position: absolute;
 		z-index: 10001;
 		top: 50%;
 		left: 50%;
-		transition: all 1s 0.5s $douce;
+		transition: all 1s $douce;
 		transform-origin: center;
-		transform: translate(-50%, -50%) rotateY(-90deg) scale(0);
+		transform: translate(-50%, -50%) rotateY(-180deg) scale(0);
 		backface-visibility: hidden;
 		//
 		padding: 35px 45px;
@@ -415,7 +413,6 @@ header{
 			transform: translateY(-50%);
 			&:hover{
 				color: rgba(0,0,0,0.5);
-
 			}
 		}
 		.prev{
@@ -438,7 +435,7 @@ header{
 			width: 55px;
 			height: 55px;
 			&:hover #arrowCircle{
-				transform: scale(0.9) ;
+				transform: scale(0.9);
 			}
 			&:active .prevCircle, &:active .nextCircle{
 				fill: rgba(100,100,100,1);
@@ -451,25 +448,160 @@ header{
 			margin: 0;
 			margin-bottom: 20px;
 		}
-		.left{
-			float: left;
-			width: 45%;
-			margin-right: 5%;
-			// background: red;
-			p{
-				font-size: 1.5rem;
-				margin: 0;
-			}
-		}
-		.right{
+		.image{
 			float: left;
 			width: 50%;
+			height: 100%;
 			// background: red;
+			position: relative;
+			.keyImage{
+				.videoWrapper{
+					position: relative;
+					padding-bottom: 56.25%; /* 16:9 */
+					padding-top: 25px;
+					height: 0;
+					iframe {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+			figure{
+				font-size: 1.25rem;
+				font-style: italic;
+				margin-top: 10px;
+			}
 			img{
+				// width: 100%;
+				max-height: 410px;
+				border: 1px solid rgba(0,0,0,0.1);
+			}
+			.thumbnails{
 				width: 100%;
+				padding-top: 35px;
+				padding-bottom: 60px;
+				margin-top: 40px;
+				border-top: 3px solid $black;
+				.thumbnail{
+					float: left;
+					width: 22.5%;
+					height: 85px;
+					margin-right: 3.33%;
+					background-size: cover;
+					border: 1px solid rgba(150,150,150,1);
+					//
+					transition: all 0.75s ease;
+					box-shadow: inset 0px 0px 25px rgba(35, 35, 35, 0);
+					&:hover{
+						box-shadow: inset 0px 0px 25px rgba(35, 35, 35, 1);
+					}
+				}
+				.thumbnail:last-of-type{
+					margin-right: 0;
+				}
+				.video{
+					position: relative;
+					.arrow{
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						//
+						width: 20px;
+						height: 31px;
+					}
+				}
+			}
+		}
+		.copy{
+			float: right;
+			width: 35%;
+			margin: 0 7.5%;
+			// background: red;
+			p{
+				color: white;
+				background: $black;
+				padding: 25px;
+				padding-bottom: 30px;
+				font-size: 1.5rem;
+				line-height: 1.5!important;
+				margin: 0;
+			}
+			.links{
+				margin-top: 4%;
+				.projectLink{
+					float: left;
+					display: block;
+					width: 38%;
+					margin-right: 4%;
+					text-align: center;
+					a{
+						font-size: 1.3rem;
+						font-weight: 700;
+						background: white;
+						color: $black;
+						padding: 15px;
+						display: block;
+						// letter-spacing: 0.5px;
+						border: 1px solid rgba(0,0,0,0.25);
+						transition: all .5s ease;
+						&:hover{
+							color: white;
+							background: $black;
+						}
+
+					}
+				}
+				.pdfLink{
+					float: left;
+					display: block;
+					width: 58%;
+					text-align: center;
+					a{
+						font-size: 1.3rem;
+						font-weight: 700;
+						background: white;
+						color: $black;
+						display: block;
+						padding: 15px;
+						border: 1px solid rgba(0,0,0,0.25);
+						transition: all .5s ease;
+						&:hover{
+							color: white;
+							background: $black;
+						}
+					}
+				}
+			}
+			.skill-icons{
+				width: 100%;
+				margin-top: 10px;
+				margin-bottom: 55px;
+				border-top: 1px solid white;
+				.design-icon{
+					float: left;
+					width: 15%;
+					margin-right: 10%;
+				}
+				.animation-icon{
+					float: left;
+					width: 20%;
+					margin-right: 10%;
+				}
+				.developer-icon{
+					float: left;
+					width: 20%;
+				}
 			}
 		}
 	}	
+}
+.fa{
+	font-size: 1.25rem;
+	padding-right: 2.5px;
 }
 #arrowCircle{
 	transition: all 0.25s $douce;
@@ -480,34 +612,49 @@ header{
 	margin: 0;
 	padding: 0;
 	padding-bottom: 80px;
-	//
 	color: white;
-	// background: pink;
 	//
 	.project{
-		// opacity: 0;
-		//
-		width: 33.333%;
+		width: 25%;
 		height: 350px;
 		float: left;
 		margin: 0;
 		padding: 0;
+		//
+		overflow: hidden;
 		background-size: cover;
+		background-position: center; 
+		box-shadow: inset 0px 0px 50px rgba(35, 35, 35, 0);
+		border-left: 1px solid rgba(125,125,125,0.5);
+		border-bottom: 1px solid rgba(125,125,125,0.5);
+		//
 		transition: all 0.75s ease;
-		box-shadow: inset 0px 0px 250px rgba(35, 35, 35, 1);
+		&:nth-child(4n+1){
+			border-left: none;
+		}
+
 		&:hover{
-			box-shadow: inset 0px 0px 250px rgba(0, 0, 0, 0);
+			box-shadow: inset 0px 0px 100px rgba(15, 15, 15, 1);
 			transition: all .6s ease;
 		}
+		&:hover h2{
+			color: white;
+			transition: all 0.5s $douce;
+		    transform: translateY(0);
+		}
 		h2{
+			color: $black;
 			font-size: 3rem;
 			background: $black;
-			display: inline-block;
-			padding: 10px;
-			padding-left: 50px;
-			padding-right: 30px;
-			margin-top: 35px;
-			margin-bottom: 0;
+			display: block;
+			padding: 22px 35px 22px 30px ;
+		    margin: 0;
+		    border-top: 1px solid rgba(25,25,25,1);
+		    border-bottom: 1px solid rgba(25,25,25,1);
+			box-shadow:  5px 0px 10px rgba(35, 35, 35, 1);
+		    //
+		    transform: translateY(-120%);
+			transition: all 0.5s $douce;
 		}
 		p{
 			font-size: 2.2rem;

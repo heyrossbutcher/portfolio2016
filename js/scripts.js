@@ -5,10 +5,7 @@ var app = {};
 //GET THE MASTHEAD CONTENT
 app.navIcons = function(){
 	app.grabNav = $('h1');
-	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="designIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/design-icon.svg" alt="is a designer" title="is a designer"></div><div class="animationIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/animaton-icon.svg" alt="and an animator" title="and an animator"></div><div class="developerIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/developer-icon.svg" alt="AND a developer." title="AND a developer."></div></div>');
-
-	// app.navText = '<div class="navIcons">http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/14years.svg<div>'
-	// console.log("The nav says: " + app.navText)
+	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="designIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/design-icon.svg" alt="Design" title="Design"></div><div class="animationIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/animaton-icon.svg" alt="Animation" title="Animation"></div><div class="developerIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/developer-icon.svg" alt="Programming" title="Programming"></div></div>');	
 }
 
 
@@ -173,13 +170,130 @@ app.navScrollTop = function(){
 app.getProjectInfo = function(){
 
 	app.projName = projectData[app.dataCaller]['projectname'];
+	app.projLink = projectData[app.dataCaller]['project_link'];
 	app.projDesc = projectData[app.dataCaller]['projectdescription'];
-	app.projImg = projectData[app.dataCaller]['bgimage']['url'];
+	app.projVid = projectData[app.dataCaller]['view_video'];
+	app.projPdf = projectData[app.dataCaller]['view_pdf'];
+	app.projSkills = projectData[app.dataCaller]['skills'];
+	app.thumbImgs = projectData[app.dataCaller]['project_images'];
+	app.thumbImgsLength = app.thumbImgs.length;
+	
+	console.log(app.projSkills);
+	// console.log('The caption is: ' + app.imgCaption);
+	//
+	//GET THE TITLE AND DESCRIPTION
 	$('.projectModal h2').html(app.projName);
-	$('.projectModal p').html(app.projDesc);
-	// $('.projectModal .right').html('<iframe width="100%" height="350" src="https://www.youtube.com/embed/Jer8XjMrUB4" frameborder="0" allowfullscreen></iframe>');
-	console.log(app.dataCaller);
+	$('.projectModal .copy p').html(app.projDesc);
+	//
+	// CLEAR THE THUMBNAILS AND KEYIMAGE
+	$('.projectModal .image .thumbnails').html('<div class="thumbnail></div>');
+	$('.projectModal .image .keyImage').html('<div class="keyImage></div>');
+	//
+	//GET THUMBNAILS
+	for (var t = 0; t < app.thumbImgsLength; t++) {
+		app.checkImgs = app.thumbImgs[t]['what_image'];
+		app.thumbNum = t + 1;
+		// 
+		if ( app.checkImgs === 'video' ){
+			app.getThumbImg = app.thumbImgs[t]['video_image']['sizes']['medium'];
+			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
+			//
+			$( '.keyimage-fig' ).html(app.imgCaption);
+		} else {
+			app.getThumbImg = app.thumbImgs[t]['image_image']['sizes']['medium'];
+			$('.projectModal .image .thumbnails').append('<div class="thumbnail image" data-type="image" data-number="' + app.thumbNum + '" style="background: url(' + app.getThumbImg + ')">&nbsp;</div>');
+		}
+		//
+	}
+	//
+	//CHECK TO SEE IF THERE'S MORE THAN ONE THUMBNAIL
+	if ( app.thumbImgsLength < 2 ) {
+		$( '.thumbnails' ).addClass( 'display-none' );
+		console.log("Lets hide the thumbnails!!!!!!!!");
+	} else {
+		$( '.thumbnails' ).removeClass( 'display-none' );
+	}
+	//
+	app.getSkills();
+	app.getProjectLink();
+	app.getPdfLink();
+	app.changeKeyimage();
+	//
+	//GET KEYIMAGE
+	app.getFirstImg = app.thumbImgs[0]['what_image'];
+	app.imgCaption = app.thumbImgs[0]['caption'];
+	//
+	$( '.keyimage-fig' ).html(app.imgCaption);
+	//
+	if( app.getFirstImg === 'video' ){
+		$('.keyImage').html('<div class="videoWrapper"><iframe src="' + app.projVid + '" frameborder="0" allowfullscreen></iframe></div>');
+	} else {
+		app.firstImg = app.thumbImgs[0]['image_image']['sizes']['large'];
+		$('.keyImage').html('<img src="' + app.firstImg + '" alt="">');
+	}
 }
+//
+//////////////////////////
+//GET PROJECT LINK
+app.getProjectLink = function(){
+	if ( app.projLink !== "" ){
+		$( '.projectLink' ).html('<a href="http://' + app.projLink + '" target="_"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> See it live</a>');
+	} else {
+		$( '.projectLink' ).html('');
+	}
+}
+//////////////////////////
+//GET PDF LINK
+app.getPdfLink = function(){
+	app.pdfName = app.projName.replace(/\s+/g, '');
+	//
+	if ( app.projPdf === true ){
+		$( '.pdfLink' ).html('<a href="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/' + app.pdfName + '.pdf" target="_"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Take a closer look</a>');
+	} else {
+		$( '.pdfLink' ).html('');
+	}
+}
+//
+//////////////////////////
+//GET SKILLS LINK
+app.getSkills = function(){
+	$( '.design-icon' ).removeClass( 'display-none' );
+	$( '.animation-icon' ).removeClass( 'display-none' );
+	$( '.developer-icon' ).removeClass( 'display-none' );
+	//
+	if ( app.projSkills.indexOf( 'design' ) > -1 ) {
+		$( '.design-icon' ).addClass( 'display-none' );
+	} else if ( app.projSkills.indexOf( 'animation' ) > -1 ) {
+		$( '.animation-icon' ).addClass( 'display-none' );
+	} else if ( app.projSkills.indexOf( 'developer' ) > -1 ) {
+		$( '.developer-icon' ).addClass( 'display-none' );
+	} 
+}
+//
+//////////////////////////
+//GET IMAGE RELATED TO THUMBNAIL
+app.changeKeyimage = function(){
+	$( '.thumbnail' ).click(function(){
+		app.dataNumber = $(this).attr('data-number');
+		app.dataNumberOffset = app.dataNumber - 1;
+		app.getImgType = $(this).attr('data-type');
+		app.imgType = app.getImgType + "_image";
+		console.log("Image type: " + app.imgType );
+		console.log("Image num: " + app.dataNumberOffset );
+		//
+		app.imgCaption = app.thumbImgs[app.dataNumberOffset]['caption'];
+		$( '.keyimage-fig' ).html( app.imgCaption );
+		//
+		app.getNextImg = projectData[app.dataCaller]['project_images'][app.dataNumberOffset][app.imgType]['sizes']['large'];
+		console.log("Next Image: " + app.getNextImg);
+		if( app.getImgType === 'video' ){
+			$('.keyImage').html('<div class="videoWrapper"><iframe src="' + app.projVid + '" frameborder="0" allowfullscreen></iframe></div>');
+		} else {
+			$('.keyImage').html('<img src="' + app.getNextImg + '" alt="">');
+		}
+	});
+}
+//
 $( '.project' ).click(function(){
 	app.dataNum = $(this).attr('data-number');
 	app.dataCaller = app.dataNum - 1;
@@ -300,6 +414,27 @@ $('.contactTitle').click(function(){
 	// console.log("Footer clicked!!")
 });
 //////////////////////////
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//BEARD ANIMATION
+var beardTl = new TimelineMax({paused:true});
+beardTl.to("#regBeard", 1, {morphSVG:{shape:"#smileBeard", shapeIndex:21}, ease:Back.easeOut});
+
+$( '.info03 .icon' ).mouseenter(function(){
+    beardTl.play(0);
+});
+
+$( '.info03 .icon' ).mouseleave(function(){
+	beardTl.reverse();
+});
+
+//////////////////////////
+//////////////////////////x
+//////////////////////////
+//////////////////////////
+//////////////////////////
 //INIT FUNCTION
 app.init = function(){
 	app.navIcons();
@@ -316,6 +451,8 @@ app.init = function(){
 	app.getScrollTop();
 	app.projectsScrollTop();
 	app.startProductsScrolling();
+	//
+
 }
 //////////////////////////
 //DOCUMENT READY
@@ -323,3 +460,4 @@ $(function(){
 	app.init();
 	//
 });
+//
