@@ -171,7 +171,7 @@ header{
 					float: left;
 					perspective: 400px;
 					.char{
-				cursor: inherit;
+						cursor: inherit;
 						width: 55px;
 						transform-origin: 0% -15%;
 						transform: rotate3d(1, 0, 0, 0deg);
@@ -194,7 +194,7 @@ header{
 						width: 55px;
 						transform-origin: 0 120%;
 						transform: rotate3d(1, 0, 0, -83deg);
-						// opacity: 0;
+						// display: none;
 						// border: 1px solid rgba(0,0,0,0.1);
 						transition: all 0.3s ease;
 					}
@@ -203,18 +203,31 @@ header{
 		}
 	}
 	.designer{
+		margin: 0;
+		padding: 0;
+		margin-top: 7px;
+		.designerHolder{
+			width: 377px;
+			height: 96px;
+		}
 		// text-transform: uppercase;
 		.char{
 			width: 37px;
 		}
 	}
 	.animator{
-
+		margin-top: 0;
+		padding-top: 0;
 	}
 	.developer{
 
 	}
 }
+// 
+.d1-1, .e1-1, .s1-1, .i1-1, .g1-1, .n1-1, .e1-2, .r1-1, {
+	transition: fill .5s ease;
+}
+// 
 .char{
 	text-align: center;
 	// border: 1px solid rgba(0,0,0,0.1);
