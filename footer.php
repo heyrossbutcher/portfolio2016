@@ -1,4 +1,4 @@
-<footer>
+<footer class="initialFooterPos">
   <div class="container">
   	<div class="contact-form-fields">
   		  <?php $latestPosts = new wp_query(array(

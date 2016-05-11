@@ -5,7 +5,7 @@ var app = {};
 //GET THE MASTHEAD CONTENT
 app.navIcons = function(){
 	app.grabNav = $('h1');
-	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="designIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/design-icon.svg" alt="Design" title="Design"></div><div class="animationIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/animaton-icon.svg" alt="Animation" title="Animation"></div><div class="developerIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/developer-icon.svg" alt="Programming" title="Programming"></div></div>');	
+	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
 }
 
 
@@ -51,7 +51,6 @@ app.designerSVG = function(){
 	appDesignerTitle = $( '.designer' );
 	appDesignerTitle.html( app.designerString );
 	//
-	//
 	var designerTl = new TimelineMax({paused:true});
 	var designerTl2 = new TimelineMax({paused:true});
 	var designerTl3 = new TimelineMax({paused:true});
@@ -60,6 +59,7 @@ app.designerSVG = function(){
 	var designerTl6 = new TimelineMax({paused:true});
 	var designerTl7 = new TimelineMax({paused:true});
 	var designerTl8 = new TimelineMax({paused:true});
+	//
 	designerTl.to("#d1-1", 0.25, {morphSVG:{shape:"#d2-1", shapeIndex:10}, ease:Back.easeOut});
 	designerTl2.to("#e1-1", 0.25, {morphSVG:{shape:"#e2-1", shapeIndex:16}, ease:Back.easeOut});
 	designerTl3.to("#s1-1", 0.25, {morphSVG:{shape:"#s2-1", shapeIndex:23}, ease:Back.easeOut});
@@ -79,14 +79,14 @@ app.designerSVG = function(){
 	    designerTl7.play(0);
 	    designerTl8.play(0);
 	    //
-		$( '#d1-1' ).css( { fill : '#ffcc00' } );
-		$( '#e1-1' ).css( { fill : '#ffcc00' } );
-		$( '#s1-1' ).css( { fill : '#ffcc00' } );
-		$( '#i1-1' ).css( { fill : '#ffcc00' } );
-		$( '#g1-1' ).css( { fill : '#ffcc00' } );
-		$( '#n1-1' ).css( { fill : '#ffcc00' } );
-		$( '#e1-2' ).css( { fill : '#ffcc00' } );
-		$( '#r1-1' ).css( { fill : '#ffcc00' } );
+		$( '#d1-1' ).css( { fill : '#d3cdcf' } );
+		$( '#e1-1' ).css( { fill : '#d3cdcf' } );
+		$( '#s1-1' ).css( { fill : '#e37e25' } );
+		$( '#i1-1' ).css( { fill : '#e37e25' } );
+		$( '#g1-1' ).css( { fill : '#e37e25' } );
+		$( '#n1-1' ).css( { fill : '#e37e25' } );
+		$( '#e1-2' ).css( { fill : '#e37e25' } );
+		$( '#r1-1' ).css( { fill : '#e37e25' } );
 	});
 
 	appDesignerTitle.mouseleave(function(){
@@ -112,16 +112,160 @@ app.designerSVG = function(){
 	//
 	
 }
+app.arrowSVG = function(){
+	var arrowTl = new TimelineMax({paused:true});
+	  arrowTl.to("#straightStart", .05, {morphSVG:{shape:"#frazzledOne"}, ease:Back.easeOut, delay: 4})
+	  		 .to("#straightStart", .05, {morphSVG:{shape:"#frazzledTwo"}, ease:Back.easeOut})
+	  		 .to("#straightStart", .05, {morphSVG:{shape:"#frazzledThree"}, ease:Back.easeOut})
+	  		 .to("#straightStart", .175, {morphSVG:{shape:"#more"}, ease:Back.easeOut})
+	  		 .to("#straightStart", .05, {morphSVG:{shape:"#frazzledFour"}, ease:Back.easeOut})
+	  		 .to("#straightStart", .05, {morphSVG:{shape:"#frazzledFive"}, ease:Back.easeOut})
+	  		 .to("#straightStart", .05, {morphSVG:{shape:"#straightEnd"}, ease:Back.easeOut})
+	  arrowTl.play(0);
+}
+//
+app.arrowBoolHr = false;
+app.arrowBoolDes = false;
+app.arrowBoolAni = false;
+app.arrowBoolDev = false;
+app.arrowBoolCtr = 0;
+//
+app.showArrowCheck = function(){
+	theArrow = $( '.arrowIndicator' );
+	if( app.arrowBoolHr === true && app.arrowBoolDes === true && app.arrowBoolAni === true && app.arrowBoolDev === true ) {
+		app.arrowBoolCtr++;
+		if ( app.arrowBoolCtr === 1 ) {
+			app.removeClasses(theArrow, 4000, 'hide-opacity');
+			app.removeClasses(theArrow, 4000, 'arrowShift');
+			app.arrowSVG();
+			console.log('do it');
+		}
+	} else {
+		console.log('nope');
+	}
+}
+//
+app.showArrow = function(){
+	$('.heyrossContainer').mouseenter(function(){
+		app.arrowBoolHr = true;
+		app.showArrowCheck();
+	})
+	$('.designer').mouseenter(function(){
+		app.arrowBoolDes = true;
+		app.showArrowCheck();
+	})
+	$('.animator').mouseenter(function(){
+		app.arrowBoolAni = true;
+		app.showArrowCheck();
+	})
+	$('.developer').mouseenter(function(){
+		app.arrowBoolDev = true;
+		app.showArrowCheck();
+	})
+}
+//
+app.arrowScrollTop = function(){
+	if ( app.windowPercentage >= 30 && app.windowPercentage <= 40 ) {
+		app.arrowBaseline = 100;
+		app.arrowMath = app.arrowBaseline + (app.windowPercentage - 30) * 10;
+		$('header').css({ opacity : app.arrowMath });
+
+		//
+		// console.log("BRING IN THE NAV: " + app.navMath);
+	} else if ( app.windowPercentage < 30 ){
+		$('header').css({ top : '-90px' });
+	} else {
+		$('header').css({ top : '0px' });
+	}
+}
+//////////////////////////
+//GET THE MASTHEAD CONTENT FOR DEVELOPER HEADING
+app.devCharLibrary = ['q','w','e','r','t','y','u','i','o','p','[',']','|','a','s','d','f','g','h','j','k','l',';',':','z','x','c','v','b','n','m',',','.','<','>','?','/','1','2','3','4','5','6','7','8','9','-','_','+','!','@','#','$','%','^','&','*','(',')','*','=','~','`'];
+//
+app.developerChar = function(){
+	$('.developer').mouseenter(function(){
+		app.developerCharSwitch();
+	});
+	//
+	$('.developer').mouseleave(function(){
+		app.revertDevChar();
+	});
+}
+//
+app.developerCharSwitch = function(){
+	app.grabbedDev = $('.devHolder');
+	app.grabbedDevText = app.grabbedDev.text();
+	app.devStr = app.grabbedDevText;
+	app.devStrArray = app.devStr.split('');
+	app.grabbedDev.text('');
+	//
+	for (t = 0; t < app.grabbedDevText.length; t++) {
+		app.grabbedDev.append(document.createTextNode( app.devStrArray[t] ));
+	}
+	//
+	var dPlus = 0;
+	app.devCharInterval = setInterval(function(){
+		if ( dPlus < 10 ){
+				dPlus++;
+				app.changeDevChar();
+		} else {
+			clearInterval(app.devCharInterval);
+			app.grabbedDev.text('');
+			$('.devIcons').addClass('display-it');
+		}
+	}, 50)
+}
+//
+app.changeDevChar = function(){
+	app.grabbedDev.text('');
+		for (r = 0; r < app.grabbedDevText.length; r++) {
+			var devCharRandom =  Math.round( Math.random() * 62 );
+			app.grabbedDev.append(document.createTextNode( app.devCharLibrary[devCharRandom] ));
+		}
+}
+//
+app.revertDevChar = function(){
+	clearInterval(app.devCharInterval);
+	app.grabbedDev.text('');
+	$('.devIcons').removeClass('display-it');
+	for (t = 0; t < app.grabbedDevText.length; t++) {
+		app.grabbedDev.append(document.createTextNode( app.devStrArray[t] ));
+	}
+}
 //////////////////////////
 //////////////////////////
 //MASTHEAD ANIMATIONS
 //////////////////////////
 //////////////////////////
+app.removeClasses = function( masthead, timing, theClass ){
+	setTimeout(function(){ masthead.removeClass( theClass ) }, timing)
+}
+//
+app.revealStart= function(){
+	mastheadOne = $( '.heyrossContainer' );
+	mastheadTwo = $( '.designer' );
+	mastheadThree = $( '.animator' );
+	mastheadFour = $( '.developer' );
+	theFooter = $( 'footer' );
+	//
+	app.removeClasses(mastheadOne, 500, 'hide-opacity');
+	app.removeClasses(mastheadTwo, 750, 'hide-opacity');
+	app.removeClasses(mastheadThree, 1000, 'hide-opacity');
+	app.removeClasses(mastheadFour, 1250, 'hide-opacity');
+	//
+	app.removeClasses(theFooter, 2500, 'initialFooterPos');
+};
+//
 app.loadMastheadAnims = function(){
 	app.mastheadTitle01();
 	app.designerSVG();
+	//
+	app.developerChar();
+	//
+	app.showArrow();
+	////////////////////
+	app.revealStart();
 }
-
 //
 //////////////////////////
 //MASTHEAD TITLE 01
