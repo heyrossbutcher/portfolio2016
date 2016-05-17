@@ -30,11 +30,11 @@
           <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
           <style type="text/css">
-            .st10{fill:#FFFFFF;}
+            .st103{fill:#FFFFFF;}
           </style>
           <circle class="prevCircle" cx="24" cy="24.2" r="23"/>
           <g>
-            <path class="st10" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
+            <path class="st103" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
           </g>
           </svg>
         </div>
@@ -42,18 +42,19 @@
           <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
           <style type="text/css">
-            .st10{fill:#FFFFFF;}
+            .st103{fill:#FFFFFF;}
           </style>
           <circle class="nextCircle" cx="24" cy="24.2" r="23"/>
           <g>
-            <path class="st10" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
+            <path class="st103" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
           </g>
           </svg>
         </div>
         <!--  -->
         <h2></h2>
         <div class="copy">
-          <p></p>
+          <p class="projectDescription"></p>
+          <p class="projectSkills"></p>
           <div class="links clearfix">
             <div class="projectLink"><a href="">See it live</a></div>
             <div class="pdfLink"><a href="">Take a closer look</a></div>
@@ -79,7 +80,7 @@
       <?php if($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post() ?>
         <?php $states = get_field('states');  ?>
         <?php foreach ($states as $state_data) {
-          // pre_r($states);
+          // pre_r($state_data);
             $initialState = $state_data['initial_state'];
             $initialState = strtolower($initialState);
             $secondaryState = $state_data['secondary_state'];
@@ -152,11 +153,11 @@
             c23.9,0,30.4-12.2,31.7-22.5v21.1h14v-18.9h17.4c4.3,0,7.4,1.8,7.4,9c0,5.4,0.1,7.5,1.4,9.9h14h1.2h47.1v-9.8H221.3z M121.5,169
             c-12.7,0-17.1-9.4-17.1-17.4s4.5-17.4,17.1-17.4c12.7,0,17.1,9.4,17.1,17.4S134.2,169,121.5,169z M185.6,148.7h-18.5v-13h17.8
             c3.4,0,7.4,1.3,7.4,6.4C192.3,146.9,188.7,148.7,185.6,148.7z"/>
-          <path id="frazzledTwo_1_" class="st10" d="M148.7,17l6.6,20.3l-123-9.1l72.1,29.3l44.3,39.8l17.3,17.3l76.7,32.3l-124,20.4
+          <path id="frazzledTwo" class="st10" d="M148.7,17l6.6,20.3l-123-9.1l72.1,29.3l44.3,39.8l17.3,17.3l76.7,32.3l-124,20.4
             l-27.3,50.2c4.9-5,61.3-36.1,68.4-40.8c0,0-37.8,18.5-30.4,14.7v8.3c-4,3.6-7.9,7.3-11.4,11c-5.6,5.8-10.6,11.7-15.1,17.7
             c-5.3,7.1-9.9,14.4-13.7,21.9h-6.9c-3.5-6.8,3.2-11.1-1.5-17.6c-4.9-6.7-21.1-15.6-27.3-22c-3.6-3.7-7.4-7.4-11.5-11L20,175.3
             c6.2,3.1,33.7,22.3,38.8,25.6l14.2-0.2l25.6-34L222,144.5L70.7,108.7L159.3,84L96,52l41.3-18.7V17H148.7z"/>
-          <path id="frazzledOne_1_" class="st10" d="M148.7,37.3l54,17.1l-54,14.5l92,3.9l-136,63.7L252,146.6l-144.7,24.6l56.7,21.2
+          <path id="frazzledOne" class="st10" d="M148.7,37.3l54,17.1l-54,14.5l92,3.9l-136,63.7L252,146.6l-144.7,24.6l56.7,21.2
             l-15.3,28.7c5.9-5,26-20.8,28.6-30.9c1.2-4.6,3.8,11.4,9.4,9v4.5c-6.3,4.7-13.5,7.9-18.7,12.9c-9.4,8.9-15.4,14.3-21.3,24l-7.1,8
             c-2.2-3.6-4.7-7.2-7.4-10.7c-3.7-4.9-7.9-9.6-12.6-14.3c-6-6-12.7-11.8-20.3-17.4l9.4-10.3c5.3,2.3,7.7,11.7,12.2,14
             c9.6,4.9,10.4,6.2,16.5,11.3l10-19.2l-82.7-34.1l112.7-17.3l-128-9.6l88-28.4l43.2-32.4l-43.2-4.5l-98-5.6l141.3-16.2l-43.4-16.5

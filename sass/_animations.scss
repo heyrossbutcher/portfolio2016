@@ -17,6 +17,25 @@ $bounce-in: cubic-bezier(0,0,0,1.2);
 	transform: rotate(45deg);
 }
 //
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+//
+@keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+//
+@keyframes showDescription {
+	0% { transform: translate(-50%, -50%) rotateY(-180deg) scale(0); }
+	100% { transform: translate(-50%, -50%) rotateY(0deg) scale(1); }
+}
+@keyframes hideDescription {
+	0% { transform: translate(-50%, -50%) rotateY(0deg) scale(1); }
+	100% { transform: translate(-50%, -50%) rotateY(-180deg) scale(0); }
+}
+//
 @keyframes planeFloat {
 	0% { transform: translate(-50%, -50%) rotate3d(1, 0, 0, 0deg); }
 	50% { transform: translate(-60%, 20%) rotate3d(1, 1, 0, -12deg) scale(0.96);  }
@@ -71,14 +90,23 @@ $bounce-in: cubic-bezier(0,0,0,1.2);
 .display-it{
 	display: block!important;
 }
+//
 .show-description{
-	transform: translate(-50%, -50%) rotateY(0deg) scale(1)!important;
+	animation: showDescription 1s .25s both $douce!important;
 }
-.show-desc-opacity{
-	// display: block!important;
-	// transform: scale(1)!important;
+.hide-description{
+	animation: hideDescription 1s .5s both $douce!important;
+}
+//
+.show-desc-display{
 	z-index: 10000!important;
+}
+//
+.show-desc-opacity{
 	opacity: 1!important;
+}
+.hide-desc-opacity{
+	animation: fadeOut .5s .5s both $douce;
 }
 .move-desc-close{
 	right: -3%!important;
@@ -100,4 +128,8 @@ $bounce-in: cubic-bezier(0,0,0,1.2);
 }
 .arrowShift{
 	margin-left: 180px!important;
+}
+//ANIMATOR CHANGES
+.shrink-animator{
+	transform: scale(.85)!important;
 }

@@ -50,7 +50,8 @@ function hackeryou_scripts() {
 	wp_deregister_script('jquery');
   wp_enqueue_script(
   	'jquery',
-  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js",
+  	// "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js",
+  	get_template_directory_uri() . '/js/jquery-1.11.3.min.js', //source
   	false, //dependencies
   	null, //version number
   	true //load in footer
