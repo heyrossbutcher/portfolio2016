@@ -131,5 +131,13 @@ $bounce-in: cubic-bezier(0,0,0,1.2);
 }
 //ANIMATOR CHANGES
 .shrink-animator{
-	transform: scale(.85)!important;
+	transform: scale(.1)!important;
+}
+.blur{
+	animation: blur .5s;
+}
+@keyframes blur {
+  0% { -webkit-filter: blur(0px); }
+  50% { -webkit-filter: blur(5px); }
+  100% { -webkit-filter: blur(0px); }
 }

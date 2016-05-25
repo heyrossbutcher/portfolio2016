@@ -10,10 +10,10 @@
   		    <div class="contactName"><?php the_title(); ?></div>
           <div class="plusClose">+</div>
         </div>
-        <div class="theInfo">
+        <div class="theInfo clearfix">
           
           <div class="theContacts">
-            <p>Hey Ross is</p>
+            <p>heyross is</p>
             <p>Ross Butcher</p>
             <p>you can give</p>
             <p>him a call at</p>
@@ -60,5 +60,6 @@
 <script src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/js/TweenMax.min.js"></script>
 <script src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/js/MorphSVGPlugin.min.js"></script>
 <?php wp_footer(); ?>
+<div id="myElement"></div>
 </body>
 </html>

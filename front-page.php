@@ -23,50 +23,54 @@
 
            </script>
     <div class="projectModalContainer">
-      <div class="projectModal">
-        <!--  -->
-        <div class="close">+</div>
-        <div class="arrows prev">
-          <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
-          <style type="text/css">
-            .st103{fill:#FFFFFF;}
-          </style>
-          <circle class="prevCircle" cx="24" cy="24.2" r="23"/>
-          <g>
-            <path class="st103" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
-          </g>
-          </svg>
-        </div>
-        <div class="arrows next">
-          <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
-          <style type="text/css">
-            .st103{fill:#FFFFFF;}
-          </style>
-          <circle class="nextCircle" cx="24" cy="24.2" r="23"/>
-          <g>
-            <path class="st103" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
-          </g>
-          </svg>
-        </div>
-        <!--  -->
-        <h2></h2>
-        <div class="copy">
-          <p class="projectDescription"></p>
-          <p class="projectSkills"></p>
-          <div class="links clearfix">
-            <div class="projectLink"><a href="">See it live</a></div>
-            <div class="pdfLink"><a href="">Take a closer look</a></div>
+
+        <div class="projectModal">
+          <!--  -->
+          <div class="close">+</div>
+          <!--  -->
+          <h2></h2>
+          <div class="copy">
+            <p class="projectDescription"></p>
+            <p class="projectSkills"></p>
+            <div class="links clearfix">
+              <div class="projectLink"><a href="">See it live</a></div>
+              <div class="pdfLink"><a href="">Take a closer look</a></div>
+            </div>
           </div>
-        </div>
-        <div class="image">
-          <div class="keyImage"></div>
-          <figure class="keyimage-fig">test content</figure>
-          <div class="thumbnails">
+          <div class="image">
+            <div class="keyImage"></div>
+            <figure class="keyimage-fig">test content</figure>
+            <div class="thumbnails">
+            </div>
           </div>
+          <!-- <div class="arrowHolder"> -->
+            <div class="arrows prev">
+              <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
+              <style type="text/css">
+                .st103{fill:#FFFFFF;}
+              </style>
+              <circle class="prevCircle" cx="24" cy="24.2" r="23"/>
+              <g>
+                <path class="st103" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
+              </g>
+              </svg>
+            </div>
+            <div class="arrows next">
+              <svg version="1.1" id="arrowCircle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 48 48.2" style="enable-background:new 0 0 48 48.2;" xml:space="preserve">
+              <style type="text/css">
+                .st103{fill:#FFFFFF;}
+              </style>
+              <circle class="nextCircle" cx="24" cy="24.2" r="23"/>
+              <g>
+                <path class="st103" d="M27.4,24.1l-9.9-4.2v-7L35,21.2v6l-17.5,8.2v-7L27.4,24.1z"/>
+              </g>
+              </svg>
+            </div>
+          <!-- </div> -->
         </div>
-      </div>
+
     </div>
   <div class="container">
 
@@ -112,6 +116,12 @@
                 echo '<div class="devIcon devIcon09"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/icons/mamp.png" alt=""></div>';
                 echo '</div>';
                 echo '<div class="devHolder">';
+                echo $initialState;
+                echo '</div>';
+                echo '</div>';
+          } else if ($initialState == "animator") {
+                echo '<div class="'.$initialState.' masthead-title hide-opacity clearfix">';
+                echo '<div class="aniHolder">';
                 echo $initialState;
                 echo '</div>';
                 echo '</div>';
@@ -165,16 +175,13 @@
           <path id="straightStart" d="M148.7,76v160.2c8.9-9.1,21.6-17.8,38-26.1v8.3c-17.7,15.8-31.1,32.6-40.3,50.6h-6.9
   c-9.2-17.9-22.6-34.8-40.3-50.6V210c16.5,8.4,29.2,17.1,38,26.1V76H148.7z"/>
           </svg>
-
-
         </div>
-
       </section>
       
 
       <section class="about">
         <div class="infographics clearfix">
-          <div class="info01">
+          <div class="info01 clearfikx">
           <div class="iconHolder">  
             <div class="flipper">&nbsp;
               <div class="iconFirst">
@@ -193,8 +200,8 @@
           </div>
 
           </div>
-          <div class="info02">
-            <div class="icon">
+          <div class="info02 clearfikx">
+            <div class="iconHolder">
               <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/airHockey.svg" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet">
             </div>
             <div class="info" title="*No governing body has recognized this accomplishment...yet" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet" >
@@ -204,9 +211,9 @@
               <p>since 1998*</p>
             </div>
           </div>
-          <div class="info03">
+          <div class="info03 clearfikx">
 
-            <div class="icon">
+            <div class="iconHolder">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="-475 280 272 234" style="enable-background:new -475 280 272 234;" xml:space="preserve">
               <style type="text/css">

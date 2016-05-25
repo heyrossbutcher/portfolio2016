@@ -31,13 +31,13 @@ app.mastheadCharEngine = function(grabItAgain){
 		for ( x = 0; x < app.singleStrArray.length; x++ ) {
 			app.counter = app.singleStrArray[x];
 			app.grabbedAgain = $('.'+ grabItAgain);
-			app.grabbedAgain.append('<div class="charWrapper" data-pos="' +  x + '"><div class="char letter-' + app.counter + '">' + app.counter + '</div></div>');
+			app.grabbedAgain.append('<div class="charWrapper charCtr-' +  x + '" data-pos="' +  x + '"><div class="char letter-' + app.counter + '">' + app.counter + '</div></div>');
 			//
 			if ( x == app.singleStrArray.length - 1 ) {
 				app.grabbed.append('<div class="charWrapper"><div class="space">&nbsp;</div></div>');
 			}
 			//
-			if ( app.counter === 'i' || app.counter === 'y' || app.counter === 't' || app.counter === 'r' || app.counter === 's' || app.counter === 'o' || app.counter === 'e' ) {
+			if ( app.counter === 'i' || app.counter === 'y' || app.counter === 't' || app.counter === 'r' || app.counter === 's' || app.counter === 'o' || app.counter === 'e'  || app.counter === 'm' ) {
 				// console.log(app.strArray + ': ' + app.counter + ' was added.')
 				$('.letter-' + app.counter).addClass('kerning-' + app.counter);
 			}
@@ -114,11 +114,11 @@ app.designerSVG = function(){
 }
 //////////////////////////
 //GET THE MASTHEAD CONTENT FOR ANIMATOR HEADING
-app.animatorString = '<div class="animatorHolder"><svg version="1.1" id="animator" class="plcHldr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 390.3 92.9" style="enable-background:new 0 0 390.3 92.9;" xml:space="preserve"><path d="M26.6,53.3c2.3-0.3,4-0.7,5-1.1c1.8-0.8,2.7-1.9,2.7-3.6c0-2-0.7-3.3-2.1-4.1c-1.4-0.7-3.4-1.1-6.1-1.1	c-3,0-5.1,0.7-6.4,2.2c-0.9,1.1-1.5,2.5-1.8,4.4H5.9c0.3-4.2,1.4-7.6,3.5-10.3c3.3-4.2,9-6.3,17.1-6.3c5.3,0,9.9,1,14,3.1	c4.1,2.1,6.1,6,6.1,11.8v22c0,1.5,0,3.4,0.1,5.5c0.1,1.6,0.3,2.8,0.7,3.3c0.4,0.6,1,1.1,1.8,1.5v1.8H35.8c-0.4-1-0.6-1.9-0.8-2.7c-0.1-0.8-0.3-1.8-0.4-2.9c-1.7,1.9-3.7,3.5-6,4.8c-2.7,1.6-5.8,2.3-9.2,2.3c-4.4,0-8-1.2-10.8-3.7c-2.8-2.5-4.3-6-4.3-10.5	c0-5.9,2.3-10.2,6.9-12.8c2.5-1.4,6.2-2.5,11.1-3.1L26.6,53.3z M34.2,59.2c-0.8,0.5-1.6,0.9-2.4,1.2c-0.8,0.3-1.9,0.6-3.4,0.9	l-2.9,0.5c-2.7,0.5-4.6,1-5.8,1.7c-2,1.1-3,2.9-3,5.3c0,2.1,0.6,3.7,1.8,4.6c1.2,1,2.7,1.4,4.4,1.4c2.7,0,5.3-0.8,7.6-2.4	c2.3-1.6,3.5-4.5,3.6-8.7V59.2z"/><path d="M96.6,37.3c3.1,2.6,4.7,6.9,4.7,12.9v32.3H88.4V53.3c0-2.5-0.3-4.5-1-5.8c-1.2-2.5-3.5-3.7-7-3.7c-4.2,0-7.1,1.8-8.7,5.4	c-0.8,1.9-1.2,4.3-1.2,7.3v25.9H58V34.6h12.1v7c1.6-2.5,3.1-4.2,4.6-5.3c2.6-1.9,5.8-2.9,9.8-2.9C89.4,33.4,93.4,34.7,96.6,37.3z"/><path d="M126.1,28.8h-12.7V17.3h12.7V28.8z M113.4,34.5h12.7v47.9h-12.7V34.5z"/><path d="M198.2,34.7c2.1,0.8,3.9,2.3,5.6,4.3c1.3,1.7,2.3,3.7,2.7,6.2c0.3,1.6,0.4,4,0.4,7.1l-0.1,30.2H194V51.9 c0-1.8-0.3-3.3-0.9-4.5c-1.1-2.2-3.2-3.3-6.2-3.3c-3.5,0-5.8,1.4-7.2,4.3c-0.7,1.5-1,3.4-1,5.5v28.5h-12.6V53.9 c0-2.8-0.3-4.9-0.9-6.2c-1.1-2.3-3.1-3.5-6.2-3.5c-3.6,0-6,1.2-7.2,3.5c-0.7,1.3-1,3.3-1,5.9v28.8h-12.7V34.6h12.2v7 c1.6-2.5,3-4.3,4.4-5.3c2.4-1.9,5.6-2.8,9.4-2.8c3.7,0,6.6,0.8,8.9,2.4c1.8,1.5,3.2,3.4,4.1,5.8c1.6-2.8,3.7-4.9,6.1-6.2 c2.6-1.3,5.4-2,8.6-2C194.1,33.5,196.2,33.9,198.2,34.7z"/><path d="M237.7,53.3c2.3-0.3,4-0.7,5-1.1c1.8-0.8,2.7-1.9,2.7-3.6c0-2-0.7-3.3-2.1-4.1s-3.4-1.1-6.1-1.1c-3,0-5.1,0.7-6.4,2.2 c-0.9,1.1-1.5,2.5-1.8,4.4H217c0.3-4.2,1.4-7.6,3.5-10.3c3.3-4.2,9-6.3,17.1-6.3c5.3,0,9.9,1,14,3.1c4.1,2.1,6.1,6,6.1,11.8v22 c0,1.5,0,3.4,0.1,5.5c0.1,1.6,0.3,2.8,0.7,3.3s1,1.1,1.8,1.5v1.8h-13.6c-0.4-1-0.6-1.9-0.8-2.7s-0.3-1.8-0.4-2.9 c-1.7,1.9-3.7,3.5-6,4.8c-2.7,1.6-5.8,2.3-9.2,2.3c-4.4,0-8-1.2-10.8-3.7c-2.8-2.5-4.3-6-4.3-10.5c0-5.9,2.3-10.2,6.9-12.8 c2.5-1.4,6.2-2.5,11.1-3.1L237.7,53.3z M245.4,59.2c-0.8,0.5-1.6,0.9-2.4,1.2c-0.8,0.3-1.9,0.6-3.4,0.9l-2.9,0.5 c-2.7,0.5-4.6,1-5.8,1.7c-2,1.1-3,2.9-3,5.3c0,2.1,0.6,3.7,1.8,4.6c1.2,1,2.7,1.4,4.4,1.4c2.7,0,5.3-0.8,7.6-2.4s3.5-4.5,3.6-8.7 V59.2z"/><path d="M264.2,43.9V35h6.7V21.6h12.4V35h7.8v8.9h-7.8v25.3c0,2,0.2,3.2,0.7,3.7c0.5,0.5,2,0.7,4.6,0.7c0.4,0,0.8,0,1.2,0	c0.4,0,0.8,0,1.3-0.1v9.4l-5.9,0.2c-5.9,0.2-10-0.8-12.1-3.1c-1.4-1.4-2.1-3.6-2.1-6.6V43.9H264.2z"/><path d="M339.3,76.6c-4,5-10.2,7.5-18.4,7.5s-14.4-2.5-18.4-7.5c-4-5-6.1-11-6.1-18c0-6.9,2-12.9,6.1-18s10.2-7.6,18.4-7.6	s14.4,2.5,18.4,7.6s6.1,11.1,6.1,18C345.3,65.6,343.3,71.6,339.3,76.6z M329.2,69.7c2-2.6,2.9-6.3,2.9-11.1c0-4.8-1-8.5-2.9-11.1	c-2-2.6-4.8-3.9-8.4-3.9s-6.5,1.3-8.5,3.9c-2,2.6-3,6.3-3,11.1c0,4.8,1,8.5,3,11.1c2,2.6,4.8,3.9,8.5,3.9S327.3,72.3,329.2,69.7z"/><path d="M381.2,33.4c0.2,0,0.5,0,1.1,0.1v12.8c-0.8-0.1-1.5-0.1-2.1-0.2c-0.6,0-1.1,0-1.5,0c-5,0-8.4,1.6-10.2,4.9	c-1,1.8-1.5,4.7-1.5,8.5v22.9h-12.6V34.5h12v8.3c1.9-3.2,3.6-5.4,5.1-6.5c2.3-2,5.4-2.9,9.1-2.9C380.8,33.4,381,33.4,381.2,33.4z"/></svg>';
+// app.animatorString = '<div class="animatorHolder"><svg version="1.1" id="animator" class="plcHldr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 390.3 92.9" style="enable-background:new 0 0 390.3 92.9;" xml:space="preserve"><path class="animLetter anim-a1" d="M26.6,53.3c2.3-0.3,4-0.7,5-1.1c1.8-0.8,2.7-1.9,2.7-3.6c0-2-0.7-3.3-2.1-4.1c-1.4-0.7-3.4-1.1-6.1-1.1	c-3,0-5.1,0.7-6.4,2.2c-0.9,1.1-1.5,2.5-1.8,4.4H5.9c0.3-4.2,1.4-7.6,3.5-10.3c3.3-4.2,9-6.3,17.1-6.3c5.3,0,9.9,1,14,3.1	c4.1,2.1,6.1,6,6.1,11.8v22c0,1.5,0,3.4,0.1,5.5c0.1,1.6,0.3,2.8,0.7,3.3c0.4,0.6,1,1.1,1.8,1.5v1.8H35.8c-0.4-1-0.6-1.9-0.8-2.7c-0.1-0.8-0.3-1.8-0.4-2.9c-1.7,1.9-3.7,3.5-6,4.8c-2.7,1.6-5.8,2.3-9.2,2.3c-4.4,0-8-1.2-10.8-3.7c-2.8-2.5-4.3-6-4.3-10.5	c0-5.9,2.3-10.2,6.9-12.8c2.5-1.4,6.2-2.5,11.1-3.1L26.6,53.3z M34.2,59.2c-0.8,0.5-1.6,0.9-2.4,1.2c-0.8,0.3-1.9,0.6-3.4,0.9	l-2.9,0.5c-2.7,0.5-4.6,1-5.8,1.7c-2,1.1-3,2.9-3,5.3c0,2.1,0.6,3.7,1.8,4.6c1.2,1,2.7,1.4,4.4,1.4c2.7,0,5.3-0.8,7.6-2.4	c2.3-1.6,3.5-4.5,3.6-8.7V59.2z"/><path class="animLetter anim-n" d="M96.6,37.3c3.1,2.6,4.7,6.9,4.7,12.9v32.3H88.4V53.3c0-2.5-0.3-4.5-1-5.8c-1.2-2.5-3.5-3.7-7-3.7c-4.2,0-7.1,1.8-8.7,5.4	c-0.8,1.9-1.2,4.3-1.2,7.3v25.9H58V34.6h12.1v7c1.6-2.5,3.1-4.2,4.6-5.3c2.6-1.9,5.8-2.9,9.8-2.9C89.4,33.4,93.4,34.7,96.6,37.3z"/><path class="animLetter anim-i" d="M126.1,28.8h-12.7V17.3h12.7V28.8z M113.4,34.5h12.7v47.9h-12.7V34.5z"/><path class="animLetter anim-m" d="M198.2,34.7c2.1,0.8,3.9,2.3,5.6,4.3c1.3,1.7,2.3,3.7,2.7,6.2c0.3,1.6,0.4,4,0.4,7.1l-0.1,30.2H194V51.9 c0-1.8-0.3-3.3-0.9-4.5c-1.1-2.2-3.2-3.3-6.2-3.3c-3.5,0-5.8,1.4-7.2,4.3c-0.7,1.5-1,3.4-1,5.5v28.5h-12.6V53.9 c0-2.8-0.3-4.9-0.9-6.2c-1.1-2.3-3.1-3.5-6.2-3.5c-3.6,0-6,1.2-7.2,3.5c-0.7,1.3-1,3.3-1,5.9v28.8h-12.7V34.6h12.2v7 c1.6-2.5,3-4.3,4.4-5.3c2.4-1.9,5.6-2.8,9.4-2.8c3.7,0,6.6,0.8,8.9,2.4c1.8,1.5,3.2,3.4,4.1,5.8c1.6-2.8,3.7-4.9,6.1-6.2 c2.6-1.3,5.4-2,8.6-2C194.1,33.5,196.2,33.9,198.2,34.7z"/><path class="animLetter anim-a2" d="M237.7,53.3c2.3-0.3,4-0.7,5-1.1c1.8-0.8,2.7-1.9,2.7-3.6c0-2-0.7-3.3-2.1-4.1s-3.4-1.1-6.1-1.1c-3,0-5.1,0.7-6.4,2.2 c-0.9,1.1-1.5,2.5-1.8,4.4H217c0.3-4.2,1.4-7.6,3.5-10.3c3.3-4.2,9-6.3,17.1-6.3c5.3,0,9.9,1,14,3.1c4.1,2.1,6.1,6,6.1,11.8v22 c0,1.5,0,3.4,0.1,5.5c0.1,1.6,0.3,2.8,0.7,3.3s1,1.1,1.8,1.5v1.8h-13.6c-0.4-1-0.6-1.9-0.8-2.7s-0.3-1.8-0.4-2.9 c-1.7,1.9-3.7,3.5-6,4.8c-2.7,1.6-5.8,2.3-9.2,2.3c-4.4,0-8-1.2-10.8-3.7c-2.8-2.5-4.3-6-4.3-10.5c0-5.9,2.3-10.2,6.9-12.8 c2.5-1.4,6.2-2.5,11.1-3.1L237.7,53.3z M245.4,59.2c-0.8,0.5-1.6,0.9-2.4,1.2c-0.8,0.3-1.9,0.6-3.4,0.9l-2.9,0.5 c-2.7,0.5-4.6,1-5.8,1.7c-2,1.1-3,2.9-3,5.3c0,2.1,0.6,3.7,1.8,4.6c1.2,1,2.7,1.4,4.4,1.4c2.7,0,5.3-0.8,7.6-2.4s3.5-4.5,3.6-8.7 V59.2z"/><path class="animLetter anim-t" d="M264.2,43.9V35h6.7V21.6h12.4V35h7.8v8.9h-7.8v25.3c0,2,0.2,3.2,0.7,3.7c0.5,0.5,2,0.7,4.6,0.7c0.4,0,0.8,0,1.2,0	c0.4,0,0.8,0,1.3-0.1v9.4l-5.9,0.2c-5.9,0.2-10-0.8-12.1-3.1c-1.4-1.4-2.1-3.6-2.1-6.6V43.9H264.2z"/><path class="animLetter anim-o" d="M339.3,76.6c-4,5-10.2,7.5-18.4,7.5s-14.4-2.5-18.4-7.5c-4-5-6.1-11-6.1-18c0-6.9,2-12.9,6.1-18s10.2-7.6,18.4-7.6	s14.4,2.5,18.4,7.6s6.1,11.1,6.1,18C345.3,65.6,343.3,71.6,339.3,76.6z M329.2,69.7c2-2.6,2.9-6.3,2.9-11.1c0-4.8-1-8.5-2.9-11.1	c-2-2.6-4.8-3.9-8.4-3.9s-6.5,1.3-8.5,3.9c-2,2.6-3,6.3-3,11.1c0,4.8,1,8.5,3,11.1c2,2.6,4.8,3.9,8.5,3.9S327.3,72.3,329.2,69.7z"/><path class="animLetter anim-r" d="M381.2,33.4c0.2,0,0.5,0,1.1,0.1v12.8c-0.8-0.1-1.5-0.1-2.1-0.2c-0.6,0-1.1,0-1.5,0c-5,0-8.4,1.6-10.2,4.9	c-1,1.8-1.5,4.7-1.5,8.5v22.9h-12.6V34.5h12v8.3c1.9-3.2,3.6-5.4,5.1-6.5c2.3-2,5.4-2.9,9.1-2.9C380.8,33.4,381,33.4,381.2,33.4z"/></svg>';
 //
 app.animatorSVG = function(){
 	app.AnimatorTitle = $( '.animator' );
-	app.AnimatorTitle.html( app.animatorString );
+	// app.AnimatorTitle.html( app.animatorString );
 	//
 	app.animatorAnimate();
 	//
@@ -134,7 +134,24 @@ app.animatorSVG = function(){
 app.animatorAnimate = function(){
 	app.animatorTl = new TimelineMax({paused:true});
 	//
-	app.animatorTl.to("#animator", 0.5, {scale:0.8});
+	// app.animatorTl.to('.aniHolder' , 0.15, {scale:0.7})
+					// .staggerTo($('.aniHolder .charWrapper'), 0.5, {rotation:720}, '-=0.25');
+	  app.animatorTl.to('.aniHolder .charCtr-0', 0.4, {rotation:720, width: 38, scale:0.7, color: '#1b629e', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-1', 0.4, {rotation:720, width: 43, scale:0.7, color: '#20709e', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-2', 0.4, {rotation:720, width: 13, scale:0.7, color: '#257e9e', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-3', 0.4, {rotation:720, width: 58, scale:0.7, color: '#2b8c9f', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-4', 0.4, {rotation:720, width: 42, scale:0.7, color: '#319ca0', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-5', 0.4, {rotation:720, width: 21, scale:0.7, color: '#36aaa0', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-6', 0.4, {rotation:720, width: 38, scale:0.7, color: '#3bb8a1', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-7', 0.4, {rotation:720, width: 38, scale:0.7, color: '#40c6a1', yoyo:true}, '-=0.3');
+	// app.animatorTl.to('.aniHolder .charCtr-0', 0.4, {rotation:720, width: 30, scale:0.7, color: '#1b629e', yoyo:true}, '-=0.3')
+	// 				.to('.aniHolder .charCtr-1', 0.4, {rotation:720, width: 55, scale:0.7, color: '#20709e', yoyo:true}, '-=0.3')
+	// 				.to('.aniHolder .charCtr-2', 0.4, {rotation:720, width: 25, scale:0.7, color: '#257e9e', yoyo:true}, '-=0.3')
+	// 				.to('.aniHolder .charCtr-3', 0.4, {rotation:720, width: 70, scale:0.7, color: '#2b8c9f', yoyo:true}, '-=0.3')
+	// 				.to('.aniHolder .charCtr-4', 0.4, {rotation:720, width: 55, scale:0.7, color: '#319ca0', yoyo:true}, '-=0.3')
+	// 				.to('.aniHolder .charCtr-5', 0.4, {rotation:720, width: 35, scale:0.7, color: '#36aaa0', yoyo:true}, '-=0.3')
+	// 				.to('.aniHolder .charCtr-6', 0.4, {rotation:720, width: 50, scale:0.7, color: '#3bb8a1', yoyo:true}, '-=0.3')
+	// 				.to('.aniHolder .charCtr-7', 0.4, {rotation:720, width: 50, scale:0.7, color: '#40c6a1', yoyo:true}, '-=0.3');
 }
 //////////////////////////
 //MORE CONTENT ARROW INDICATOR
@@ -207,6 +224,31 @@ $('.arrowIndicator').mouseenter(function(){
 	app.arrowSVG(0);
 	// console.log('arrow enter');
 });
+$('.arrowIndicator').click(function(){
+	// console.log(app.getTheScroll);
+	app.arrowCheck();
+	app.scrollDiff = $(document).scrollTop();
+	console.log('Scroll Difference: ' + app.scrollDiff);
+	$(document).scrollTop( app.scrollDiff + 1 );
+	//PUT IN MOVE FUNCTION
+});
+//////////////////////////
+//ARROW MOVE TO CONTENT
+//
+app.arrowMore = function(){
+	if (app.scrollDiff <= 700){
+		app.scrollDiff = app.getTheScroll + 20;
+		$(document).scrollTop(app.scrollDiff);
+		console.log('get scrolling');
+	}
+}
+//
+app.arrowCheck = function(){
+	$(document).scroll(function(){
+		app.arrowMore();
+	});
+}
+
 //////////////////////////
 //GET THE MASTHEAD CONTENT FOR DEVELOPER HEADING
 app.devCharLibrary = ['q','w','e','r','t','y','u','i','o','p','[',']','|','a','s','d','f','g','h','j','k','l',';',':','z','x','c','v','b','n','m',',','.','<','>','?','/','1','2','3','4','5','6','7','8','9','-','_','+','!','@','#','$','%','^','&','*','(',')','*','=','~','`'];
@@ -282,6 +324,7 @@ app.showIcons = function(){
 					//
 					setTimeout(function(){
 						app.picker = Math.floor( Math.random() * app.devIconsArray.length );
+						// app.picker = Math.floor( Math.random() * app.devIconsArray.length );
 						$( '.devIcon0' + app.devIconsArray[ app.picker ] ).addClass( 'show-opacity' );
 						app.devIconsArray.splice( app.picker, 1 );
 						// console.log(iconTimer);
@@ -432,6 +475,7 @@ app.setBeardTime = function(grabIt, countTo){
 //
 //////////////////////////
 //SCROLLTOP PERCENTAGE
+//
 app.windowMath = function(){
 	app.getTheWindowHeight = $(window).height();
 	app.getTheScroll = $(window).scrollTop();
@@ -444,7 +488,12 @@ app.getScrollTop = function(){
 		app.navScrollTop();
 		//
 		app.arrowScrollTop();
-		
+		//
+		// console.log('Doc height: ' + $(document).height());
+		console.log('Scrolltop: ' + $(document).scrollTop());
+		if ( $(document).scrollTop() > 1700) {
+			forceRedraw(myElement);
+		}
 	});
 }
 //
@@ -637,10 +686,14 @@ app.startProductsScrolling = function(){
 		} 
 		else if ( app.projectsScrollTop < 550 ) {
 			app.projectsPercent = 0;
-			// console.log("Projects %: " + app.projectsPercent);
-		} else {
+			// $(window).trigger('resize');
+			// console.log("Projects << : " + app.projectsScrollTop);
+
+			
+		} else if ( app.projectsScrollTop > 700 ) {
 			app.projectsPercent = 1;
-			// console.log("Projects %: " + app.projectsPercent);
+			// console.log("Projects >> : " + app.projectsScrollTop);
+
 		}
 		//
 		// $( '.project').css( { transform : "translateY(" + app.translateCount + "px)" } );
@@ -649,7 +702,7 @@ app.startProductsScrolling = function(){
 			app.whereWasI = $(this).attr('data-pos');
 			getTranslate = $(this).css('transform');
 			// console.log('Translate Pos for ' + app.whatAmI + ' is ' + app.whereWasI);
-			$( this).css({ transform : 'matrix(1, 0, 0, 1, 0,' + (app.whereWasI * app.projectsPercent) + ')' });
+			$( this).css({ transform : 'matrix(1, 0, 0, 1, 0,' + (app.whereWasI * app.projectsPercent) + ') scale(1)' });
 		});
 		//////////// grab the stored data number and do the math
 		// console.log(app.projectStyle);
@@ -734,11 +787,11 @@ $('.contactTitle').click(function(){
 var beardTl = new TimelineMax({paused:true});
 beardTl.to("#regBeard", 1, {morphSVG:{shape:"#smileBeard", shapeIndex:21}, ease:Back.easeOut});
 
-$( '.info03 .icon' ).mouseenter(function(){
+$( '.info03 .iconHolder' ).mouseenter(function(){
     beardTl.play(0);
 });
 
-$( '.info03 .icon' ).mouseleave(function(){
+$( '.info03 .iconHolder' ).mouseleave(function(){
 	beardTl.reverse();
 });
 
@@ -755,6 +808,7 @@ app.init = function(){
 	//
 	app.mastheadsChar('heyross1');
 	app.mastheadsChar('heyross2');
+	app.mastheadsChar('aniHolder');
 	app.loadMastheadAnims();
 	//
 	app.setBeardTime('info03 .info', 'apr,18,2014,21:14:00');

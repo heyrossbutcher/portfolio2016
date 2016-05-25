@@ -1,0 +1,544 @@
+// _mq.scss
+@media screen and (min-width: 1400px) {
+	//
+	.projects{
+		//
+		.project{
+			//
+			width: 25%;
+		}
+	}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 1400px) {
+	//
+	.projects{
+		//
+		.project{
+			//
+			width: 33.333%;
+		}
+	}
+}
+
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 1200px) {
+	section, header, footer{
+		//
+		padding: 0 30px;
+	}
+	//
+	.projects{
+		//
+		.project{
+			//
+			width: 33.333%;
+		}
+	}
+	//
+	footer{
+		.contactTitle{
+			.contactName{
+				left: 85%;
+			}
+		}
+	}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 1024px) {
+	//
+	.about{
+		//
+		p {
+			//
+		    font-size: 2rem!important;
+		}
+	}
+	//
+	.projects{
+		//
+		.project{
+			//
+			width: 50%;
+		}
+	}
+	//
+	footer{
+		.contactTitle{
+			.contactName{
+				//
+				left: 84%;
+			}
+		}
+		.theInfo{
+			//
+			.theContacts{
+				//
+				width: 36%;
+				p{
+					font-size: 3rem;
+				}
+			}
+			.theForm{
+				//
+				width: 50%;
+				margin-left: 5%;
+			}
+			.theAnimation {
+				//
+				display: none;
+			}
+		}
+	}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 950px) {
+	//
+	.projectModalContainer{
+		//
+
+		.projectModal{
+			//
+			h2{
+				//
+				font-size: 3rem;
+			}
+			.arrows{
+				//
+				width: 40px;
+				height: 40px;
+			}
+			.next{
+				right: 3%;
+			}
+			.prev{
+				left: 3%;
+			}
+			//
+			.image{
+				//
+				width: 55%;
+				.thumbnails{
+					//
+				    margin-top: 15px;
+			        padding-top: 20px;
+					.thumbnail{
+						//
+						height: 65px;
+					}
+				}
+			}
+			.copy{
+				//
+				margin: 0;
+				.projectDescription{
+					//
+					font-size: 1.25rem;
+					padding: 20px;
+				    padding-bottom: 25px;
+				}
+				.projectSkills{
+					//
+					font-size: 1.5rem;
+				}
+
+				.links{
+					//
+
+						.projectLink {
+							//
+							float: none;
+							width: 100%;
+							a{
+								padding: 10px;
+							}
+
+						}
+						.pdfLink {
+							//
+							float: none;
+							width: 100%;
+							margin-top: 10px;
+							a{
+								padding: 10px;
+							}
+
+						}
+					}
+				}
+			}
+		}
+	//
+	footer{
+		.contactTitle{
+			.contactName{
+				//
+				left: 83%;
+			}
+		}
+	}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 900px) {
+	footer{
+		.contactTitle{
+			.contactName{
+				//
+				left: 82%;
+			}
+		}
+	}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 850px) {
+	//
+
+	//
+	.about{
+		//
+		p {
+			//
+		    font-size: 1.85rem!important;
+		}
+	}
+	//
+	footer{
+		.contactTitle{
+			.contactName{
+				//
+				left: 80%;
+			}
+		}
+		.theInfo{
+			//
+			.theContacts{
+			//
+			p{
+				font-size: 2.5rem;
+
+			}
+		}
+	}
+}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 768px) {
+	//
+	.show-description{
+		animation: showDescriptionTwo 1s .25s both $douce!important;
+		top: 0!important;
+	}
+	.hide-description{
+		animation: hideDescriptionTwo 1s .5s both $douce!important;
+		top: 50%!important;
+	}
+	//
+	@keyframes showDescriptionTwo {
+		0% { transform: translate(-50%, -50%) rotateY(-180deg) scale(0); }
+		100% { transform: translate(-50%, 0) rotateY(0deg) scale(1); }
+	}
+	@keyframes hideDescriptionTwo {
+		0% { transform: translate(-50%, 0) rotateY(0deg) scale(1); }
+		100% { transform: translate(-50%, -50%) rotateY(-180deg) scale(0); }
+	}
+
+	//
+	.projectModalContainer{
+		//
+
+		.projectModal{
+			//
+			
+			h2{
+				//
+				font-size: 4rem;
+			}
+			.arrows{
+				//
+				
+				
+			}
+			.next{
+				
+			}
+			.prev{
+				
+			}
+			//
+			.image{
+				//
+				float: none;
+				margin-top: 20px;
+				.thumbnails{
+					//
+				    
+			        
+					.thumbnail{
+						//
+						
+					}
+				}
+			}
+			.copy{
+				//
+				float: none;
+				width: 100%;
+				.projectDescription{
+					//
+					
+					
+				    
+				}
+				.projectSkills{
+					//
+					display: none;
+				}
+
+				.links{
+					//
+
+						.projectLink {
+							//
+							float: left;
+							width: 49%;
+							margin-right: 0;
+							
+							a{
+								
+							}
+
+						}
+						.pdfLink {
+							//
+							float: left;
+							width: 49%;
+							margin-left: 2%;							
+							margin-top: 0;
+							a{
+								
+							}
+
+						}
+					}
+				}
+			}
+		}
+		//
+	.about{
+		//
+		p {
+			//
+		    font-size: 1.7rem!important;
+		}
+	}
+	//
+	.projects{
+		//
+		padding-bottom: 0;
+		.project{
+			//
+			h2{
+				//
+				transform: translate(0);
+				color: white;
+				font-size: 2.5rem;
+				padding: 15px 25px 15px 20px ;
+			}
+		}
+	}
+	//
+	footer {
+		//
+		position: static;
+		.contactTitle{
+			//
+			padding-top: 20px;
+			.contactName{
+				//
+				position: static;
+
+			}
+			.plusClose {
+				//
+				display: none;
+			}
+		}
+	}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 665px) {
+	//
+	.about{
+		padding-bottom: 100px;
+		//
+		.infographics{
+			//
+			.info01, .info02, .info03, {
+				// float: none;
+				width: 100%;
+				margin-right: 0;
+				display: block;
+				margin-bottom: 120px;
+				.iconHolder{
+					//
+					width:30%; 
+				}
+				.info{
+					//
+					width: 65%;
+				}
+			}
+			//
+			.info01 {
+				.info{
+					// 
+					padding-top: 15px;
+				}
+			}
+			.info02{
+				margin-bottom: 85px;
+			}
+			//
+			.info03{
+				//
+				.info{
+					//
+					// width: 50%;
+				}
+			}
+			p {
+				//
+			    font-size: 2.5rem!important;
+			}
+		}
+	}
+	//
+	.projects{
+		//
+		padding-bottom: 0;
+		.project{
+			//
+			width: 100%;
+		}
+	}
+	//
+	footer{
+		//
+		height: 740px;
+		.contactTitle{
+			//
+			height: 80px;
+			padding-top: 30px;
+		}
+		.theInfo{
+			//
+		    margin-top: 20px;
+			.theContacts{
+				//
+				float: none;
+				width: 100%;
+				margin-bottom: 25px;
+				p{
+					font-size: 3rem;
+				}
+				.arrow{
+					display: none;
+				}
+			}
+			.theForm{
+				//
+				float: none;
+				width: 100%;
+				margin-left: 0;
+			}
+		}
+	}
+}
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+@media screen and (max-width: 480px) {
+	//
+	section, header, footer{
+		//
+		padding: 0 10px;
+	}
+	//
+	.about{
+		//
+		.infographics{
+			//
+			.info03{
+				//
+				.info{
+					//
+					width: 50%;
+				}
+			}
+			p {
+				//
+			    font-size: 2.5rem!important;
+			}
+		}
+	}
+	//
+	header{
+		//
+		.nameIcon{
+			//
+			display: none;
+		}
+		//
+		.nameCopy{
+			margin-left: 4px!important;
+		}
+		//
+		.social{
+			//
+			padding-top: 15px!important;
+			.social_btns{
+				//
+				margin-left: 7.5px!important;
+				.fa{
+					//
+					font-size: 3rem!important;
+				}
+			}
+		}
+	}
+	//
+	footer{
+		//
+		height: 740px;
+		.contactTitle{
+			//
+			height: 70px;
+		}
+		//
+		.theInfo{
+			//
+			.theContacts{
+				//
+				p{
+					font-size: 2.5rem;
+				}
+			}
+		}
+	}
+}
