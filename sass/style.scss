@@ -592,7 +592,7 @@ header{
 			}
 			img{
 				// width: 100%;
-				max-height: 410px;
+				max-height: 380px;
 				border: 1px solid rgba(0,0,0,0.1);
 			}
 			.thumbnails{
@@ -638,11 +638,10 @@ header{
 			margin: 0 5%;
 			// background: red;
 			.projectDescription{
-				color: white;
-				background: $black;
-				padding: 25px;
-				padding-bottom: 30px;
-				font-size: 1.5rem;
+				color: $black;
+				// padding: 25px;
+				// padding-bottom: 30px;
+				font-size: 1.75rem;
 				line-height: 1.5!important;
 				margin: 0;
 			}
@@ -670,7 +669,7 @@ header{
 					margin-right: 4%;
 					text-align: center;
 					a{
-						font-size: 1.3rem;
+						font-size: 1.5rem;
 						font-weight: 700;
 						background: white;
 						color: $black;
@@ -692,7 +691,7 @@ header{
 					width: 58%;
 					text-align: center;
 					a{
-						font-size: 1.3rem;
+						font-size: 1.5rem;
 						font-weight: 700;
 						background: white;
 						color: $black;
@@ -730,6 +729,9 @@ header{
 		}
 	}	
 }
+// 
+
+// 
 .fa{
 	font-size: 1.25rem;
 	padding-right: 2.5px;
@@ -745,53 +747,186 @@ header{
 	padding-bottom: 80px;
 	color: white;
 	//
-	.project{
+	.projectWrapper{
 		width: 25%;
-		height: 350px;
 		float: left;
 		margin: 0;
 		padding: 0;
-		//
-		overflow: hidden;
-		background-size: cover;
-		background-position: center; 
-		box-shadow: inset 0px 0px 50px rgba(35, 35, 35, 0);
-		border-left: 1px solid rgba(125,125,125,0.5);
-		border-bottom: 1px solid rgba(125,125,125,0.5);
-		//
-		transition: all 0.75s ease;
-		&:nth-child(4n+1){
-			border-left: none;
-		}
+		.project{
+			// float: left;
+			width: 100%;
+			height: 350px;
+			margin: 0;
+			padding: 0;
+			//
+			overflow: hidden;
+			background-size: cover;
+			background-position: center; 
+			box-shadow: inset 0px 0px 50px rgba(35, 35, 35, 0);
+			border-left: 1px solid rgba(125,125,125,0.5);
+			border-bottom: 1px solid rgba(125,125,125,0.5);
+			//
+			transition: all 0.75s ease;
+			&:nth-child(4n+1){
+				border-left: none;
+			}
 
-		&:hover{
-			box-shadow: inset 0px 0px 100px rgba(15, 15, 15, 1);
-			transition: all .6s ease;
+			&:hover{
+				box-shadow: inset 0px 0px 100px rgba(15, 15, 15, 1);
+				transition: all .6s ease;
+			}
+			&:hover h2{
+				color: white;
+				transition: all 0.5s $douce;
+			    transform: translateY(0);
+			}
+			h2{
+				color: $black;
+				font-size: 3rem;
+				background: $black;
+				display: block;
+				padding: 22px 35px 22px 30px ;
+			    margin: 0;
+			    border-top: 1px solid rgba(25,25,25,1);
+			    border-bottom: 1px solid rgba(25,25,25,1);
+				box-shadow:  5px 0px 10px rgba(35, 35, 35, 1);
+			    //
+			    transform: translateY(-120%);
+				transition: all 0.5s $douce;
+			}
+			p{
+				font-size: 2.2rem;
+				margin-top: 40px;
+				margin-bottom: 200px;
+				padding: 0 50px;
+			}
 		}
-		&:hover h2{
-			color: white;
-			transition: all 0.5s $douce;
-		    transform: translateY(0);
-		}
-		h2{
-			color: $black;
-			font-size: 3rem;
-			background: $black;
-			display: block;
-			padding: 22px 35px 22px 30px ;
-		    margin: 0;
-		    border-top: 1px solid rgba(25,25,25,1);
-		    border-bottom: 1px solid rgba(25,25,25,1);
-			box-shadow:  5px 0px 10px rgba(35, 35, 35, 1);
-		    //
-		    transform: translateY(-120%);
-			transition: all 0.5s $douce;
-		}
-		p{
-			font-size: 2.2rem;
-			margin-top: 40px;
-			margin-bottom: 200px;
-			padding: 0 50px;
+		.mobileInfo{
+			display: none;
+			position: relative;
+			// float: left;
+			width: 100%;
+			// height: 1000px;
+			background: white;
+			//
+			padding: 50px;
+			padding-bottom: 100px;
+			.mobileClose{
+				font-size: 4rem;
+				font-weight: 700;
+				position: absolute;
+				z-index: 10005;
+				right: 30px;
+				top: 35px;
+				color: $black;
+				cursor: pointer;
+				transform: scale(1) rotate(45deg) translate(-50%, -50%);
+				transition: all .5s ease;
+				&:hover{
+					color: rgba(0,0,0,0.5);
+				}
+			}
+			h2{
+				font-size: 3rem;
+				color: $black;
+				margin: 0;
+			}
+			p{
+				font-size: 1.5rem;
+				color: $black;
+			}
+			.mobileImage{
+				// border: 1px solid rgba(240,240,240,1);
+				margin-top: 25px;
+				background-size: cover;
+			    background-position: center;
+			}
+			.mobileVideo{
+				width: 100%;
+				height: 200px;
+			    position: relative;
+		    	transition: all .6s ease;
+			    &:hover{
+			    	box-shadow: inset 0px 0px 25px rgba(15, 15, 15, 1);
+			    }
+				.arrow{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					//
+					width: 40px;
+					height: 62px;
+				}
+			}
+			.img{
+				width: 100%;
+			}
+			.mobileProjectSkills{
+				color: $black;
+				background: white;
+				// padding: 10px 0;
+				// padding-bottom: 30px;
+				font-size: 1.5rem;
+				font-weight: bold;
+				line-height: 1.5!important;
+				margin: 0;
+				.skillsSpacer{
+					padding: 0 10px;
+				}
+			}
+			.mobileProjectImages{
+				margin-bottom: 40px;
+				.mobileFig{
+					color: $black;
+					margin-top: 4px;
+					font-size: 1.1rem;
+					font-style: italic;
+				}
+			}
+			.projectLink{
+				float: left;
+				display: block;
+				width: 38%;
+				margin-right: 4%;
+				text-align: center;
+				a{
+					font-size: 1.3rem;
+					font-weight: 700;
+					background: white;
+					color: $black;
+					padding: 15px;
+					display: block;
+					// letter-spacing: 0.5px;
+					border: 1px solid rgba(0,0,0,0.25);
+					transition: all .5s ease;
+					&:hover{
+						color: white;
+						background: rgba(0,0,0,0.5);
+					}
+
+				}
+			}
+			.pdfLink{
+				float: left;
+				display: block;
+				width: 58%;
+				text-align: center;
+				a{
+					font-size: 1.3rem;
+					font-weight: 700;
+					background: white;
+					color: $black;
+					display: block;
+					padding: 15px;
+					border: 1px solid rgba(0,0,0,0.25);
+					transition: all .5s ease;
+					&:hover{
+						color: white;
+						background: rgba(0,0,0,0.5);
+					}
+				}
+			}
 		}
 	}
 }

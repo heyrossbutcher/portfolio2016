@@ -1,3 +1,5 @@
+
+
 //SET THE NAME SPACE 
 var app = {};
 //
@@ -228,7 +230,7 @@ $('.arrowIndicator').click(function(){
 	// console.log(app.getTheScroll);
 	app.arrowCheck();
 	app.scrollDiff = $(document).scrollTop();
-	console.log('Scroll Difference: ' + app.scrollDiff);
+	// console.log('Scroll Difference: ' + app.scrollDiff);
 	$(document).scrollTop( app.scrollDiff + 1 );
 	//PUT IN MOVE FUNCTION
 });
@@ -239,7 +241,7 @@ app.arrowMore = function(){
 	if (app.scrollDiff <= 700){
 		app.scrollDiff = app.getTheScroll + 20;
 		$(document).scrollTop(app.scrollDiff);
-		console.log('get scrolling');
+		// console.log('get scrolling');
 	}
 }
 //
@@ -489,10 +491,20 @@ app.getScrollTop = function(){
 		//
 		app.arrowScrollTop();
 		//
-		// console.log('Doc height: ' + $(document).height());
-		console.log('Scrolltop: ' + $(document).scrollTop());
-		if ( $(document).scrollTop() > 1700) {
-			forceRedraw(myElement);
+		app.winWidth = $(window).width();
+		//
+		var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+		// console.log('Scrolltop: ' + $(document).scrollTop());
+
+		//////////////////////
+		//SAFARI SCROLLING BUG FIX
+		if ( is_safari ) {
+			console.log('safari');
+			if ( $(document).scrollTop() > 1700 && app.winWidth > 665) {
+				//HACK TO REDRAW AN ELEMNT TO RESET THE PAGE HEIGHT
+				app.designerSVG();
+				console.log( 'redraw' );
+			}
 		}
 	});
 }
@@ -583,6 +595,13 @@ app.getProjectInfo = function(){
 		app.firstImg = app.thumbImgs[0]['image_image']['sizes']['large'];
 		$('.keyImage').html('<img src="' + app.firstImg + '" alt="">');
 	}
+	//SHOW THE MODAL
+	$('.projectModalContainer').addClass('show-desc-display');
+	setTimeout(function(){
+		$('.projectModalContainer').addClass('show-desc-opacity');
+	}, 400);
+	//
+	$('.projectModal').addClass('show-description');
 }
 //
 //////////////////////////
@@ -646,12 +665,7 @@ app.changeKeyimage = function(){
 		}
 	});
 }
-//
-$( '.project' ).click(function(){
-	app.dataNum = $(this).attr('data-number');
-	app.dataCaller = app.dataNum - 1;
-	app.getProjectInfo();
-});
+// 
 //
 $( '.next' ).click(function(){
 	if ( app.dataCaller === app.projectCount-1 ){
@@ -671,6 +685,71 @@ $( '.prev' ).click(function(){
 	app.getProjectInfo();
 
 });
+///////////////////////////////
+//GET MOBILE PROJECT INFO
+app.getMobileProjectInfo = function(){
+
+	app.projName = projectData[app.dataCaller]['projectname'];
+	app.projLink = projectData[app.dataCaller]['project_link'];
+	app.projDesc = projectData[app.dataCaller]['projectdescription'];
+	app.projSkills = projectData[app.dataCaller]['projectskills'];
+	app.projVid = projectData[app.dataCaller]['view_video'];
+	app.projPdf = projectData[app.dataCaller]['view_pdf'];
+	app.thumbImgs = projectData[app.dataCaller]['project_images'];
+	app.thumbImgsLength = app.thumbImgs.length;
+	app.imgCaption = app.thumbImgs[0]['caption'];
+
+	console.log( 'Get the mobile info' );
+
+	var theMobileContent = $( '.mobileProject' + app.dataNum );
+
+	theMobileContent.slideToggle( 'slow');
+
+
+	$( '.mobileProject' + app.dataNum + ' .mobileProjectDescription' ).html( app.projDesc );
+	//
+	var projSkillsTextHldr = '';
+	///////////////////////////
+	//SKILLS LIST
+	app.projSkillsArray = app.projSkills;
+	for( k = 0; k < app.projSkillsArray.length; k++ ){
+		if ( k === app.projSkillsArray.length - 1 ){
+			projSkillsTextHldr = projSkillsTextHldr + app.projSkillsArray[k];
+		} else {
+			projSkillsTextHldr = projSkillsTextHldr + app.projSkillsArray[k] + '<span class="skillsSpacer">|</span>';
+		}
+	}
+	$( '.mobileProject' + app.dataNum + ' .mobileProjectSkills' ).html( projSkillsTextHldr );
+	//
+	var theMobileImages = $( '.mobileProject' + app.dataNum + ' .mobileProjectImages' );
+	theMobileImages.html( '' );
+
+	///////////////////////////
+	//IMAGE LIST
+	for (var t = 0; t < app.thumbImgsLength; t++) {
+		app.checkImgs = app.thumbImgs[t]['what_image'];
+		app.thumbNum = t + 1;
+		// 
+		if ( app.checkImgs === 'video' ){
+			app.getThumbImg = app.thumbImgs[t]['video_image']['sizes']['large'];
+			theMobileImages.append('<a href="' + app.projVid + '" target="_"><div class="mobileImage mobileVideo" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div></a><div class="mobileFig">' + app.imgCaption + '</div>');
+			//
+			// $( '.keyimage-fig' ).html(app.imgCaption);
+		} else {
+			app.getThumbImg = app.thumbImgs[t]['image_image']['sizes']['large'];
+			theMobileImages.append('<div class="mobileImage image' + t + '""><img src="' + app.getThumbImg + '" alt=""><div class="mobileFig">' + app.imgCaption + '</div></div>');
+		}
+		//
+	}
+	//GET THE LINKS AT THE BOTTOM
+	app.getProjectLink();
+	app.getPdfLink();
+
+}
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
 //PRODUCTS SCROLLTOP PERCENTAGE
 app.startProductsScrolling = function(){
 
@@ -729,14 +808,24 @@ app.projectsScrollTop = function(){
 //////////////////////////
 //OPEN MODUAL
 $( '.project' ).click(function(){
-	$('.projectModalContainer').addClass('show-desc-display');
-	setTimeout(function(){
-		$('.projectModalContainer').addClass('show-desc-opacity');
-	}, 400);
-	//
-	$('.projectModal').addClass('show-description');
+// 	//
+	app.dataNum = $(this).attr('data-number');
+	app.dataCaller = app.dataNum - 1;
+// 	//
+	app.winWidth = $(window).width();
+// 	// console.log(app.winWidth);
+	if ( app.winWidth >= 665 ){
+		app.getProjectInfo();
+	} else {
+		app.getMobileProjectInfo();
+	}
+// 	//
+
+	
 });
-$( '.projectModalContainer .projectModal .close' ).click(function(){
+//////////////////////////
+//CLOSE MODUAL
+app.closeModal = function(){
 	$('.projectModal').removeClass('show-description');
 	$('.projectModal .right').html('');
 	//
@@ -744,7 +833,20 @@ $( '.projectModalContainer .projectModal .close' ).click(function(){
 	setTimeout(function(){
 		$('.projectModalContainer').removeClass('show-desc-display');
 	}, 400);
+}
+
+$( '.projectModalContainer .projectModal .close' ).click(function(){
+	app.closeModal();
 });
+
+/////////////////////////////
+//MOBILE PROJECT CLOSE BUTTON
+$( '.mobileClose' ).click(function(){
+	var getTheParent = $(this).parent();
+	// console.log( getTheParent );
+	getTheParent.slideToggle( "fast" );
+});
+
 //////////////////////////
 //FOOTER FUNCTIONALITY
 app.contactShow = false;
@@ -827,3 +929,42 @@ $(function(){
 	//
 });
 //
+//////////////////////////
+//ON WINDOW RESIZE
+
+$(window).on('resize', function(){
+      var win = $(this); //this = window
+      if (win.width() >= 665) { 
+      		$( '.mobileInfo' ).css({ display: 'none' });
+       } else {
+      		app.closeModal();
+       }
+      
+});
+//////////////////////////
+//ON WINDOW SCROLL
+// $(window).scroll(function(){
+
+// 	if ( $(document).scrollTop() > 1700) {
+// 		forceRedraw(myElement);
+// 	}
+// });
+
+
+
+
+var forceRedraw = function(element){
+
+    if (!element) { return; }
+
+    var n = document.createTextNode(' ');
+    var disp = element.style.display;  // don't worry about previous display style
+
+    element.appendChild(n);
+    element.style.display = 'none';
+
+    setTimeout(function(){
+        element.style.display = disp;
+        n.parentNode.removeChild(n);
+    },20); // you can play with this timeout to make it as short as possible
+}

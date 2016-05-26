@@ -72,6 +72,7 @@
         </div>
 
     </div>
+    <!--  -->
   <div class="container">
 
       <section class="masthead">
@@ -263,10 +264,21 @@
 
              $project_img = $project_data['bgimage']['sizes']['medium_large'];
              // /pre_r($project_index);
+             echo '<div class="projectWrapper">';
              echo '<div class="project project'.$product_index.'" data-number="'.$product_index.'" style="background-image: url('.$project_img.')">';
              echo '<h2>'.$project_data['projectname'].'</h2>';
              // echo '<p>'.$project_data['projectdescription'].'</p>';
              // echo '<a href="http://'.$project_data['projectlink'].'">'.$project_data['projectlink'].'</a>';
+             echo '</div>';
+             echo '<div class="mobileInfo mobileProject'.$product_index.'">';
+             echo '<div class="mobileClose">+</div>';
+             echo '<h2>'.$project_data['projectname'].'</h2>';
+             echo '<p class="mobileProjectDescription">fff</p>';
+             echo '<p class="mobileProjectSkills">fff</p>';
+             echo '<div class="mobileProjectImages">fff</div>';
+             echo '<div class="projectLink"><a href="">See it live</a></div>';
+             echo '<div class="pdfLink"><a href="">Take a closer look</a></div>';
+             echo '</div>';
              echo '</div>';
            }
            ?>
