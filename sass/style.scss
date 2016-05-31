@@ -239,6 +239,7 @@ header{
 			width: 377px;
 			height: 96px;
 		    margin-top: 15px;
+			transition: all .5s $douce;
 		}
 		// text-transform: uppercase;
 		.char{
@@ -253,6 +254,7 @@ header{
 		.aniHolder {
 		    display: inline-block;
     		transform-origin: left center;
+    		// transition: all 0.5s ease;
 		    .charWrapper{
 		    	float: left;
 		    	// perspective: 405px;
@@ -276,7 +278,7 @@ header{
 		width: 100%;
 		height: 90px;
 		.devHolder{
-			transition: opacity .5s $douce;
+			transition: all .5s $douce;
 		}
 		.devIcons{
 			position: absolute;
@@ -376,9 +378,9 @@ header{
 				height: auto;
 				perspective: 1000px;
 
-				&:hover .flipper{
-					transform: rotateY(180deg);
-				}
+				// &:hover .flipper{
+				// 	transform: rotateY(180deg);
+				// }
 				.flipper{
 					transition: 0.6s;
 					transform-style: preserve-3d;

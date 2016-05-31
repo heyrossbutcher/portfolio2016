@@ -382,8 +382,127 @@
 //////////////////////////////////////
 @media screen and (max-width: 768px) {
 	//
-
+	.masthead{
 		//
+		.arrowIndicator{
+			//
+			width: 40px;
+			height: 40px;
+			padding-top: 0;
+			margin-left: 100px;
+		}
+		.masthead-title {
+			//
+		    font-size: 6rem;
+		    padding: 0;
+		    .heyrossContainer{
+		    	//
+		    	.heyross1, .heyross2{
+		    		//
+			    	.charWrapper{
+			    		//
+			    		.char{
+			    			//
+			    			width: 37px;
+			    		}
+			    	}
+		    	}
+		    	.heyross1{
+		    		//
+		    		.charWrapper{
+		    			//
+		    			perspective: 270px;
+		    			.char{
+		    				//
+		    				// transform: rotate3d(1, 0, 0, -90deg);
+		    			}
+		    		}
+		    	}
+		    	.heyross2{
+		    		//
+		    		.charWrapper{
+		    			//
+		    			perspective: 290px;
+		    			.char{
+		    				//
+		    				// transform: rotate3d(1, 0, 0, 0deg);
+		    			}
+		    		}
+		    	}
+		    }
+		}
+		//
+		.designer{
+			//
+			margin-top: 0;
+			.designerHolder{
+				width: 260px;
+				height: 66px;
+			}
+
+		}
+		.animator{
+			//
+			margin-top: 4px;
+			.aniHolder{
+				//
+				 .charWrapper{
+				 	//
+					 .char {
+					 	//
+						width: 37px;
+					 }
+				 }
+			}
+		} 
+		.developer{
+			//
+			padding: 10px 0;
+			.devIcons{
+				//
+				.devIcon{
+					//
+					width: 27px;
+					height: 24px;
+				}
+			} 
+		} 
+	}
+	//
+
+	.kerning-i{
+		width: 20px!important;
+	}
+	.kerning-e{
+		width: 34px!important;
+	}
+	.kerning-r{
+		width: 24px!important;
+	}
+	.kerning-s{
+		width: 33px!important;
+	}
+	.kerning-o{
+		width: 37px!important;
+	}
+	.kerning-t{
+		width: 20px!important;
+	}
+	.kerning-y{
+		width: 33px!important;
+	}
+	.kerning-y{
+		width: 32px!important;
+	}
+	.kerning-m{
+		width: 50px!important;
+	}
+	//
+	.arrowShift{
+		margin-left: 100px!important;
+	}
+
+	//
 	.about{
 		//
 		p {

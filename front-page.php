@@ -192,6 +192,9 @@
                 <img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/thumbsup.svg" alt="">
               </div>
             </div>
+
+            
+
           </div>
           <div class="info">
             <p>Art Direction</p>
