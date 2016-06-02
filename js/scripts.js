@@ -1,4 +1,18 @@
+var forceRedraw = function(element){
 
+    if (!element) { return; }
+
+    var n = document.createTextNode(' ');
+    var disp = element.style.display;  // don't worry about previous display style
+
+    element.appendChild(n);
+    element.style.display = 'none';
+
+    setTimeout(function(){
+        element.style.display = disp;
+        n.parentNode.removeChild(n);
+    },20); // you can play with this timeout to make it as short as possible
+}
 
 //SET THE NAME SPACE 
 var app = {};
@@ -13,11 +27,27 @@ is_safari = function() {
 //
 app.win = $(this);
 //
+app.isMobile = false;
+app.checkMobile = function(){
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		app.isMobile = true;
+		console.log( 'Its mobile' );
+	} else {
+		console.log( 'Its desktop' );
+	}
+}
+//
+app.iphoned = navigator.platform.indexOf("iPhone") != -1;
+//
+app.landscaped = $(window).height() < $(window).width();
+
+
+
 //////////////////////////
 //GET THE MASTHEAD CONTENT
 app.navIcons = function(){
 	app.grabNav = $('h1');
-	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
+	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
 }
 
 
@@ -152,32 +182,32 @@ app.animatorSVG = function(){
 	});
 }
 //
-app.animatorAnimate = function( a, b, c, d, e, f, g, h ){
+app.animatorAnimate = function( a, b, c, d, e, f, g, h, scaled ){
 	app.animatorTl = new TimelineMax({paused:true});
 	//
-	  app.animatorTl.to('.aniHolder .charCtr-0', 0.4, {rotation:720, width: a, scale:0.7, color: '#1b629e', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-1', 0.4, {rotation:720, width: b, scale:0.7, color: '#20709e', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-2', 0.4, {rotation:720, width: c, scale:0.7, color: '#257e9e', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-3', 0.4, {rotation:720, width: d, scale:0.7, color: '#2b8c9f', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-4', 0.4, {rotation:720, width: e, scale:0.7, color: '#319ca0', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-5', 0.4, {rotation:720, width: f, scale:0.7, color: '#36aaa0', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-6', 0.4, {rotation:720, width: g, scale:0.7, color: '#3bb8a1', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-7', 0.4, {rotation:720, width: h, scale:0.7, color: '#40c6a1', yoyo:true}, '-=0.3');
+	  app.animatorTl.to('.aniHolder .charCtr-0', 0.4, {rotation:720, width: a, scale:scaled, color: '#1b629e', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-1', 0.4, {rotation:720, width: b, scale:scaled, color: '#20709e', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-2', 0.4, {rotation:720, width: c, scale:scaled, color: '#257e9e', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-3', 0.4, {rotation:720, width: d, scale:scaled, color: '#2b8c9f', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-4', 0.4, {rotation:720, width: e, scale:scaled, color: '#319ca0', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-5', 0.4, {rotation:720, width: f, scale:scaled, color: '#36aaa0', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-6', 0.4, {rotation:720, width: g, scale:scaled, color: '#3bb8a1', yoyo:true}, '-=0.3')
+					.to('.aniHolder .charCtr-7', 0.4, {rotation:720, width: h, scale:scaled, color: '#40c6a1', yoyo:true}, '-=0.3');
 }
 //RESETS THE ANIMATOR SPACING ON RESIZE
 app.animatorResizer = function(win){
 	//
- 	if( win.width() >= 768 ) {
-	    app.animatorAnimate( 38, 43, 13, 58, 42, 21, 38, 38 );
+ 	if( win.width() > 768 ) {
+	    app.animatorAnimate( 38, 43, 13, 58, 42, 21, 38, 38, 0.7 );
 	    console.log( 'This is regular widths' );
- 	} else if ( win.width() >= 665 ) {
-	    app.animatorAnimate( 25, 27, 10, 37, 27, 12, 25, 30 );
+ 	} else if ( win.width() > 665 ) {
+	    app.animatorAnimate( 25, 27, 10, 37, 27, 12, 25, 30, 0.7 );
 	    console.log( 'This is 665 widths' );
- 	} else if ( win.width() >= 480 ) {
-	    app.animatorAnimate( 20, 20, 20, 20, 20, 20, 20, 20 );
+ 	} else if ( win.width() > 480 ) {
+	    app.animatorAnimate( 24, 26, 10, 38, 26, 14, 26, 30, 0.85 );
 	    console.log( 'This is 480 widths' );
- 	} else if ( win.width() >= 320 ) {
-	    app.animatorAnimate( 10, 10, 10, 10, 10, 10, 10, 10 );
+ 	} else if ( win.width() > 320 ) {
+	    app.animatorAnimate( 20, 22, 11, 33, 20, 12, 22, 16, 0.95 );
 	    console.log( 'This is 320 widths' );
 	}
 }
@@ -202,18 +232,29 @@ app.arrowBoolAni = false;
 app.arrowBoolDev = false;
 app.arrowBoolCtr = 0;
 //
+app.theArrow = $( '.arrowIndicator' );
+//
 app.showArrowCheck = function(){
-	theArrow = $( '.arrowIndicator' );
-	if( app.arrowBoolHr === true && app.arrowBoolDes === true && app.arrowBoolAni === true && app.arrowBoolDev === true ) {
-		app.arrowBoolCtr++;
-		if ( app.arrowBoolCtr === 1 ) {
-			app.removeClasses(theArrow, 4000, 'hide-opacity');
-			app.removeClasses(theArrow, 4000, 'arrowShift');
-			app.arrowSVG(4);
-			// console.log('do it');
+	if ( app.isMobile !== true){
+		if( app.arrowBoolHr === true && app.arrowBoolDes === true && app.arrowBoolAni === true && app.arrowBoolDev === true ) {
+			app.arrowBoolCtr++;
+			if ( app.arrowBoolCtr === 1 ) {
+				app.removeClasses(app.theArrow, 4000, 'hide-opacity');
+				app.removeClasses(app.theArrow, 4000, 'arrowShift');
+				app.arrowSVG(4);
+				// console.log('do it');
+			}
+		} else {
+			// console.log('nope');
 		}
-	} else {
-		// console.log('nope');
+	}
+}
+//
+app.showArrowMobile = function(){
+	if ( app.isMobile === true){
+		app.removeClasses(app.theArrow, 4000, 'hide-opacity');
+		app.removeClasses(app.theArrow, 4000, 'arrowShift');
+		app.arrowSVG(4);
 	}
 }
 //
@@ -596,7 +637,7 @@ app.getProjectInfo = function(){
 		// 
 		if ( app.checkImgs === 'video' ){
 			app.getThumbImg = app.thumbImgs[t]['video_image']['sizes']['medium'];
-			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
+			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
 			//
 			$( '.keyimage-fig' ).html(app.imgCaption);
 		} else {
@@ -638,6 +679,8 @@ app.getProjectInfo = function(){
 	}, 400);
 	//
 	$('.projectModal').addClass('show-description');
+
+	// forceRedraw();
 }
 //
 //////////////////////////
@@ -655,7 +698,7 @@ app.getPdfLink = function(){
 	app.pdfName = app.projName.replace(/\s+/g, '');
 	//
 	if ( app.projPdf === true ){
-		$( '.pdfLink' ).html('<a href="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/' + app.pdfName + '.pdf" target="_"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Take a closer look</a>');
+		$( '.pdfLink' ).html('<a href="http://rossbutcher.ca/new/wp-content/themes/heyross/img/' + app.pdfName + '.pdf" target="_"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Take a closer look</a>');
 	} else {
 		$( '.pdfLink' ).html('');
 	}
@@ -739,7 +782,7 @@ app.getMobileProjectInfo = function(){
 
 	var theMobileContent = $( '.mobileProject' + app.dataNum );
 
-	theMobileContent.slideToggle( 'slow');
+	theMobileContent.slideDown( 'slow');
 
 
 	$( '.mobileProject' + app.dataNum + ' .mobileProjectDescription' ).html( app.projDesc );
@@ -768,7 +811,7 @@ app.getMobileProjectInfo = function(){
 		// 
 		if ( app.checkImgs === 'video' ){
 			app.getThumbImg = app.thumbImgs[t]['video_image']['sizes']['large'];
-			theMobileImages.append('<a href="' + app.projVid + '" target="_"><div class="mobileImage mobileVideo" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://localhost:8888/001New-Portfolio/production/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div></a><div class="mobileFig">' + app.imgCaption + '</div>');
+			theMobileImages.append('<a href="' + app.projVid + '" target="_"><div class="mobileImage mobileVideo" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div></a><div class="mobileFig">' + app.imgCaption + '</div>');
 			//
 			// $( '.keyimage-fig' ).html(app.imgCaption);
 		} else {
@@ -843,17 +886,22 @@ app.projectsScrollTop = function(){
 //////////////////////////
 //OPEN MODUAL
 $( '.project' ).click(function(){
+	console.log( 'this clicked' );
 // 	//
 	app.dataNum = $(this).attr('data-number');
 	app.dataCaller = app.dataNum - 1;
-// 	//
 	app.winWidth = $(window).width();
-// 	// console.log(app.winWidth);
-	if ( app.winWidth >= 665 ){
-		app.getProjectInfo();
+//
+	if ( app.iphoned && app.landscaped ){
+  		app.getMobileProjectInfo();
 	} else {
-		app.getMobileProjectInfo();
-	}
+	  	if ( app.winWidth >= 665 ){
+	  		app.getProjectInfo();
+	  	} else {
+	  		app.getMobileProjectInfo();
+  	}
+  }
+	
 // 	//
 
 	
@@ -879,7 +927,7 @@ $( '.projectModalContainer .projectModal .close' ).click(function(){
 $( '.mobileClose' ).click(function(){
 	var getTheParent = $(this).parent();
 	// console.log( getTheParent );
-	getTheParent.slideToggle( "fast" );
+	getTheParent.slideUp( "fast" );
 });
 
 //////////////////////////
@@ -939,6 +987,9 @@ $( '.info03 .iconHolder' ).mouseleave(function(){
 //////////////////////////
 //INIT FUNCTION
 app.init = function(){
+	app.checkMobile();
+	app.showArrowMobile();
+	//
 	app.navIcons();
 	app.windowMath();
 	app.navScrollTop();
@@ -971,7 +1022,7 @@ $(function(){
 $(window).on('resize', function(){
 
 	//RESETS THE MODAL STATE ON RESIZE
-	if ( app.win.width() >= 665 ) { 
+	if ( app.win.width() >= 665 & !app.iphoned ) { 
   		$( '.mobileInfo' ).css({ display: 'none' });
    	} else {
   		app.closeModal();
@@ -980,24 +1031,6 @@ $(window).on('resize', function(){
  	//RESETS THE "ANIMATOR" SPACING
  	app.animatorSVG();
 });
-//////////////////////////
 
 
 
-
-
-var forceRedraw = function(element){
-
-    if (!element) { return; }
-
-    var n = document.createTextNode(' ');
-    var disp = element.style.display;  // don't worry about previous display style
-
-    element.appendChild(n);
-    element.style.display = 'none';
-
-    setTimeout(function(){
-        element.style.display = disp;
-        n.parentNode.removeChild(n);
-    },20); // you can play with this timeout to make it as short as possible
-}
