@@ -20,6 +20,7 @@
            <script type="text/javascript">
               var projectObj = '<?php echo json_encode( $projectOutput[0]['customField']['projects'] ); ?>';
               var projectData = JSON.parse(projectObj);
+              //
 
            </script>
     <div class="projectModalContainer">
@@ -30,8 +31,8 @@
           <!--  -->
           <h2></h2>
           <div class="copy">
-            <p class="projectDescription"></p>
-            <p class="projectSkills"></p>
+            <div class="projectDescription"></div>
+            <div class="projectSkills"></div>
             <div class="links clearfix">
               <div class="projectLink"><a href="">See it live</a></div>
               <div class="pdfLink"><a href="">Take a closer look</a></div>
@@ -276,8 +277,8 @@
              echo '<div class="mobileInfo mobileProject'.$product_index.'">';
              echo '<div class="mobileClose">+</div>';
              // echo '<h2>'.$project_data['projectname'].'</h2>';
-             echo '<p class="mobileProjectDescription">fff</p>';
-             echo '<p class="mobileProjectSkills">fff</p>';
+             echo '<div class="mobileProjectDescription">fff</div>';
+             echo '<div class="mobileProjectSkills">fff</div>';
              echo '<div class="mobileProjectImages">fff</div>';
              echo '<div class="projectLink"><a href="">See it live</a></div>';
              echo '<div class="pdfLink"><a href="">Take a closer look</a></div>';

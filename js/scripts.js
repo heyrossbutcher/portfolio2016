@@ -289,18 +289,31 @@ app.arrowScrollTop = function(){
 	}
 }
 //
-// $('.arrowIndicator').mouseenter(function(){
-// 	app.arrowSVG(0);
-// 	// console.log('arrow enter');
-// });
-// $('.arrowIndicator').click(function(){
-// 	// console.log(app.getTheScroll);
-// 	app.arrowCheck();
-// 	app.scrollDiff = $(document).scrollTop();
-// 	// console.log('Scroll Difference: ' + app.scrollDiff);
-// 	$(document).scrollTop( app.scrollDiff + 1 );
-// 	//PUT IN MOVE FUNCTION
-// });
+app.logoTop = function(){
+	//
+	if (app.scrollDiff >= 0){
+		app.scrollDiff = app.getTheScroll - 20;
+		$(document).scrollTop(app.scrollDiff);
+	}
+}
+//
+app.goLogoTop = function(){
+	$(document).scroll(function(){
+		app.logoTop();
+	});
+}
+//
+app.logoClicked = function(){
+$( '.navIcons' ).click(function(){
+	console.log('logo clicked');
+	app.getTheScroll = $(window).scrollTop();
+	app.scrollDiff = app.getTheScroll;
+	app.goLogoTop();
+	$(window).scrollTop(app.getTheScroll-1);
+	//
+});
+	
+}
 //////////////////////////
 //ARROW MOVE TO CONTENT
 //
@@ -607,6 +620,7 @@ app.navScrollTop = function(){
 //////////////////////////
 //////////////////////////
 //GET PROJECTS JSON
+//
 app.getProjectInfo = function(){
 
 	app.projName = projectData[app.dataCaller]['projectname'];
@@ -617,13 +631,16 @@ app.getProjectInfo = function(){
 	app.projPdf = projectData[app.dataCaller]['view_pdf'];
 	app.thumbImgs = projectData[app.dataCaller]['project_images'];
 	app.thumbImgsLength = app.thumbImgs.length;
-	
-	// console.log(app.projSkills);
-	// console.log('The caption is: ' + app.imgCaption);
 	//
 	//GET THE TITLE AND DESCRIPTION
 	$('.projectModal h2').html(app.projName);
-	$('.projectModal .copy .projectDescription').html(app.projDesc);
+	//
+	for( var x = 0; x < app.projDesc.length; x++ ){
+		var paraHolder = app.projDesc[x]['paragraph'];
+
+		$('.projectModal .copy .projectDescription').append('<p>' + paraHolder + '</p>');
+	}
+	
 	
 	//
 	// CLEAR THE THUMBNAILS AND KEYIMAGE
@@ -638,12 +655,12 @@ app.getProjectInfo = function(){
 		// 
 		if ( app.checkImgs === 'video' ){
 			app.getThumbImg = app.thumbImgs[t]['video_image']['sizes']['medium'];
-			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
+			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
 			//
 			$( '.keyimage-fig' ).html(app.imgCaption);
 		} else {
 			app.getThumbImg = app.thumbImgs[t]['image_image']['sizes']['medium'];
-			$('.projectModal .image .thumbnails').append('<div class="thumbnail image" data-type="image" data-number="' + app.thumbNum + '" style="background: url(' + app.getThumbImg + ')">&nbsp;</div>');
+			$('.projectModal .image .thumbnails').append('<div class="thumbnail image" data-type="image" data-number="' + app.thumbNum + '" style="background-image: url(' + app.getThumbImg + ')">&nbsp;</div>');
 		}
 		//
 	}
@@ -751,6 +768,7 @@ app.changeKeyimage = function(){
 // 
 //
 $( '.next' ).click(function(){
+	$( ' .projectDescription' ).html( '' );
 	if ( app.dataCaller === app.projectCount-1 ){
 		app.dataCaller = 0;
 	} else {
@@ -760,6 +778,7 @@ $( '.next' ).click(function(){
 });
 //
 $( '.prev' ).click(function(){
+	$( ' .projectDescription' ).html( '' );
 	if ( app.dataCaller === 0 ){
 		app.dataCaller = app.projectCount-1;
 	} else {
@@ -787,9 +806,13 @@ app.getMobileProjectInfo = function(){
 	var theMobileContent = $( '.mobileProject' + app.dataNum );
 
 	theMobileContent.slideDown( 'slow');
-
-
-	$( '.mobileProject' + app.dataNum + ' .mobileProjectDescription' ).html( app.projDesc );
+	//
+	for( var x = 0; x < app.projDesc.length; x++ ){
+		//
+		var paraHolder = app.projDesc[x]['paragraph'];
+		//
+		$( '.mobileProject' + app.dataNum + ' .mobileProjectDescription' ).append('<p>' + paraHolder + '</p>');
+	}
 	//
 	var projSkillsTextHldr = '';
 	///////////////////////////
@@ -890,7 +913,7 @@ app.projectsScrollTop = function(){
 //
 //////////////////////////
 //OPEN MODUAL
-$( '.project' ).click(function(){
+$( '.project' ).mousedown(function(){
 	console.log( 'this clicked' );
 // 	//
 	app.dataNum = $(this).attr('data-number');
@@ -914,6 +937,8 @@ $( '.project' ).click(function(){
 //////////////////////////
 //CLOSE MODUAL
 app.closeModal = function(){
+	$( ' .projectDescription' ).html( '' );
+	//
 	$('.projectModal').removeClass('show-description');
 	$('.projectModal .right').html('');
 	//
@@ -932,7 +957,10 @@ $( '.projectModalContainer .projectModal .close' ).click(function(){
 $( '.mobileClose' ).click(function(){
 	var getTheParent = $(this).parent();
 	// console.log( getTheParent );
-	getTheParent.slideUp( "fast" );
+	getTheParent.slideUp( "fast", function(){
+		$( ' .mobileProjectDescription' ).html( '' );
+	} );
+	//
 });
 
 //////////////////////////
@@ -998,6 +1026,7 @@ app.init = function(){
 	app.navIcons();
 	app.windowMath();
 	app.navScrollTop();
+	app.logoClicked();
 	//
 	app.mastheadsChar('heyross1');
 	app.mastheadsChar('heyross2');
