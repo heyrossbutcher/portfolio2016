@@ -44,7 +44,7 @@ add_action( 'after_setup_theme', 'theme_setup' );
 We'll let WordPress add them to our templates automatically instead
 of writing our own script tags in the header and footer. */
 
-function hackeryou_scripts() {
+function heyross_scripts() {
 
 	//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
 	wp_deregister_script('jquery');
@@ -72,9 +72,42 @@ function hackeryou_scripts() {
     null, // version number
     true //load in footer
   );
+
+  wp_enqueue_script(
+    'info', //handle
+    get_template_directory_uri() . '/js/info.js', //source
+    array( 'jquery', 'plugins', 'scripts' ), //dependencies
+    null, // version number
+    true //load in footer
+  );
+
+  wp_enqueue_script(
+    'products', //handle
+    get_template_directory_uri() . '/js/products.js', //source
+    array( 'jquery', 'plugins', 'scripts' ), //dependencies
+    null, // version number
+    true //load in footer
+  );
+
+  wp_enqueue_script(
+    'products', //handle
+    get_template_directory_uri() . '/js/productsMobile.js', //source
+    array( 'jquery', 'plugins', 'scripts' ), //dependencies
+    null, // version number
+    true //load in footer
+  );
+
+  wp_enqueue_script(
+    'mastheads', //handle
+    get_template_directory_uri() . '/js/mastheads.js', //source
+    array( 'jquery', 'plugins', 'scripts' ), //dependencies
+    null, // version number
+    true //load in footer
+  );
+
 }
 
-add_action( 'wp_enqueue_scripts', 'hackeryou_scripts' );
+add_action( 'wp_enqueue_scripts', 'heyross_scripts' );
 
 
 /* Custom Title Tags */
