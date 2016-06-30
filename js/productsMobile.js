@@ -51,7 +51,7 @@ app.getMobileProjectInfo = function(){
 		// 
 		if ( app.checkImgs === 'video' ){
 			app.getThumbImg = app.thumbImgs[t]['video_image']['sizes']['large'];
-			theMobileImages.append('<a href="' + app.projVid + '" target="_"><div class="mobileImage mobileVideo" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div></a><div class="mobileFig">' + app.imgCaption + '</div>');
+			theMobileImages.append('<a href="' + app.projVid + '" target="_"><div class="mobileImage mobileVideo" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div></a><div class="mobileFig">' + app.imgCaption + '</div>');
 			//
 			// $( '.keyimage-fig' ).html(app.imgCaption);
 		} else {

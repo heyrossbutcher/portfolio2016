@@ -79,7 +79,7 @@ app.getProjectInfo = function(){
 		// 
 		if ( app.checkImgs === 'video' ){
 			app.getThumbImg = app.thumbImgs[t]['video_image']['sizes']['medium'];
-			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
+			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
 			//
 			$( '.keyimage-fig' ).html(app.imgCaption);
 		} else {
@@ -141,7 +141,7 @@ app.getPdfLink = function(){
 	app.pdfName = app.projName.replace(/\s+/g, '');
 	//
 	if ( app.projPdf === true ){
-		$( '.pdfLink' ).html('<a href="http://rossbutcher.ca/new/wp-content/themes/heyross/img/' + app.pdfName + '.pdf" target="_"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Take a closer look</a>');
+		$( '.pdfLink' ).html('<a href="http://rossbutcher.ca/wp-content/themes/heyross/img/' + app.pdfName + '.pdf" target="_"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Take a closer look</a>');
 	} else {
 		$( '.pdfLink' ).html('');
 	}
@@ -242,7 +242,7 @@ $( '.project' ).mousedown(function(){
 	if ( app.iphoned && app.landscaped ){
   		app.getMobileProjectInfo();
 	} else {
-	  	if ( app.winWidth >= 665 ){
+	  	if ( app.winWidth > 667 ){
 	  		app.getProjectInfo();
 	  	} else {
 	  		app.getMobileProjectInfo();

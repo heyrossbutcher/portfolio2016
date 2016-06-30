@@ -26,19 +26,19 @@
           </div>
           <div class="theAnimation">
             <div class="thePlane">
-              <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/paperPlane.svg" alt="">
+              <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/paperPlane.svg" alt="">
             </div>
             <div class="clouds01">
-              <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/clouds01.svg" alt="">
+              <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/clouds01.svg" alt="">
             </div>
             <div class="clouds02">
-              <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/clouds02.svg" alt="">
+              <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/clouds02.svg" alt="">
             </div>
             <div class="speedLines01">
-              <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/speedLines01.svg" alt="">
+              <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/speedLines01.svg" alt="">
             </div>
             <div class="speedLines02">
-              <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/speedLines02.svg" alt="">
+              <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/speedLines02.svg" alt="">
             </div>
           </div>
         </div>
@@ -50,15 +50,8 @@
   </div>
 </footer>
 
-<script>
-/* Google Analytics! */
- var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID
- (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
- g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
- s.parentNode.insertBefore(g,s)}(document,"script"));
-</script>
-<script src="http://rossbutcher.ca/new/wp-content/themes/heyross/js/TweenMax.min.js"></script>
-<script src="http://rossbutcher.ca/new/wp-content/themes/heyross/js/MorphSVGPlugin.min.js"></script>
+<script src="http://rossbutcher.ca/wp-content/themes/heyross/js/TweenMax.min.js"></script>
+<script src="http://rossbutcher.ca/wp-content/themes/heyross/js/MorphSVGPlugin.min.js"></script>
 <?php wp_footer(); ?>
 <div id="myElement"></div>
 </body>

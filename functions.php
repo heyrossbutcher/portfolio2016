@@ -90,7 +90,7 @@ function heyross_scripts() {
   );
 
   wp_enqueue_script(
-    'products', //handle
+    'mobileProducts', //handle
     get_template_directory_uri() . '/js/productsMobile.js', //source
     array( 'jquery', 'plugins', 'scripts' ), //dependencies
     null, // version number
