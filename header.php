@@ -10,6 +10,9 @@
 
   <?php // Load our CSS ?>
   <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+  <meta name="title" content="Heyross, designer, animator and developer" />
+  <meta name="description" content="Heyross is Ross Butcher, a 14 year advertising veteran. Skills include design, art direction, branding, animation, front-end development, WordPress, Shopify, online media design, web banner production" />
+  <link rel="image_src" href="http://rossbutcher.ca/heyross-screenshot.png" />
 
   <?php wp_head(); ?>
 </head>

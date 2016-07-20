@@ -13,7 +13,6 @@ app.getMobileProjectInfo = function(){
 	app.thumbImgsLength = app.thumbImgs.length;
 	app.imgCaption = app.thumbImgs[0]['caption'];
 
-	console.log( 'Get the mobile info' );
 
 	var theMobileContent = $( '.mobileProject' + app.dataNum );
 
@@ -54,9 +53,12 @@ app.getMobileProjectInfo = function(){
 			theMobileImages.append('<a href="' + app.projVid + '" target="_"><div class="mobileImage mobileVideo" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div></a><div class="mobileFig">' + app.imgCaption + '</div>');
 			//
 			// $( '.keyimage-fig' ).html(app.imgCaption);
-		} else {
+		} else if ( app.checkImgs === 'image' ) {
 			app.getThumbImg = app.thumbImgs[t]['image_image']['sizes']['large'];
 			theMobileImages.append('<div class="mobileImage image' + t + '""><img src="' + app.getThumbImg + '" alt=""><div class="mobileFig">' + app.imgCaption + '</div></div>');
+		} else {
+			app.getThumbImg = app.thumbImgs[t]['gif_image']['sizes']['large'];
+			theMobileImages.append('<div class="mobileImage gif' + t + '""><img src="' + app.getThumbImg + '" alt=""><div class="mobileFig">' + app.imgCaption + '</div></div>');
 		}
 		//
 	}
@@ -69,7 +71,6 @@ app.getMobileProjectInfo = function(){
 //MOBILE PROJECT CLOSE BUTTON
 $( '.mobileClose' ).click(function(){
 	var getTheParent = $(this).parent();
-	// console.log( getTheParent );
 	getTheParent.slideUp( "fast", function(){
 		$( ' .mobileProjectDescription' ).html( '' );
 	} );

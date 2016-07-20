@@ -1,18 +1,3 @@
-var forceRedraw = function(element){
-
-    if (!element) { return; }
-
-    var n = document.createTextNode(' ');
-    var disp = element.style.display;  // don't worry about previous display style
-
-    element.appendChild(n);
-    element.style.display = 'none';
-
-    setTimeout(function(){
-        element.style.display = disp;
-        n.parentNode.removeChild(n);
-    },20); // you can play with this timeout to make it as short as possible
-}
 
 //SET THE NAME SPACE 
 var app = {};
@@ -31,9 +16,7 @@ app.isMobile = false;
 app.checkMobile = function(){
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		app.isMobile = true;
-		console.log( 'Its mobile' );
 	} else {
-		console.log( 'Its desktop' );
 	}
 }
 //
@@ -63,11 +46,9 @@ app.getScrollTop = function(){
 		//////////////////////
 		//SAFARI SCROLLING BUG FIX
 		if ( is_safari() ) {
-			console.log('safari');
-			if ( $(document).scrollTop() > 1700 && app.winWidth > 665) {
+			if ( $(document).scrollTop() > 1300 && app.winWidth > 665) {
 				//HACK TO REDRAW AN ELEMNT TO RESET THE PAGE HEIGHT
 				app.designerSVG();
-				console.log( 'redraw' );
 			}
 		}
 	});
@@ -79,14 +60,48 @@ app.navScrollTop = function(){
 		app.navMath = app.navBaseline + (app.windowPercentage - 30) * 9;
 		$('header').css({ top : app.navMath });
 		//
-		// console.log("BRING IN THE NAV: " + app.navMath);
 	} else if ( app.windowPercentage < 30 ){
 		$('header').css({ top : '-90px' });
 	} else {
 		$('header').css({ top : '0px' });
 	}
 }
+//////////////////////////
+//ABOUT INFO FUNCTIONALITY
+app.infoAnimate01 = $( '.info01' );
+app.infoAnimate02 = $( '.info02' );
+app.infoAnimate03 = $( '.info03' );
+//
+app.aboutAnimate = function(obj,offset){
+	app.infocutoff = Math.floor(app.getTheWindowHeight/offset);
+	app.infoAnimatePct = (Math.floor(app.getTheScroll - app.infocutoff))/2.5;
+	// console.log( 'Cutoff: ' + app.infocutoff );
+	// console.log( 'ScrollTop: ' + app.getTheScroll );
 
+	if ( app.infoAnimatePct >= 0 && app.infoAnimatePct <= 100 ){
+		//
+		app.infoColorPct = app.infoAnimatePct/100;
+		console.log( 'Pct: ' + app.infoAnimatePct );
+		console.log( 'Value: ' + app.infoColorPct );
+	// 	app.infoColorHldr = 'rgba(0,0,0,' + app.infoColorPct + ')';
+	} else if( app.infoAnimatePct > 100 ) {
+		app.infoPropPct = 1;
+		app.infoAnimatePct = 100;
+		console.log('make it 100%')
+	} else {
+		app.infoPropPct = 0;
+		app.infoAnimatePct = 0;
+		console.log('make it 0%')
+	}
+	// obj.css( "opacity", app.infoColorPct );
+}
+//
+app.aboutAnimateInit = function(){
+	app.aboutAnimate(app.infoAnimate01, 3.5);
+	// app.aboutAnimate(app.infoAnimate02, 3.5);
+	// app.aboutAnimate(app.infoAnimate03, 3.5);
+
+}
 //////////////////////////
 //FOOTER FUNCTIONALITY
 app.contactShow = false;
@@ -103,7 +118,6 @@ $('.contactTitle').click(function(){
 		$('.speedLines02').addClass('move-lines02');
 		//
 		app.contactShow = true;
-		// console.log("Contact Show: " + app.contactShow);
 	} else {
 		$('footer').removeClass('footer-move');
 		$('.contactName').removeClass('contactName-move');
@@ -116,9 +130,7 @@ $('.contactTitle').click(function(){
 		$('.speedLines02').removeClass('move-lines02');
 		//
 		app.contactShow = false;
-		// console.log("Contact Show: " + app.contactShow);
 	}
-	// console.log("Footer clicked!!")
 });
 
 //////////////////////////
@@ -135,6 +147,8 @@ app.init = function(){
 	app.windowMath();
 	app.navScrollTop();
 	app.logoClicked();
+	//
+	app.aboutAnimateInit();
 	//
 	app.mastheadsChar('heyross1');
 	app.mastheadsChar('heyross2');
@@ -171,7 +185,19 @@ $(window).on('resize', function(){
  	}
 
  	//RESETS THE "ANIMATOR" SPACING
- 	app.animatorSVG();
+ 	// app.animatorSVG();
+
+ 	//
+ 	app.windowMath();
+ 	app.aboutAnimate();
+});
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//ON WINDOW RESIZE
+$(window).scroll(function(){
+	app.windowMath();
+ 	app.aboutAnimateInit();
 });
 
 

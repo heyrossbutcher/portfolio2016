@@ -107,15 +107,15 @@
             } else if ($initialState == "developer") {
                 echo '<div class="'.$initialState.' masthead-title hide-opacity clearfix">';
                 echo '<div class="devIcons">';
-                echo '<div class="devIcon devIcon01"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/html5.svg" alt=""></div>';
-                echo '<div class="devIcon devIcon02"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/js.svg" alt=""></div>';
-                echo '<div class="devIcon devIcon03"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/wordpress.svg" alt=""></div>';
-                echo '<div class="devIcon devIcon04"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/swift.svg" alt=""></div>';
-                echo '<div class="devIcon devIcon05"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/gulp.svg" alt=""></div>';
-                echo '<div class="devIcon devIcon06"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/github.svg" alt=""></div>';
-                echo '<div class="devIcon devIcon07"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/terminal.png" alt=""></div>';
-                echo '<div class="devIcon devIcon08"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/sublime-text.png" alt=""></div>';
-                echo '<div class="devIcon devIcon09"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/icons/mamp.png" alt=""></div>';
+                echo '<div class="devIcon devIcon01"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/html5.svg" alt=""></div>';
+                echo '<div class="devIcon devIcon02"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/js.svg" alt=""></div>';
+                echo '<div class="devIcon devIcon03"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/wordpress.svg" alt=""></div>';
+                echo '<div class="devIcon devIcon04"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/swift.svg" alt=""></div>';
+                echo '<div class="devIcon devIcon05"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/gulp.svg" alt=""></div>';
+                echo '<div class="devIcon devIcon06"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/github.svg" alt=""></div>';
+                echo '<div class="devIcon devIcon07"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/terminal.png" alt=""></div>';
+                echo '<div class="devIcon devIcon08"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/sublime-text.png" alt=""></div>';
+                echo '<div class="devIcon devIcon09"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/icons/mamp.png" alt=""></div>';
                 echo '</div>';
                 echo '<div class="devHolder">';
                 echo $initialState;
@@ -183,14 +183,14 @@
 
       <section class="about">
         <div class="infographics clearfix">
-          <div class="info01 clearfikx">
+          <div class="info01 clearfix">
           <div class="iconHolder">  
             <div class="flipper">&nbsp;
               <div class="iconFirst">
-                <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/14years.svg" alt="">
+                <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/14years.svg" alt="">
               </div>
               <div class="iconSecond">
-                <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/thumbsup.svg" alt="">
+                <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/thumbsup.svg" alt="">
               </div>
             </div>
 
@@ -205,9 +205,9 @@
           </div>
 
           </div>
-          <div class="info02 clearfikx">
+          <div class="info02 clearfix">
             <div class="iconHolder">
-              <img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/airHockey.svg" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet">
+              <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/airHockey.svg" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet">
             </div>
             <div class="info" title="*No governing body has recognized this accomplishment...yet" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet" >
               <p>Unofficially</p>
@@ -216,7 +216,7 @@
               <p>since 1998*</p>
             </div>
           </div>
-          <div class="info03 clearfikx">
+          <div class="info03 clearfix">
 
             <div class="iconHolder">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

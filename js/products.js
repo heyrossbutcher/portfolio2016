@@ -13,22 +13,18 @@ app.startProductsScrolling = function(){
 		app.windowScrollTop = $(window).scrollTop();
 		app.getProjectsScrollTop = $('.projects').offset().top;
 		app.projectsScrollTop = app.getProjectsScrollTop - app.windowScrollTop;
-		// console.log(app.projectsScrollTop);
 		//
 		if ( app.projectsScrollTop < 700 && app.projectsScrollTop > 550 ) {
 			app.projectsBaseline = 550;
 			app.projectsPercent = ((( app.projectsScrollTop - app.projectsBaseline )/150));
-			// console.log("Projects %: " + app.projectsPercent);
 		} 
 		else if ( app.projectsScrollTop < 550 ) {
 			app.projectsPercent = 0;
 			// $(window).trigger('resize');
-			// console.log("Projects << : " + app.projectsScrollTop);
 
 			
 		} else if ( app.projectsScrollTop > 700 ) {
 			app.projectsPercent = 1;
-			// console.log("Projects >> : " + app.projectsScrollTop);
 
 		}
 		//
@@ -37,7 +33,6 @@ app.startProductsScrolling = function(){
 			app.whatAmI = $(this).attr('class');
 			app.whereWasI = $(this).attr('data-pos');
 			getTranslate = $(this).css('transform');
-			// console.log('Translate Pos for ' + app.whatAmI + ' is ' + app.whereWasI);
 			$( this).css({ transform : 'matrix(1, 0, 0, 1, 0,' + (app.whereWasI * app.projectsPercent) + ') scale(1)' });
 		});
 		//////////// grab the stored data number and do the math
@@ -74,7 +69,6 @@ app.getProjectInfo = function(){
 	//GET THUMBNAILS
 	for (var t = 0; t < app.thumbImgsLength; t++) {
 		app.checkImgs = app.thumbImgs[t]['what_image'];
-		console.log('The image is: ' + app.checkImgs);
 		app.thumbNum = t + 1;
 		// 
 		if ( app.checkImgs === 'video' ){
@@ -82,9 +76,12 @@ app.getProjectInfo = function(){
 			$('.projectModal .image .thumbnails').append('<div class="thumbnail video" data-type="video" data-number="' + app.thumbNum + '" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="arrow"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/arrow.svg" alt=""></div></div>');
 			//
 			$( '.keyimage-fig' ).html(app.imgCaption);
-		} else {
+		} else if ( app.checkImgs === 'image' ) {
 			app.getThumbImg = app.thumbImgs[t]['image_image']['sizes']['medium'];
 			$('.projectModal .image .thumbnails').append('<div class="thumbnail image" data-type="image" data-number="' + app.thumbNum + '" style="background-image: url(' + app.getThumbImg + ')">&nbsp;</div>');
+		} else {
+			app.getThumbImg = app.thumbImgs[t]['gif_image']['sizes']['medium'];
+			$('.projectModal .image .thumbnails').append('<div class="thumbnail gif" data-type="gif" data-number="' + app.thumbNum + '" style="background-image: url(' + app.getThumbImg + ')">&nbsp;<div class="gifLabel"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/gif.svg" alt=""></div></div>');
 		}
 		//
 	}
@@ -92,7 +89,6 @@ app.getProjectInfo = function(){
 	//CHECK TO SEE IF THERE'S MORE THAN ONE THUMBNAIL
 	if ( app.thumbImgsLength < 2 ) {
 		$( '.thumbnails' ).addClass( 'display-none' );
-		// console.log("Lets hide the thumbnails!!!!!!!!");
 	} else {
 		$( '.thumbnails' ).removeClass( 'display-none' );
 	}
@@ -172,16 +168,13 @@ app.changeKeyimage = function(){
 		app.dataNumberOffset = app.dataNumber - 1;
 		app.getImgType = $(this).attr('data-type');
 		app.imgType = app.getImgType + "_image";
-		console.log("Image type: " + app.imgType );
-		console.log("Image num: " + app.dataNumberOffset );
-		console.log("Video URL: " + app.getNextVid );
 		//
 		app.imgCaption = app.thumbImgs[app.dataNumberOffset]['caption'];
 		$( '.keyimage-fig' ).html( app.imgCaption );
 		//
 		app.getNextImg = projectData[app.dataCaller]['project_images'][app.dataNumberOffset][app.imgType]['sizes']['large'];
 		app.getNextVid = projectData[app.dataCaller]['project_images'][app.dataNumberOffset]['video_link'];
-		console.log("Next Image: " + app.getNextImg);
+		//
 		if( app.getImgType === 'video' ){
 			$('.keyImage').html('<div class="videoWrapper"><iframe src="' + app.getNextVid + '?fs=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe></div>');
 		} else {
@@ -233,7 +226,6 @@ app.projectsScrollTop = function(){
 //////////////////////////
 //OPEN MODUAL
 $( '.project' ).mousedown(function(){
-	console.log( 'this clicked' );
 // 	//
 	app.dataNum = $(this).attr('data-number');
 	app.dataCaller = app.dataNum - 1;
@@ -254,6 +246,7 @@ $( '.project' ).mousedown(function(){
 //CLOSE MODUAL
 app.closeModal = function(){
 	$( ' .projectDescription' ).html( '' );
+	$('.keyImage').html('');
 	//
 	$('.projectModal').removeClass('show-description');
 	$('.projectModal .right').html('');

@@ -2,7 +2,7 @@
 //GET THE MASTHEAD CONTENT
 app.navIcons = function(){
 	app.grabNav = $('h1');
-	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://rossbutcher.ca/new/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
+	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
 }
 
 
@@ -16,7 +16,6 @@ app.mastheadsChar = function(grabIt){
 	app.strArray = app.str.split(' ');//Separate the words from the string
 	//
 	app.grabbed.html('');//Take out what's already there
-	// console.log("BREAK!!!!!!!!!!!!!");
 	//
 	app.mastheadCharEngine(grabIt);
 	//
@@ -35,7 +34,6 @@ app.mastheadCharEngine = function(grabItAgain){
 			}
 			//
 			if ( app.counter === 'i' || app.counter === 'y' || app.counter === 't' || app.counter === 'r' || app.counter === 's' || app.counter === 'o' || app.counter === 'e'  || app.counter === 'm' ) {
-				// console.log(app.strArray + ': ' + app.counter + ' was added.')
 				$('.letter-' + app.counter).addClass('kerning-' + app.counter);
 			}
 		}
@@ -114,58 +112,53 @@ app.designerSVG = function(){
 //
 app.AnimatorTitle = $( '.animator' );
 //
-app.reversedIt = function(){
-	console.log( 'Its been reversed' );
-	//
-	for (u = 0; u < 8; u++) {
-		$( '.aniHolder .charCtr-' + u ).removeAttr( 'style' );
-	}
-}
-//
-app.animatorSVG = function(){
-	//
+// app.reversedIt = function(){
+// 	//
+// 	for (u = 0; u < 8; u++) {
+// 		$( '.aniHolder .charCtr-' + u ).removeAttr( 'style' );
+// 	}
+// }
+// //
+// app.animatorSVG = function(){
+// 	//
 
-	app.animatorResizer(app.win);
-	//
-	app.AnimatorTitle.mouseenter(function(){
-		app.animatorTl.play(0);
-	});
-	//
-	app.AnimatorTitle.mouseleave(function(){
-		app.animatorTl.reverse();
-		app.animatorTl.eventCallback('onReverseComplete', app.reversedIt );
-	});
-}
-//
-app.animatorAnimate = function( a, b, c, d, e, f, g, h, scaled ){
-	app.animatorTl = new TimelineMax({paused:true});
-	//
-	  app.animatorTl.to('.aniHolder .charCtr-0', 0.4, {rotation:720, width: a, scale:scaled, color: '#1b629e', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-1', 0.4, {rotation:720, width: b, scale:scaled, color: '#20709e', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-2', 0.4, {rotation:720, width: c, scale:scaled, color: '#257e9e', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-3', 0.4, {rotation:720, width: d, scale:scaled, color: '#2b8c9f', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-4', 0.4, {rotation:720, width: e, scale:scaled, color: '#319ca0', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-5', 0.4, {rotation:720, width: f, scale:scaled, color: '#36aaa0', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-6', 0.4, {rotation:720, width: g, scale:scaled, color: '#3bb8a1', yoyo:true}, '-=0.3')
-					.to('.aniHolder .charCtr-7', 0.4, {rotation:720, width: h, scale:scaled, color: '#40c6a1', yoyo:true}, '-=0.3');
-}
-//RESETS THE ANIMATOR SPACING ON RESIZE
-app.animatorResizer = function(win){
-	//
- 	if( win.width() > 768 ) {
-	    app.animatorAnimate( 38, 43, 13, 58, 42, 21, 38, 38, 0.7 );
-	    console.log( 'This is regular widths' );
- 	} else if ( win.width() > 665 ) {
-	    app.animatorAnimate( 25, 27, 10, 37, 27, 12, 25, 30, 0.7 );
-	    console.log( 'This is 665 widths' );
- 	} else if ( win.width() > 480 ) {
-	    app.animatorAnimate( 24, 26, 10, 38, 26, 14, 26, 30, 0.85 );
-	    console.log( 'This is 480 widths' );
- 	} else if ( win.width() > 320 ) {
-	    app.animatorAnimate( 20, 22, 11, 33, 20, 12, 22, 16, 0.95 );
-	    console.log( 'This is 320 widths' );
-	}
-}
+// 	app.animatorResizer(app.win);
+// 	//
+// 	app.AnimatorTitle.mouseenter(function(){
+// 		app.animatorTl.play(0);
+// 	});
+// 	//
+// 	app.AnimatorTitle.mouseleave(function(){
+// 		app.animatorTl.reverse();
+// 		app.animatorTl.eventCallback('onReverseComplete', app.reversedIt );
+// 	});
+// }
+// //
+// app.animatorAnimate = function( a, b, c, d, e, f, g, h, scaled ){
+// 	app.animatorTl = new TimelineMax({paused:true});
+// 	//
+// 	  app.animatorTl.to('.aniHolder .charCtr-0', 0.4, {rotation:720, width: a, scale:scaled, color: '#1b629e', yoyo:true}, '-=0.3')
+// 					.to('.aniHolder .charCtr-1', 0.4, {rotation:720, width: b, scale:scaled, color: '#20709e', yoyo:true}, '-=0.3')
+// 					.to('.aniHolder .charCtr-2', 0.4, {rotation:720, width: c, scale:scaled, color: '#257e9e', yoyo:true}, '-=0.3')
+// 					.to('.aniHolder .charCtr-3', 0.4, {rotation:720, width: d, scale:scaled, color: '#2b8c9f', yoyo:true}, '-=0.3')
+// 					.to('.aniHolder .charCtr-4', 0.4, {rotation:720, width: e, scale:scaled, color: '#319ca0', yoyo:true}, '-=0.3')
+// 					.to('.aniHolder .charCtr-5', 0.4, {rotation:720, width: f, scale:scaled, color: '#36aaa0', yoyo:true}, '-=0.3')
+// 					.to('.aniHolder .charCtr-6', 0.4, {rotation:720, width: g, scale:scaled, color: '#3bb8a1', yoyo:true}, '-=0.3')
+// 					.to('.aniHolder .charCtr-7', 0.4, {rotation:720, width: h, scale:scaled, color: '#40c6a1', yoyo:true}, '-=0.3');
+// }
+// //RESETS THE ANIMATOR SPACING ON RESIZE
+// app.animatorResizer = function(win){
+// 	//
+//  	if( win.width() > 768 ) {
+// 	    app.animatorAnimate( 38, 43, 13, 58, 42, 21, 38, 38, 0.7 );
+//  	} else if ( win.width() > 665 ) {
+// 	    app.animatorAnimate( 25, 27, 10, 37, 27, 12, 25, 30, 0.7 );
+//  	} else if ( win.width() > 480 ) {
+// 	    app.animatorAnimate( 24, 26, 10, 38, 26, 14, 26, 30, 0.85 );
+//  	} else if ( win.width() > 320 ) {
+// 	    app.animatorAnimate( 20, 22, 11, 33, 20, 12, 22, 16, 0.95 );
+// 	}
+// }
 //////////////////////////
 //MORE CONTENT ARROW INDICATOR
 app.arrowSVG = function( delayed ){
@@ -197,10 +190,8 @@ app.showArrowCheck = function(){
 				app.removeClasses(app.theArrow, 4000, 'hide-opacity');
 				app.removeClasses(app.theArrow, 4000, 'arrowShift');
 				app.arrowSVG(4);
-				// console.log('do it');
 			}
 		} else {
-			// console.log('nope');
 		}
 	}
 }
@@ -260,7 +251,6 @@ app.goLogoTop = function(){
 //
 app.logoClicked = function(){
 $( '.navIcons' ).click(function(){
-	console.log('logo clicked');
 	app.getTheScroll = $(window).scrollTop();
 	app.scrollDiff = app.getTheScroll;
 	app.goLogoTop();
@@ -276,7 +266,6 @@ app.arrowMore = function(){
 	if (app.scrollDiff <= 700){
 		app.scrollDiff = app.getTheScroll + 20;
 		$(document).scrollTop(app.scrollDiff);
-		// console.log('get scrolling');
 	}
 }
 //
@@ -346,13 +335,11 @@ app.revertDevChar = function(){
 	}
 }
 app.showIcons = function(){
-		// console.log('show icons');
  	var devIconsLength = $('.devIcons').children().length;
  	//
 		app.devIconsArray = [];
 		for (h = 1; h <= devIconsLength; h++) {
 			app.devIconsArray.push(h);
-			// console.log( app.devIconsArray );
 		}
 		//
 		var iconTimer = 35;
@@ -364,18 +351,15 @@ app.showIcons = function(){
 						// app.picker = Math.floor( Math.random() * app.devIconsArray.length );
 						$( '.devIcon0' + app.devIconsArray[ app.picker ] ).addClass( 'show-opacity' );
 						app.devIconsArray.splice( app.picker, 1 );
-						// console.log(iconTimer);
 					}, iconTimer);
 				}
 }
 app.hideIcons = function(){
-		// console.log('hide icons');
  	var devIconsLength = $('.devIcons').children().length;
  	//
 		app.devIconsArray = [];
 		for (h = 1; h <= devIconsLength; h++) {
 			app.devIconsArray.push(h);
-			// console.log( app.devIconsArray );
 		}
 		//
 		var iconTimer = 35;
@@ -386,7 +370,6 @@ app.hideIcons = function(){
 					app.picker = Math.floor( Math.random() * app.devIconsArray.length );
 					$( '.devIcon0' + app.devIconsArray[ app.picker ] ).removeClass( 'show-opacity' );
 					app.devIconsArray.splice( app.picker, 1 );
-					// console.log(iconTimer);
 				}, iconTimer);
 			}
 			setTimeout(function(){
@@ -426,7 +409,7 @@ app.revealStart= function(){
 app.loadMastheadAnims = function(){
 	app.mastheadTitle01();
 	app.designerSVG();
-	app.animatorSVG();
+	// app.animatorSVG();
 	app.developerChar();
 	//
 	app.showArrow();
@@ -467,7 +450,6 @@ app.mastheadTitle01 = function(){
 	app.stateCheck = false;
 	$('.heyrossContainer').mouseenter(function(){
 		app.stateCheck = true;
-		// console.log(app.stateCheck);
 		var numOfChildren = $('.heyross2 > *').length;
 		for (var n = 0; n < numOfChildren; n++) {
 			
@@ -480,7 +462,6 @@ app.mastheadTitle01 = function(){
 	//
 	$('.heyrossContainer').mouseleave(function(){
 		app.stateCheck = false;
-		// console.log(app.stateCheck);
 		var numOfChildren = $('.heyross2 > *').length;
 		for (var q = 0; q < numOfChildren; q++) {
 			
