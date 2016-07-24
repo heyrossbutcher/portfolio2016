@@ -111,7 +111,68 @@ app.designerSVG = function(){
 //GET THE MASTHEAD CONTENT FOR ANIMATOR HEADING
 //
 app.AnimatorTitle = $( '.animator' );
+app.ah00 = $('.ah0');
+app.ah01 = $('.ah1');
+app.ah02 = $('.ah2');
 //
+app.animatorShake = function(){
+	//
+	for (b = 0; b <= 2; b++) {
+		var aniTemp = $('.ah').clone().attr( 'class', 'aniHolder ah' + b );
+		app.AnimatorTitle.append( aniTemp );
+	}
+	//
+	app.AnimatorTitle.mouseenter(function(){
+	// 		app.animatorTl.play(0);
+			// console.log('Animator rolled over');
+			$('.ah').addClass('hide-opacity');
+			app.animatorShakeInit($('.ah0'));
+			app.animatorShakeInit($('.ah1'));
+			app.animatorShakeInit($('.ah2'));
+	});
+	//
+	app.AnimatorTitle.mouseleave(function(){
+		$('.ah').removeClass('hide-opacity');
+		//
+		app.timerSet = $('.ah0').attr('data-timer-id');
+		app.timerSet_i = parseInt(app.timerSet) + 3;
+		//
+		for (var i = app.timerSet; i < app.timerSet_i; i++) {
+		    window.clearInterval(i); 
+		}
+		//
+		$('.ah0, .ah1, .ah2').css({
+			'opacity': '0px',
+			'left' : '0px',
+			'top' : '0px',
+			'filter' : 'blur(0px)',
+			'-webkit-filter' : 'blur(0px)'
+		});
+	});
+}
+app.animatorShakeInit = function(obj){
+	var that = obj;
+	//
+	app.animShakeIt = setInterval(function(){
+		//
+		var opacNum = ((Math.random()*5.5)/10);
+		var leftNum =(Math.round(Math.random()) * 2 - 1);
+		var topNum = (Math.round(Math.random()*5) * 2 - 1);
+		var blurNum = ((Math.random()*20)/10);
+		//
+		$(that).css({
+			'opacity': opacNum,
+			'left' : leftNum + 'px',
+			'top' : topNum + 'px',
+			'filter' : 'blur(' + blurNum + 'px)',
+			'-webkit-filter' : 'blur(' + blurNum + 'px)'
+
+		});
+	}, 100);
+	//
+	$(that).attr( "data-timer-id", app.animShakeIt )
+}
+
 // app.reversedIt = function(){
 // 	//
 // 	for (u = 0; u < 8; u++) {
@@ -409,7 +470,7 @@ app.revealStart= function(){
 app.loadMastheadAnims = function(){
 	app.mastheadTitle01();
 	app.designerSVG();
-	// app.animatorSVG();
+	app.animatorShake();
 	app.developerChar();
 	//
 	app.showArrow();

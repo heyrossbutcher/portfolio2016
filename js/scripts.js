@@ -66,42 +66,15 @@ app.navScrollTop = function(){
 		$('header').css({ top : '0px' });
 	}
 }
-//////////////////////////
-//ABOUT INFO FUNCTIONALITY
-app.infoAnimate01 = $( '.info01' );
-app.infoAnimate02 = $( '.info02' );
-app.infoAnimate03 = $( '.info03' );
-//
-app.aboutAnimate = function(obj,offset){
-	app.infocutoff = Math.floor(app.getTheWindowHeight/offset);
-	app.infoAnimatePct = (Math.floor(app.getTheScroll - app.infocutoff))/2.5;
-	// console.log( 'Cutoff: ' + app.infocutoff );
-	// console.log( 'ScrollTop: ' + app.getTheScroll );
-
-	if ( app.infoAnimatePct >= 0 && app.infoAnimatePct <= 100 ){
-		//
-		app.infoColorPct = app.infoAnimatePct/100;
-		console.log( 'Pct: ' + app.infoAnimatePct );
-		console.log( 'Value: ' + app.infoColorPct );
-	// 	app.infoColorHldr = 'rgba(0,0,0,' + app.infoColorPct + ')';
-	} else if( app.infoAnimatePct > 100 ) {
-		app.infoPropPct = 1;
-		app.infoAnimatePct = 100;
-		console.log('make it 100%')
-	} else {
-		app.infoPropPct = 0;
-		app.infoAnimatePct = 0;
-		console.log('make it 0%')
-	}
-	// obj.css( "opacity", app.infoColorPct );
-}
 //
 app.aboutAnimateInit = function(){
-	app.aboutAnimate(app.infoAnimate01, 3.5);
-	// app.aboutAnimate(app.infoAnimate02, 3.5);
-	// app.aboutAnimate(app.infoAnimate03, 3.5);
+	//
+	
+	app.growTheBeard();
+	//
 
 }
+
 //////////////////////////
 //FOOTER FUNCTIONALITY
 app.contactShow = false;
@@ -148,11 +121,8 @@ app.init = function(){
 	app.navScrollTop();
 	app.logoClicked();
 	//
-	app.aboutAnimateInit();
-	//
 	app.mastheadsChar('heyross1');
 	app.mastheadsChar('heyross2');
-	app.mastheadsChar('aniHolder');
 	app.loadMastheadAnims();
 	//
 	app.setBeardTime('info03 .info', 'apr,18,2014,21:14:00');
@@ -161,6 +131,8 @@ app.init = function(){
 	app.getScrollTop();
 	app.projectsScrollTop();
 	app.startProductsScrolling();
+	//
+	app.aboutAnimateInit();
 	//
 
 }
@@ -189,7 +161,7 @@ $(window).on('resize', function(){
 
  	//
  	app.windowMath();
- 	app.aboutAnimate();
+ 	app.aboutAnimateInit();
 });
 //////////////////////////
 //////////////////////////

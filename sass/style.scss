@@ -251,12 +251,18 @@ header{
 	.animator{
 		transition: opacity 1.5s $douce;
 		//
-		margin-top: 10px;
+		margin: 5px 0;
 		padding-top: 0;
+		//
+		position: relative;
 		.aniHolder {
+			position: absolute;
+			top: 0;
+			left: 0;
 		    display: inline-block;
     		transform-origin: left center;
     		// transition: all 0.5s ease;
+
 		    .charWrapper{
 		    	float: left;
 		    	// perspective: 405px;
@@ -270,6 +276,35 @@ header{
 		    		// -webkit-filter: blur(5px);
 		    	}
 		    }
+		}
+		.ah{
+			z-index: 503;
+    		transition: all 0.5s ease-in;
+			//
+		}
+		.ah0{
+    		transition: all 0.05s ease-in;
+			z-index: 502;
+			opacity: 1;
+			color: #ff0000;
+			// top: 0;
+			// left: 0;
+		}
+		.ah1{
+    		transition: all 0.05s ease-in;
+			z-index: 501;
+			opacity: 0;
+			color: #00aeef;
+			// top: 0
+			// left: 0;
+		}
+		.ah2{
+    		transition: all 0.05s ease-in;
+			z-index: 500;
+			opacity: 0;
+			color: #38b44a;
+			// top: 0;
+			// left: 0;
 		}
 	}
 	.developer{
@@ -462,13 +497,39 @@ header{
 				float: left;
 				width: 40%;
 				height: auto;
+				position: relative;
+				margin-top: 5px;
+				.beardPlaceHolder{
+					z-index: 31000;
+				}
+				.beardHolder01, .beardHolder02,.beardHolder03{
+					position: absolute;
+					top:0;
+					left: 0;
+					width: 100%;
+					height: auto;
+				}
+				.beardHolder01{
+					z-index: 31001;
+					opacity: 0;
+				} 
+				.beardHolder02{
+					z-index: 31004;
+					opacity: 0;
+				}
+				.beardHolder03{
+					z-index: 31005;
+					opacity: 0;
+				}
+				
 			}
 			.info{
+				opacity: 0;
 				float: left;
 				width: 55%;
 				margin-left: 5%;
 				p{
-					font-size: 2.25rem;
+					font-size: 2.75rem;
 					font-weight: bold;
 					line-height: 1.2!important;
 					margin: 0;
