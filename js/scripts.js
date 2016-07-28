@@ -66,15 +66,6 @@ app.navScrollTop = function(){
 		$('header').css({ top : '0px' });
 	}
 }
-//
-app.aboutAnimateInit = function(){
-	//
-	
-	app.growTheBeard();
-	//
-
-}
-
 //////////////////////////
 //FOOTER FUNCTIONALITY
 app.contactShow = false;

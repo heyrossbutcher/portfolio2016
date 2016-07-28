@@ -2,7 +2,7 @@
 //GET THE MASTHEAD CONTENT
 app.navIcons = function(){
 	app.grabNav = $('h1');
-	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
+	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="''http://rossbutcher.ca/wp-content/themes/heyross''/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
 }
 
 

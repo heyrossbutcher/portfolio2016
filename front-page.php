@@ -186,12 +186,22 @@
         <div class="infographics clearfix">
           <div class="info01 clearfix">
           <div class="iconHolder">  
+            <div class="yearsCircle">
+              <svg version="1.1" id="CIRCLE" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="-3341 3344.3 516.8 513.7" style="enable-background:new -3341 3344.3 516.8 513.7;" xml:space="preserve">
+
+              <g id="Layer_1_1_">
+                  <path class="circleStroke" d="M-3082.6,3347.4c-139.9,0-253.4,113.5-253.4,253.4c0,139.9,113.5,253.4,253.4,253.4
+                      c139.9,0,253.4-113.6,253.4-253.5C-2829.2,3460.8-2942.6,3347.4-3082.6,3347.4z"/>
+              </g>
+              </svg>
+            </div>
             <div class="flipper">&nbsp;
               <div class="iconFirst">
-                <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/14years.svg" alt="">
+                <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/14years.svg" alt="14 Years experience" title="14 Years experience">
               </div>
               <div class="iconSecond">
-                <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/thumbsup.svg" alt="">
+                <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/thumbsup.svg" alt="Image of a thumbs up" title="Image of a thumbs up">
               </div>
             </div>
 
@@ -206,7 +216,7 @@
           </div>
 
           </div>
-          <div class="info02 clearfix">
+          <div class="info02 clearfix" alt="Image of a air hockey paddle" title="Image of a air hockey paddle">
             <div class="iconHolder">
               <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/airHockey.svg" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet">
             </div>
@@ -2089,7 +2099,7 @@
 
               
               <!--  -->
-              <div class="beardHolder03">
+              <div class="beardHolder03" alt="Image of a beard" title="Image of a beard">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                    viewBox="-475 280 272 234" style="enable-background:new -475 280 272 234;" xml:space="preserve">
                 <style type="text/css">

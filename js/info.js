@@ -16,11 +16,69 @@ var aboutAnimate = function(offset){
 
 	//
 }
-
-//////////////////////////
-//GROW THE BEARD
+//
 //THIS GOES IN THE ABOUT ANIMATE INIT
 //
+//YEARS EXPERIENCE
+app.getExperience = function(){
+	//
+	var infoAnimate = aboutAnimate(5);
+	var iPct = infoAnimate[0];
+	var iVal = infoAnimate[1];
+	console.log('Experience pct: ' + iVal);
+	//
+	var yearsCircle = $('.yearsCircle');
+	var exCircle = $('.circleStroke');
+	var exFlipper = $('.flipper');
+	var exText = $('.info01 .info');
+	//
+	var x = 1600;
+	var cUnit = x;
+	var cOff = x;
+	var cPct = ((cUnit/100)* iPct)*1.5;
+	var cTotal = cPct + cOff;
+	//
+	// exCircle.css({'stroke-dashoffset' : 2500});
+	if (  cTotal > 3200 ){
+		exCircle.attr('style', "stroke-dashoffset:3200");
+	} else if( cTotal >= 1600 && cTotal <=3200 ){
+		exCircle.attr('style', "stroke-dashoffset:"+ cTotal + "");
+	} else {
+		exCircle.attr('style', "stroke-dashoffset:1600");
+	}
+	//
+	if (  iVal > 1 ){
+		exFlipper.css({opacity:1});
+		yearsCircle.css({'display': 'none'});
+	} else if( iVal >= .666 && iVal <=1 ){
+		exFlipper.css({opacity: (iVal - .666)*3});
+		yearsCircle.css({'display': 'block'});
+	} else {
+		exFlipper.css({opacity:0});
+	}
+	//
+	var bottom =.85;
+	if( iVal >= 1 ){
+		exText.css({ opacity : 1 });
+	} else if ( iVal >= bottom ){
+		exText.css({ opacity : (iVal - bottom)*3 });
+	} else if ( iVal < bottom ){
+		exText.css({ opacity : 0 });
+	}
+}
+//
+//THIS GOES IN THE ABOUT ANIMATE INIT
+//
+//YEARS EXPERIENCE
+//
+
+
+
+
+//THIS GOES IN THE ABOUT ANIMATE INIT
+//
+//////////////////////////
+//GROW THE BEARD
 var beardRange = function(val, top, bottom, obj){
 
 	if( val >= top ){
@@ -33,9 +91,11 @@ var beardRange = function(val, top, bottom, obj){
 	
 }
 //
+//THIS GOES IN THE ABOUT ANIMATE INIT
+//
 app.growTheBeard = function(){
 	//
-	var infoAnimate = aboutAnimate(3.5);
+	var infoAnimate = aboutAnimate(3);
 	var iPct = infoAnimate[0];
 	var iVal = infoAnimate[1];
 	//
@@ -117,6 +177,7 @@ $( '.flipper' ).mouseleave(function(){
 app.aboutAnimateInit = function(){
 	//
 	app.growTheBeard();
+	app.getExperience();
 	//
 
 }
