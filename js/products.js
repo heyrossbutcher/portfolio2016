@@ -107,9 +107,11 @@ app.getProjectInfo = function(){
 	//
 	if( app.getFirstImg === 'video' ){
 		$('.keyImage').html('<div class="videoWrapper"><iframe src="' + app.getVid + '?fs=0&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe></div>');
+		
 	} else {
 		app.firstImg = app.thumbImgs[0]['image_image']['sizes']['large'];
 		$('.keyImage').html('<img src="' + app.firstImg + '" alt="">');
+
 	}
 	//SHOW THE MODAL
 	$('.projectModalContainer').addClass('show-desc-display');
@@ -118,8 +120,10 @@ app.getProjectInfo = function(){
 	}, 400);
 	//
 	$('.projectModal').addClass('show-description');
-
-	// forceRedraw();
+	//
+	//GET AND STORE THE HEIGHT OF KEYIMGE
+	console.log( 'The image height is ' + app.imageHeight );
+	
 }
 //
 //////////////////////////
@@ -161,6 +165,13 @@ app.getSkills = function(){
 }
 //
 //////////////////////////
+//GET KEYIMAGE HEIGHT
+//
+app.KeyImageHeightMath = function(){
+	app.keyImageHeight = $('.keyImage').height();
+	console.log('The key Image height is: ' + app.keyImageHeight);
+}
+//////////////////////////
 //GET IMAGE RELATED TO THUMBNAIL
 app.changeKeyimage = function(){
 	$( '.thumbnail' ).click(function(){
@@ -181,6 +192,7 @@ app.changeKeyimage = function(){
 			$('.keyImage').html('<img src="' + app.getNextImg + '" alt="">');
 		}
 	});
+
 }
 // 
 //

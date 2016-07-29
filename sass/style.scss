@@ -486,11 +486,23 @@ header{
 				float: left;
 				width: 35%;
 				height: auto;
-				position: relative;
-				.acPuck, .acHandle, .acLines, .acBang{
-					
+				padding: 0 2%;
+				//
+				.a00{stroke:#FFFFFF;stroke-miterlimit:10;}
+				.a01{fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-miterlimit:10;}
+				.a02{fill:none;stroke:#FFFFFF;stroke-width:0.9434;stroke-linecap:round;stroke-miterlimit:10;}
+				.a03{fill:#FFFFFF;}
+				.a04{fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;}
+				//
+				#handle{
+					opacity: 0;
 				}
-
+				#Lines{
+					opacity: 0;
+				}
+				#bang{
+					opacity: 0;
+				}
 			}
 			.info{
 				float: left;
@@ -595,11 +607,12 @@ header{
 				cursor: pointer;
 				transition: all .5s ease;
 				transform: translateY(-50%);
-				-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
-			   	backface-visibility: hidden;
-				&:hover{
-					color: rgba(0,0,0,0.5);
-				}
+				// -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+			 //   	backface-visibility: hidden;
+				// &:hover .nextCircle{
+				// 	fill: rgba(100,100,100,.5);
+			
+				 // }
 			}
 			.prev{
 				// font-size: 1rem;
@@ -623,11 +636,19 @@ header{
 			.arrows{
 				width: 50px;
 				height: 50px;
-				&:hover #arrowCircle{
-					transform: scale(0.9);
-				}
-				&:active .prevCircle, &:active .nextCircle{
-					fill: rgba(100,100,100,1);
+				#arrowCircle{
+					.nextCircle, .prevCircle{
+						transition: all .5s ease;
+					}
+					&:hover{
+						.nextCircle, .prevCircle{
+							transition: all .5s ease;
+							fill: rgba(0,0,0,0.5);
+						}
+					}
+					&:active{
+						transform: scale(0.9);
+					}
 				}
 			}	
 		.close{
@@ -639,11 +660,12 @@ header{
 			top: 35px;
 			color: $black;
 			cursor: pointer;
+			transform-origin: 50% 50%;
 			transform: scale(1) rotate(45deg) translate(-50%, -50%);
 			transition: all .5s ease;
 			&:hover{
 				color: rgba(0,0,0,0.5);
-			}
+			}	
 		}
 		h2{
 			font-size: 4rem;

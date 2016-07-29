@@ -5,6 +5,18 @@ app.infoAnimate02 = $( '.info02' );
 app.infoAnimate03 = $( '.info03' );
 //
 //
+var infoRange = function(val, top, bottom, obj){
+
+	if( val >= top ){
+		obj.css({ opacity : 1 });
+	} else if ( val >= bottom ){
+		obj.css({ opacity : (val - bottom)*3 });
+	} else if ( val < bottom ){
+		obj.css({ opacity : 0 });
+	}
+	
+}
+//
 var aboutAnimate = function(offset){
 	//
 	var infocutoff = Math.floor(app.getTheWindowHeight/offset);
@@ -17,6 +29,7 @@ var aboutAnimate = function(offset){
 	//
 }
 //
+//
 //THIS GOES IN THE ABOUT ANIMATE INIT
 //
 //YEARS EXPERIENCE
@@ -25,7 +38,6 @@ app.getExperience = function(){
 	var infoAnimate = aboutAnimate(5);
 	var iPct = infoAnimate[0];
 	var iVal = infoAnimate[1];
-	console.log('Experience pct: ' + iVal);
 	//
 	var yearsCircle = $('.yearsCircle');
 	var exCircle = $('.circleStroke');
@@ -40,18 +52,18 @@ app.getExperience = function(){
 	//
 	// exCircle.css({'stroke-dashoffset' : 2500});
 	if (  cTotal > 3200 ){
-		exCircle.attr('style', "stroke-dashoffset:3200");
+		exCircle.attr('style', "stroke-dashoffset:3200; opacity: 1");
 	} else if( cTotal >= 1600 && cTotal <=3200 ){
-		exCircle.attr('style', "stroke-dashoffset:"+ cTotal + "");
+		exCircle.attr('style', "stroke-dashoffset:"+ cTotal + "; opacity: " + iVal );
 	} else {
-		exCircle.attr('style', "stroke-dashoffset:1600");
+		exCircle.attr('style', "stroke-dashoffset:1600; opacity: 0");
 	}
 	//
 	if (  iVal > 1 ){
 		exFlipper.css({opacity:1});
 		yearsCircle.css({'display': 'none'});
-	} else if( iVal >= .666 && iVal <=1 ){
-		exFlipper.css({opacity: (iVal - .666)*3});
+	} else if( iVal >= .5 && iVal <=1 ){
+		exFlipper.css({opacity: (iVal - .5)*3});
 		yearsCircle.css({'display': 'block'});
 	} else {
 		exFlipper.css({opacity:0});
@@ -69,28 +81,33 @@ app.getExperience = function(){
 //
 //THIS GOES IN THE ABOUT ANIMATE INIT
 //
-//YEARS EXPERIENCE
+//AIR HOCKEY
 //
+//
+app.airHockey = function(){
+	//
+	var infoAnimate = aboutAnimate(4);
+	var iPct = infoAnimate[0];
+	var iVal = infoAnimate[1];
+	//
+	var ahHandle = $('#handle');
+	var ahLines = $('#Lines');
+	var ahBang = $('#bang');
+	var ahText = $('.info02 .info');
+	//
+	var puckOpac = iVal * 2;
+	//
+	infoRange(iVal, .666, .333, ahHandle);
+	infoRange(iVal, .8, .666, ahBang);
+	infoRange(iVal, .8, .666, ahLines);
+	infoRange(iVal, .9, .75, ahText);
+	//
+}
 
-
-
-
-//THIS GOES IN THE ABOUT ANIMATE INIT
 //
 //////////////////////////
 //GROW THE BEARD
-var beardRange = function(val, top, bottom, obj){
 
-	if( val >= top ){
-		obj.css({ opacity : 1 });
-	} else if ( val >= bottom ){
-		obj.css({ opacity : (val - bottom)*3 });
-	} else if ( val < bottom ){
-		obj.css({ opacity : 0 });
-	}
-	
-}
-//
 //THIS GOES IN THE ABOUT ANIMATE INIT
 //
 app.growTheBeard = function(){
@@ -105,10 +122,10 @@ app.growTheBeard = function(){
 	var beardThree = $('.beardHolder03');
 	var beardText = $('.info03 .info');
 	//
-	beardRange(iVal, .333, 0, beardOne);
-	beardRange(iVal, .666, .333, beardTwo);
-	beardRange(iVal, .9, .666, beardThree);
-	beardRange(iVal, .9, .75, beardText);
+	infoRange(iVal, .333, 0, beardOne);
+	infoRange(iVal, .666, .333, beardTwo);
+	infoRange(iVal, .9, .666, beardThree);
+	infoRange(iVal, .9, .75, beardText);
 	//
 	
 }
@@ -129,10 +146,6 @@ app.setBeardTime = function(grabIt, countTo){
 	app.grabbedBeard.html('<p>Bearded for</p><p>' + app.days + ' days</p><p>' + app.hours + ' hours</p><p>' + app.mins + '  mins</p>' );
 	//
 }
-
-
-//////////////////////////
-//////////////////////////
 //////////////////////////
 //////////////////////////
 //////////////////////////
@@ -178,6 +191,7 @@ app.aboutAnimateInit = function(){
 	//
 	app.growTheBeard();
 	app.getExperience();
+	app.airHockey();
 	//
 
 }

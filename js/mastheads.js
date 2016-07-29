@@ -2,7 +2,7 @@
 //GET THE MASTHEAD CONTENT
 app.navIcons = function(){
 	app.grabNav = $('h1');
-	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="''http://rossbutcher.ca/wp-content/themes/heyross''/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
+	app.grabNav.html('<div class="navIcons"><div class="nameIcon"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-icon.svg" alt="Hey Ross" title="Hey Ross"></div><div class="nameCopy"><img src="http://rossbutcher.ca/wp-content/themes/heyross/img/name-copy.svg" alt="Hey Ross" title="Hey Ross"></div></div>');	
 }
 
 
@@ -173,53 +173,6 @@ app.animatorShakeInit = function(obj){
 	$(that).attr( "data-timer-id", app.animShakeIt )
 }
 
-// app.reversedIt = function(){
-// 	//
-// 	for (u = 0; u < 8; u++) {
-// 		$( '.aniHolder .charCtr-' + u ).removeAttr( 'style' );
-// 	}
-// }
-// //
-// app.animatorSVG = function(){
-// 	//
-
-// 	app.animatorResizer(app.win);
-// 	//
-// 	app.AnimatorTitle.mouseenter(function(){
-// 		app.animatorTl.play(0);
-// 	});
-// 	//
-// 	app.AnimatorTitle.mouseleave(function(){
-// 		app.animatorTl.reverse();
-// 		app.animatorTl.eventCallback('onReverseComplete', app.reversedIt );
-// 	});
-// }
-// //
-// app.animatorAnimate = function( a, b, c, d, e, f, g, h, scaled ){
-// 	app.animatorTl = new TimelineMax({paused:true});
-// 	//
-// 	  app.animatorTl.to('.aniHolder .charCtr-0', 0.4, {rotation:720, width: a, scale:scaled, color: '#1b629e', yoyo:true}, '-=0.3')
-// 					.to('.aniHolder .charCtr-1', 0.4, {rotation:720, width: b, scale:scaled, color: '#20709e', yoyo:true}, '-=0.3')
-// 					.to('.aniHolder .charCtr-2', 0.4, {rotation:720, width: c, scale:scaled, color: '#257e9e', yoyo:true}, '-=0.3')
-// 					.to('.aniHolder .charCtr-3', 0.4, {rotation:720, width: d, scale:scaled, color: '#2b8c9f', yoyo:true}, '-=0.3')
-// 					.to('.aniHolder .charCtr-4', 0.4, {rotation:720, width: e, scale:scaled, color: '#319ca0', yoyo:true}, '-=0.3')
-// 					.to('.aniHolder .charCtr-5', 0.4, {rotation:720, width: f, scale:scaled, color: '#36aaa0', yoyo:true}, '-=0.3')
-// 					.to('.aniHolder .charCtr-6', 0.4, {rotation:720, width: g, scale:scaled, color: '#3bb8a1', yoyo:true}, '-=0.3')
-// 					.to('.aniHolder .charCtr-7', 0.4, {rotation:720, width: h, scale:scaled, color: '#40c6a1', yoyo:true}, '-=0.3');
-// }
-// //RESETS THE ANIMATOR SPACING ON RESIZE
-// app.animatorResizer = function(win){
-// 	//
-//  	if( win.width() > 768 ) {
-// 	    app.animatorAnimate( 38, 43, 13, 58, 42, 21, 38, 38, 0.7 );
-//  	} else if ( win.width() > 665 ) {
-// 	    app.animatorAnimate( 25, 27, 10, 37, 27, 12, 25, 30, 0.7 );
-//  	} else if ( win.width() > 480 ) {
-// 	    app.animatorAnimate( 24, 26, 10, 38, 26, 14, 26, 30, 0.85 );
-//  	} else if ( win.width() > 320 ) {
-// 	    app.animatorAnimate( 20, 22, 11, 33, 20, 12, 22, 16, 0.95 );
-// 	}
-// }
 //////////////////////////
 //MORE CONTENT ARROW INDICATOR
 app.arrowSVG = function( delayed ){

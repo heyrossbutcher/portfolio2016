@@ -217,8 +217,37 @@
 
           </div>
           <div class="info02 clearfix" alt="Image of a air hockey paddle" title="Image of a air hockey paddle">
-            <div class="iconHolder">
-              <img src="http://rossbutcher.ca/wp-content/themes/heyross/img/airHockey.svg" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet">
+            <div class="iconHolder" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet">
+              <svg version="1.1" id="airhockey" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="-322.9 543.9 183.8 235" style="enable-background:new -322.9 543.9 183.8 235;" xml:space="preserve">
+              <g id="handle">
+                <path class="a00" d="M-266.2,594.1c-25.7,4.5-43.3,13.7-43.3,24.4l0.3,29.9c3.1,17.5,36.6,31.3,77.4,31.3s74.3-13.8,77.4-31.3
+                  c0,0,0.3-29.2,0.3-29.9c0-10.8-18-20.2-44.2-24.5"/>
+                <path class="a00" d="M-232.2,547.8c-18.8,0-34,15.2-34,33.9v53.9c26.2,5.1,60.2,1.7,67.9,0.2v-54.1
+                  C-198.3,563-213.5,547.8-232.2,547.8z"/>
+                <path class="a01" d="M-159.4,608.5c3.4,2.9,5.2,6,5.2,9.3c0,14.3-34.8,25.8-77.7,25.8c-33,0-61.2-6.8-72.5-16.5"/>
+                <path class="a02" d="M-167.1,609.9c3,2.3,4.7,4.9,4.7,7.5c0,11.5-31.1,20.9-69.4,20.9s-69.4-9.3-69.4-20.9c0-2.7,1.7-5.2,4.7-7.5"
+                  />
+                <path class="a03" d="M-304.8,627.2l0.4,21c0,0,1.5,8.8,17.3,16.6c0,0,11.2,4.1,17.3,5.3c0,0-32.4-9.8-28.2-38.6L-304.8,627.2z"/>
+                <path class="a03" d="M-266.2,598.1c0,0-22.3,4.2-30.7,11.5c0,0-0.9,2,0.1,1.1c5-3.9,26.5-10.1,30.6-6.9V598.1z"/>
+                <path class="a03" d="M-197.7,598.1c0,0,3.9-0.1,15.4,3.7c0,0-8.7-2.2-15.4-1V598.1z"/>
+                <path class="a03" d="M-226.7,564.6c-7,0-16.3,3-21.3,14.6l-9.1,5c0.8-18.3,12.6-29.3,23.8-29.3L-226.7,564.6z"/>
+                <path class="a03" d="M-235.7,551.3c0,0-25.5,3.7-26.3,32.2V631l1.3-30l0.3-17.8C-260.3,583.1-258.8,556.1-235.7,551.3z"/>
+              </g>
+              <path id="bang" d="M-245.6,729.1l-6.6-16.2l-20.8,7.2l0.5-18.5l-27.1,2.9l17.4-15.6l-27.3-6.9l25.4-12l-16.8-12.3l11.8,3.7
+                c17,5.4,39.2,8.7,62.6,9.3c19.7,0.5,34-3.1,47.8-6.5c2.2-0.5,4.4-1.1,6.6-1.6l6.5-1.5l-17.9,19.3l35.8,7.9l-34.9,12.8l5.9,27.3
+                l-45.7-21.5L-245.6,729.1z M-249.8,707.8l5.8,14.3l20.6-19.8l42.1,19.5l-6.8-22.9l26.4-9.7l-29.4-6.4l13.6-14.6l0,0
+                c-14.1,3.5-28.6,7.2-48.9,6.7c-19.2-0.5-37.6-2.7-53.1-6.4l3.3,2.4l-21.5,10.1l23.9,6l-13.7,12.4l19.3-2.1l-0.4,17.2L-249.8,707.8z"
+                />
+              <g id="Lines">
+                <polygon class="a03" points="-253.9,690.9 -297,730.5 -297,765.6 -251.1,764.2 -202.9,755.5 -153.5,754.9 -213.7,686.5   "/>
+                <line class="a04" x1="-251.9" y1="690.9" x2="-295.7" y2="730.5"/>
+                <line class="a04" x1="-160" y1="748.9" x2="-210.4" y2="690.9"/>
+                <line class="a04" x1="-241" y1="689.4" x2="-294.5" y2="763.4"/>
+                <line class="a04" x1="-251.1" y1="763.4" x2="-224.2" y2="687.7"/>
+                <line class="a04" x1="-217.9" y1="702.4" x2="-202.9" y2="754.9"/>
+              </g>
+              </svg>
             </div>
             <div class="info" title="*No governing body has recognized this accomplishment...yet" alt="*No governing body has recognized this accomplishment...yet" title="*No governing body has recognized this accomplishment...yet" >
               <p>Unofficially</p>
