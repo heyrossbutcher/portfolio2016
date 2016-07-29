@@ -89,6 +89,11 @@ $bounce-in: cubic-bezier(0,0,0,1.2);
 .show-opacity{
 	opacity: 1!important;
 }
+.show-opacity-descr-copy{
+	opacity: 1!important;
+	transition: opacity .4s $douce;
+}
+
 .hide-opacity{
 	opacity: 0!important;
 }

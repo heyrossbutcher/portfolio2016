@@ -681,6 +681,10 @@ header{
 			 // background: red;
 			position: relative;
 			.keyImage{
+				overflow:hidden;
+				height: 200px;
+				opacity: 0;
+				transition: all .4s $douce;
 				.videoWrapper{
 					position: relative;
 					padding-bottom: 56.25%; /* 16:9 */
@@ -701,6 +705,8 @@ header{
 				font-size: 1.25rem;
 				font-style: italic;
 				margin-top: 10px;
+					opacity: 0;
+					transition: all .75s ease;
 			}
 			img{
 				// width: 100%;
@@ -714,6 +720,8 @@ header{
 				padding-bottom: 60px;
 				margin-top: 40px;
 				border-top: 3px solid $black;
+				opacity: 0;
+				transition: all .4s $douce;
 				.thumbnail{
 					float: left;
 					width: 22.5%;
@@ -753,8 +761,8 @@ header{
 						left: 50%;
 						transform: translate(-50%, -50%);
 						//
-						width: 50px;
-						height: 24px;
+						width: 75px;
+						height: 36px;
 					}
 				}
 			}
@@ -763,6 +771,7 @@ header{
 			float: right;
 			width: 40%;
 			margin: 0 5%;
+			opacity: 0;
 			// background: red;
 			.projectDescription{
 				color: $black;
@@ -807,7 +816,7 @@ header{
 						display: block;
 						// letter-spacing: 0.5px;
 						border: 1px solid rgba(0,0,0,0.25);
-						transition: all .5s ease;
+						transition: color .5s ease, background .5s ease;
 						&:hover{
 							color: white;
 							background: rgba(0,0,0,0.5);
