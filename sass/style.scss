@@ -1,10 +1,4 @@
 /*
-* Theme Name: HackerYou Starter Theme
-* Theme URI: http://hackeryou.com;
-* Description: Starter theme for building any website. Created by HackerYou. * Rename this to your own theme page.
-* Version: 1.0
-* Author: HackerYou
-* Author URI: http://hackeryou.com
 */
 
 @import 'animations';
@@ -56,7 +50,7 @@ header{
 	text-align: left;
 	position: fixed;
 	top:-100px;
-	z-index: 1000;
+	z-index: 70000;
 	width: 100%;
 	transition: top .5s ease;
 	.navContainer{
@@ -448,6 +442,9 @@ header{
 						z-index: 0;
 						//
 						transform: rotateY(0deg);
+						//
+						.ft0{fill:#1E1E1E;stroke:#1E1E1E;stroke-width:8;stroke-miterlimit:10;}
+						.ft1{fill:#FFFFFF;}
 					}
 					.iconSecond{
 						width: 100%;
@@ -459,6 +456,14 @@ header{
 						z-index:-1;
 						//
 						transform: rotateY(180deg);
+						
+						//
+						.thu0{fill:#1E1E1E;stroke:#1E1E1E;stroke-width:8;stroke-miterlimit:10;}
+						.thu1{fill:#FFFFFF;stroke:#1E1E1E;stroke-width:2.3023;stroke-miterlimit:10;}
+						.thu2{fill:#1E1E1E;}
+						.thu3{fill:none;stroke:#1E1E1E;stroke-width:2.3023;stroke-miterlimit:10;}
+						.thu4{fill:none;stroke:#1E1E1E;stroke-width:2.6989;stroke-miterlimit:10;}
+						.thu5{fill:#FFFFFF;stroke:#000000;stroke-width:2.3023;stroke-miterlimit:10;}
 					}	
 				}
 				
@@ -495,9 +500,6 @@ header{
 				.a04{fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;}
 				//
 				#handle{
-					opacity: 0;
-				}
-				#Lines{
 					opacity: 0;
 				}
 				#bang{
@@ -576,25 +578,26 @@ header{
 	background: rgba(255,255,255,0.9);
 	position: fixed;
 	z-index: -10000;
-	transition: all .75s $douce;
+	transition: all .5s .6s $douce;
 	perspective: 1000px;
 	//
 	.projectModal{
-		width: 100%;
-		height: 100%;
-		background: rgba(255,255,255,0.5);
+		width: 90%;
+		// height: 9%;
+		background: rgba(255,255,255,1);
 		box-shadow: 3px 3px 15px rgba(0,0,0,0.25);
 		position: absolute;
-		z-index: 10001;
-		top: 50%;
+		z-index: 10;
+		top: 175%;
 		left: 50%;
-		transition: all 1s $douce;
-		transform-origin: center;
-		-webkit-transform-origin: center;
-		transform: translate(-50%, -50%) rotateY(-180deg) scale(0);
-		-webkit-transform: translate(-50%, -50%) rotateY(-180deg) scale(0);
+		transition: all .25s $douce;
+		transform-origin: center center;
+		transform: translate(-50%, -50%);
+		// -webkit-transform: translate(-50%, -50%) rotateY(-180deg) scale(0);
 		backface-visibility: hidden;
 		padding: 45px 100px;
+		transition: top 1s $douce;
+		-wedkit-transition: all 1s .5s $douce;
 			.next{
 				// font-size: 1rem;
 				// font-weight: 700;
@@ -606,7 +609,9 @@ header{
 				color: $black;
 				cursor: pointer;
 				transition: all .5s ease;
+				-webkit-transition: all .5s ease;
 				transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
 				// -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
 			 //   	backface-visibility: hidden;
 				// &:hover .nextCircle{
@@ -625,7 +630,9 @@ header{
 				color: $black;
 				cursor: pointer;
 				transition: all .5s ease;
+				-webkit-transition: all .5s ease;
 				transform: rotate(180deg) translateY(50%);
+				-webkit-transform: rotate(180deg) translateY(50%);
 				-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
 			   	backface-visibility: hidden;
 				&:hover{
@@ -673,6 +680,8 @@ header{
 			// text-transform: lowercase;
 			margin: 0;
 			margin-bottom: 20px;
+			opacity: 0;
+			transition: all .4s $douce;
 		}
 		.image{
 			float: left;
@@ -706,7 +715,7 @@ header{
 				font-style: italic;
 				margin-top: 10px;
 					opacity: 0;
-					transition: all .75s ease;
+					// transition: all .15s ease;
 			}
 			img{
 				// width: 100%;

@@ -33,7 +33,11 @@ app.startProductsScrolling = function(){
 			app.whatAmI = $(this).attr('class');
 			app.whereWasI = $(this).attr('data-pos');
 			getTranslate = $(this).css('transform');
-			$( this).css({ transform : 'matrix(1, 0, 0, 1, 0,' + (app.whereWasI * app.projectsPercent) + ') scale(1)' });
+			if ( app.getTheWindowHeight > 736 ) {
+				$( this).css({ transform : 'matrix(1, 0, 0, 1, 0,' + (app.whereWasI * app.projectsPercent) + ') scale(1)' });
+			} else {
+				$( this).css({ transform : 'matrix(1, 0, 0, 1, 0, 0) scale(1)' });
+			}
 		});
 		//////////// grab the stored data number and do the math
 
@@ -125,6 +129,7 @@ app.getProjectInfo = function(){
 	app.KeyImageHeightMath();
 	//
 	setTimeout(function(){
+		$('h2').addClass('show-opacity');
 		$('.keyImage').addClass('show-opacity');
 		$('figure').addClass('show-opacity');
 		$('.copy').addClass('show-opacity-descr-copy');
@@ -177,7 +182,7 @@ app.KeyImageHeightMath = function(){
 	//
 	setTimeout(function(){
 		app.keyImageHeight = $('.keyImage > *').innerHeight();
-		console.log('The key Image height is: ' + app.keyImageHeight);
+		// console.log('The key Image height is: ' + app.keyImageHeight);
 		$('.keyImage').css({'height': app.keyImageHeight});
 	}, 400);
 }
@@ -222,6 +227,7 @@ app.changeKeyimage = function(){
 //
 $( '.next' ).click(function(){
 	//
+	$('h2').removeClass('show-opacity');
 	$('.keyImage').removeClass('show-opacity');
 	$('figure').removeClass('show-opacity');
 	$('.copy').removeClass('show-opacity-descr-copy');
@@ -238,6 +244,7 @@ $( '.next' ).click(function(){
 	}, 350);
 	//
 	setTimeout(function(){
+		$('h2').addClass('show-opacity');
 		$('.keyImage').addClass('show-opacity');
 		$('figure').addClass('show-opacity');
 		$('.copy').addClass('show-opacity-descr-copy');
@@ -247,6 +254,7 @@ $( '.next' ).click(function(){
 //
 $( '.prev' ).click(function(){
 	//
+	$('h2').removeClass('show-opacity');
 	$('.keyImage').removeClass('show-opacity');
 	$('figure').removeClass('show-opacity');
 	$('.copy').removeClass('show-opacity-descr-copy');
@@ -263,6 +271,7 @@ $( '.prev' ).click(function(){
 	}, 350);
 	//
 	setTimeout(function(){
+		$('h2').addClass('show-opacity');
 		$('.keyImage').addClass('show-opacity');
 		$('figure').addClass('show-opacity');
 		$('.copy').addClass('show-opacity-descr-copy');
@@ -311,17 +320,17 @@ $( '.project' ).mousedown(function(){
 //////////////////////////
 //CLOSE MODUAL
 app.closeModal = function(){
-	$( ' .projectDescription' ).html( '' );
-	$('.keyImage').html('');
 	//
 	$('.projectModal').removeClass('show-description');
-	$('.projectModal .right').html('');
 	//
 	$('.projectModalContainer').removeClass('show-desc-opacity');
 	setTimeout(function(){
 		$('.projectModalContainer').removeClass('show-desc-display');
 		$('.keyImage').removeClass('show-opacity');
-	}, 400);
+		$( ' .projectDescription' ).html( '' );
+		$('.keyImage').html('');
+		$('.projectModal .right').html('');
+	}, 500);
 }
 
 $( '.projectModalContainer .projectModal .close' ).click(function(){

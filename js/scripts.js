@@ -2,6 +2,8 @@
 //SET THE NAME SPACE 
 var app = {};
 //
+
+
 //GLOBAL VARIABLES
 is_chrome = function() { 
   return /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
@@ -23,6 +25,7 @@ app.checkMobile = function(){
 app.iphoned = navigator.platform.indexOf("iPhone") != -1;
 //
 app.landscaped = $(window).height() < $(window).width();
+//
 
 
 //////////////////////////
@@ -42,6 +45,7 @@ app.getScrollTop = function(){
 		app.arrowScrollTop();
 		//
 		app.winWidth = $(window).width();
+		
 		//
 		//////////////////////
 		//SAFARI SCROLLING BUG FIX
@@ -146,13 +150,12 @@ $(window).on('resize', function(){
    	} else {
   		app.closeModal();
  	}
-
- 	//RESETS THE "ANIMATOR" SPACING
- 	// app.animatorSVG();
-
  	//
  	app.windowMath();
  	app.aboutAnimateInit();
+ 	//
+ 	
+ 	//
 });
 //////////////////////////
 //////////////////////////

@@ -35,7 +35,17 @@ var aboutAnimate = function(offset){
 //YEARS EXPERIENCE
 app.getExperience = function(){
 	//
-	var infoAnimate = aboutAnimate(5);
+	if ( app.getTheWindowHeight >= 668 ) {
+		var infoAnimate = aboutAnimate(5);
+		// console.log('top!!!');
+	} else if ( app.winWidth <= 667 && app.getTheWindowHeight <= 375 ) {
+		var infoAnimate = aboutAnimate(3.5);
+		// console.log('middle!!!');
+	} else if ( app.getTheWindowHeight <= 667  ) {
+		var infoAnimate = aboutAnimate(5);
+		// console.log('bottom!!!');
+	}
+	//
 	var iPct = infoAnimate[0];
 	var iVal = infoAnimate[1];
 	//
@@ -59,24 +69,44 @@ app.getExperience = function(){
 		exCircle.attr('style', "stroke-dashoffset:1600; opacity: 0");
 	}
 	//
-	if (  iVal > 1 ){
+	if (  iVal > .85 ){
 		exFlipper.css({opacity:1});
 		yearsCircle.css({'display': 'none'});
-	} else if( iVal >= .5 && iVal <=1 ){
-		exFlipper.css({opacity: (iVal - .5)*3});
+	} else if( iVal >= .35 && iVal <=.85 ){
+		exFlipper.css({opacity: (iVal - .35)*3});
 		yearsCircle.css({'display': 'block'});
 	} else {
 		exFlipper.css({opacity:0});
 	}
 	//
-	var bottom =.85;
+	var bottom =.75;
 	if( iVal >= 1 ){
 		exText.css({ opacity : 1 });
 	} else if ( iVal >= bottom ){
-		exText.css({ opacity : (iVal - bottom)*3 });
+		exText.css({ opacity : (iVal - bottom)*4 });
 	} else if ( iVal < bottom ){
 		exText.css({ opacity : 0 });
 	}
+	
+	//////////////////////////
+	//FLIP THE 14 YEAR ICON
+	if ( is_safari() ) {
+		$('.iconSecond').addClass('display-none');
+		// console.log('hide thumbs up');
+	}
+	//
+	$( '.flipper' ).mouseenter(function(){
+		if ( !is_safari() ) {
+			$( this ).addClass( 'flipYears' );
+		} else {
+			$('.iconSecond').addClass('display-none');
+			// console.log('hide thumbs up');
+		}
+	});
+	$( '.flipper' ).mouseleave(function(){
+		$( this ).removeClass( 'flipYears' );
+	});
+
 }
 //
 //THIS GOES IN THE ABOUT ANIMATE INIT
@@ -86,7 +116,18 @@ app.getExperience = function(){
 //
 app.airHockey = function(){
 	//
-	var infoAnimate = aboutAnimate(4);
+	if ( app.getTheWindowHeight >= 668 ) {
+		var infoAnimate = aboutAnimate(4);
+		// console.log('top!!!');
+	} else if ( app.winWidth <= 667 && app.getTheWindowHeight <= 375 ) {
+		var infoAnimate = aboutAnimate(3.5);
+		// console.log('middle!!!');
+	} else if ( app.getTheWindowHeight <= 667  ) {
+		var infoAnimate = aboutAnimate(2.5);
+		// console.log('bottom!!!');
+	}
+	//
+	
 	var iPct = infoAnimate[0];
 	var iVal = infoAnimate[1];
 	//
@@ -99,8 +140,7 @@ app.airHockey = function(){
 	//
 	infoRange(iVal, .666, .333, ahHandle);
 	infoRange(iVal, .8, .666, ahBang);
-	infoRange(iVal, .8, .666, ahLines);
-	infoRange(iVal, .9, .75, ahText);
+	infoRange(iVal, .9, .666, ahText);
 	//
 }
 
@@ -112,7 +152,17 @@ app.airHockey = function(){
 //
 app.growTheBeard = function(){
 	//
-	var infoAnimate = aboutAnimate(3);
+	if ( app.getTheWindowHeight >= 668 ) {
+		var infoAnimate = aboutAnimate(3);
+		// console.log('top!!!');
+	} else if ( app.winWidth <= 667 && app.getTheWindowHeight <= 375 ) {
+		var infoAnimate = aboutAnimate(3.5);
+		// console.log('middle!!!');
+	} else if ( app.getTheWindowHeight <= 667  ) {
+		var infoAnimate = aboutAnimate(1.25);
+		// console.log('bottom!!!');
+	}
+	//
 	var iPct = infoAnimate[0];
 	var iVal = infoAnimate[1];
 	//
@@ -156,7 +206,7 @@ beardTl.to("#regBeard", 1, {morphSVG:{shape:"#smileBeard", shapeIndex:21}, ease:
 		.to('.beardHolder02', .2, {css:{opacity:0}, ease:Back.easeOut}, '-=1.2');
 
 $( '.info03 .iconHolder' ).mouseenter(function(){
-	console.log(app.infoColorPct);
+	// console.log(app.infoColorPct);
 	    beardTl.play(0);
 });
 
@@ -165,17 +215,7 @@ $( '.info03 .iconHolder' ).mouseleave(function(){
 });
 
 
-//////////////////////////
-//FLIP THE 14 YEAR ICON
-//
-$( '.flipper' ).mouseenter(function(){
-	if ( !is_safari()   ) {
-		$( this ).addClass( 'flipYears' );
-	} 
-});
-$( '.flipper' ).mouseleave(function(){
-	$( this ).removeClass( 'flipYears' );
-});
+
 /////////////////////////////////////////////
 /////////////////////////////////////////////
 /////////////////////////////////////////////
